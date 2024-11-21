@@ -1,7 +1,7 @@
-// import Logo from "./path";
+import Logo from "./logo.svg";
 
-// const svgs = {
-//   Logo,
-// };
+const svgs = {
+  Logo,
+};
 
-// export default svgs;
+export default svgs;

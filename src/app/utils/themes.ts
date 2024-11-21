@@ -1,46 +1,66 @@
 // import { fonts, colors } from "@/app/utils/themes";
-export const color = {
+export const colorScheme = {
+  grey: "#CFD2D9",
+  transparentGrey: "#2F302C66",
+
+  offWhite: "#D6D6D6",
   White: "#ffffff",
-  offWhite: "#FBFFFE",
-  grey: "#7A7A7A",
-  lightgrey: "#ededed",
-  smokeGrey: "#FFFFFF80",
-  white: "#ffffff",
+  smokeWhite: "#FFFFFF80",
+
+  lightblue: "#253557",
+  // fadeLightblue: "rgba(25, 53, 87, 0.8)",
+  darkBlue: "#0A1327",
+  softCharcoal: "#2F302C80",
+
+  obsidianInk: "#2F302C",
+  paleMintGreen: "#E6EFEA",
+  pureFog: "#F7F7F7",
+  red: "#DC1A2C",
+  fadeRed: "#DC1A2C1A",
+  muddyMossGray: "#8A8F8B",
   black: "#000",
-  fadeBlack: "#00000040",
+  fadeBlack: "#00000026",
+  dimAsh: "#2F302C1A",
 };
 
-export const font = {
+export const fontSizes = {
   // headings
   headingPrimary: {
-    xs: "32px",
-    sm: "40px",
-    md: "50px",
-    lg: "64px",
+    xs: "36px",
+    sm: "42px",
+    md: "48px",
+    lg: "54px",
   },
   headingSecondary: {
-    xs: "28px",
+    xs: "30px",
     sm: "36px",
-    md: "44px",
-    lg: "48px",
+    md: "40px",
+    lg: "46px",
   },
   headingTertiary: {
-    xs: "22px",
-    sm: "30px",
-    md: "36px",
-    lg: "44px",
-  },
-  headingQuaternary: {
-    xs: "18px",
+    xs: "20px",
     sm: "22px",
-    md: "26px",
-    lg: "28px",
+    lg: "24px",
   },
+
   // textual
-  primaryTypography: { xs: "18px", md: "22px", lg: "24px" },
-  secondaryTypography: { xs: "16px", md: "18px", lg: "20px" },
-  tertiaryTypography: { xs: "14px", md: "16px", lg: "18px" },
-  quaternaryTypography: { xs: "14px", lg: "16px" },
-  captionTypography: { xs: "12px", lg: "14px" },
-  microTypography: "12px",
+  primaryTypography: {
+    xs: "16px",
+    md: "18px",
+    lg: "18px",
+  },
+  secondaryTypography: {
+    xs: "14px",
+    md: "16px",
+    lg: "16px",
+  },
+  tertiaryTypography: {
+    xs: "12px",
+    md: "14px",
+    lg: "16px",
+  },
+  microTypography: {
+    xs: "10px",
+    lg: "12px",
+  },
 };

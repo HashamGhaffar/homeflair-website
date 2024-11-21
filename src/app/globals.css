@@ -1,14 +1,5 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Lato */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 html,
 body {
@@ -28,6 +19,8 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
 a {
@@ -35,8 +28,35 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.section-horizontal-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 600px) {
+  .section-horizontal-padding {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  .section-horizontal-padding {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-horizontal-padding {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .section-horizontal-padding {
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
