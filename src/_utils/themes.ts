@@ -1,14 +1,15 @@
-// import { fonts, colors } from "@/app/utils/themes";
-export const colorScheme = {
+// import { colorTheme, fontSize } from "@/_utils/themes";
+export const colorTheme = {
   grey: "#CFD2D9",
   transparentGrey: "#2F302C66",
+  forestShadow: "#2F302C",
 
   offWhite: "#D6D6D6",
   White: "#ffffff",
   smokeWhite: "#FFFFFF80",
 
   lightblue: "#253557",
-  // fadeLightblue: "rgba(25, 53, 87, 0.8)",
+  mistyBlue: "#3C5C8B",
   darkBlue: "#0A1327",
   softCharcoal: "#2F302C80",
 
@@ -23,7 +24,7 @@ export const colorScheme = {
   dimAsh: "#2F302C1A",
 };
 
-export const fontSizes = {
+export const fontSize = {
   // headings
   headingPrimary: {
     xs: "36px",

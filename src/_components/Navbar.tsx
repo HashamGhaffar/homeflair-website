@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Box, Typography, Divider, TextField } from "@mui/material";
-import { colorScheme } from "@/app/utils/themes";
+import { colorTheme } from "@/_utils/themes";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
 import {
@@ -37,12 +37,15 @@ const Navbar: React.FC = () => {
         className="section-horizontal-padding"
         sx={{
           paddingY: { xs: "15px", md: "20px" },
-          backgroundColor: colorScheme.White,
-          boxShadow: `0px 4px 10px 0px  ${colorScheme.fadeBlack}`,
-          color: colorScheme.softCharcoal,
+          backgroundColor: colorTheme.White,
+          boxShadow: `0px 4px 10px 0px ${colorTheme.fadeBlack}`,
+          color: colorTheme.softCharcoal,
           textTransform: "capitalize",
           display: "flex",
           justifyContent: "center",
+          // position: "fixed",
+          width: "100%",
+          // zIndex: "1000",
         }}
       >
         <Box
@@ -90,7 +93,7 @@ const Navbar: React.FC = () => {
               placeholder="Search"
               fullWidth
               InputProps={{
-                endAdornment: <SearchIcon sx={{ color: colorScheme.black }} />,
+                endAdornment: <SearchIcon sx={{ color: colorTheme.black }} />,
                 style: {
                   borderRadius: "50px",
                   padding: "8px 16px",
@@ -98,7 +101,7 @@ const Navbar: React.FC = () => {
               }}
               sx={{
                 borderRadius: "50px",
-                border: `1px solid ${colorScheme.dimAsh}`,
+                border: `1px solid ${colorTheme.dimAsh}`,
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "30px",
                   "&.Mui-focused": {
@@ -110,14 +113,14 @@ const Navbar: React.FC = () => {
                 },
               }}
             />
-            <PersonOutlineOutlinedIcon sx={{ color: colorScheme.red }} />
-            <ShoppingCartOutlinedIcon sx={{ color: colorScheme.red }} />
+            <PersonOutlineOutlinedIcon sx={{ color: colorTheme.red }} />
+            <ShoppingCartOutlinedIcon sx={{ color: colorTheme.red }} />
           </Box>
           <Box
             onClick={() => toggleDrawer(!isDrawerOpen)}
             sx={{ display: { xs: "block", md: "none" } }}
           >
-            <DensityMediumIcon sx={{ color: colorScheme.black }} />
+            <DensityMediumIcon sx={{ color: colorTheme.black }} />
           </Box>
         </Box>
       </Box>
@@ -128,8 +131,8 @@ const Navbar: React.FC = () => {
           top: 0,
           right: 0,
           height: "100%",
-          width: isDrawerOpen ? { xs: "200px", sm: "300px" } : "0",
-          backgroundColor: colorScheme.darkBlue,
+          width: isDrawerOpen ? { xs: "60vw", sm: "300px" } : "0",
+          backgroundColor: colorTheme.darkBlue,
           color: "white",
           overflowX: "hidden",
           transition: "all .5s ease",
@@ -143,24 +146,24 @@ const Navbar: React.FC = () => {
             placeholder="Search"
             fullWidth
             InputProps={{
-              endAdornment: <SearchIcon sx={{ color: colorScheme.White }} />,
+              endAdornment: <SearchIcon sx={{ color: colorTheme.White }} />,
             }}
             sx={{
-              color: colorScheme.White,
+              color: colorTheme.White,
               borderRadius: "50px",
-              border: `1px solid ${colorScheme.White}`,
+              border: `1px solid ${colorTheme.White}`,
               "& .MuiOutlinedInput-root": {
                 borderRadius: "30px",
                 "&.Mui-focused": {
-                  borderColor: colorScheme.darkBlue,
+                  borderColor: colorTheme.darkBlue,
                 },
               },
               "& .MuiOutlinedInput-input": {
                 padding: "8px 16px",
-                color: colorScheme.White,
+                color: colorTheme.White,
               },
               "& .MuiOutlinedInput-input::placeholder": {
-                color: colorScheme.White,
+                color: colorTheme.White,
               },
             }}
           />
@@ -181,8 +184,8 @@ const Navbar: React.FC = () => {
               gap: "20px",
             }}
           >
-            <PersonOutlineOutlinedIcon sx={{ color: colorScheme.White }} />
-            <ShoppingCartOutlinedIcon sx={{ color: colorScheme.White }} />
+            <PersonOutlineOutlinedIcon sx={{ color: colorTheme.White }} />
+            <ShoppingCartOutlinedIcon sx={{ color: colorTheme.White }} />
           </Box>
         </Box>
       </Box>
@@ -196,7 +199,7 @@ const Navbar: React.FC = () => {
             left: 0,
             width: "100vw",
             height: "100vh",
-            backgroundColor: colorScheme.dimAsh,
+            backgroundColor: colorTheme.dimAsh,
             zIndex: 5,
             backdropFilter: "blur(10px)",
           }}
