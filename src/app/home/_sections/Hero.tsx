@@ -10,6 +10,7 @@ import { homeHeroSlider, homeHeroSliderSettings } from "@/_constants/home";
 import FurniturePromoBox from "../_components/FurniturePromoBox";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
+import pngs from "@/_assets/pngs";
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,7 +36,7 @@ export default function Hero() {
           position: "relative",
         }}
       >
-        <Box sx={{ position: "absolute", right: "0", bottom: "100px" }}>
+        <Box sx={{ position: "absolute", right: "0", bottom: "80px" }}>
           {dots}
         </Box>
       </Box>
@@ -48,10 +49,34 @@ export default function Hero() {
   return (
     <>
       <Box
-        sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          height: { lg: "800px" },
+        }}
       >
         <Navbar />
-        <Grid sx={{ height: "100%", flexGrow: "1" }} container>
+        <Grid
+          sx={{ height: "100%", flexGrow: "1", position: "relative" }}
+          container
+        >
+          <Box
+            sx={{
+              display: { xs: "none", lg: "block" },
+              width: { lg: "300px", xl: "400px" },
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Image
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              src={pngs.Chair}
+              alt="chair"
+            />
+          </Box>
           <Grid
             item
             xs={12}
@@ -129,6 +154,19 @@ type ArrowProps = {
   sx?: object;
 };
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * A component that renders a right arrow button using an image.
+ *
+ * Props:
+ * - `onClick`: An optional function to handle click events on the arrow.
+ * - `sx`: Optional styles to override the default styles of the arrow.
+ *
+ * The arrow is positioned absolutely at the bottom right corner and adapts its size
+ * based on different screen sizes.
+ */
+
+/******  f19e596d-81cb-4b0f-83ee-a90b5c377737  *******/
 export const RightArrow = ({ onClick, sx }: ArrowProps) => {
   return (
     <Box

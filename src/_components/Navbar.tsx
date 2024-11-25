@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
       >
         <Box
           sx={{
-            maxWidth: "1500px",
+            maxWidth: "1600px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
