@@ -8,6 +8,7 @@ export const colorTheme = {
   White: "#ffffff",
   smokeWhite: "#FFFFFF80",
   cloudGray: "#D9D9D9",
+  SoftAsh: "#919290",
 
   lightblue: "#253557",
   mistyBlue: "#3C5C8B",
@@ -59,7 +60,6 @@ export const fontSize = {
   tertiaryTypography: {
     xs: "12px",
     md: "14px",
-    lg: "16px",
   },
   microTypography: {
     xs: "10px",
