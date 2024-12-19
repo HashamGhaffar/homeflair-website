@@ -7,6 +7,7 @@ export const colorTheme = {
   offWhite: "#D6D6D6",
   White: "#ffffff",
   smokeWhite: "#FFFFFF80",
+  cloudGray: "#D9D9D9",
 
   lightblue: "#253557",
   mistyBlue: "#3C5C8B",
