@@ -46,12 +46,14 @@ const ProductNavigation: React.FC = () => {
             padding: {
               xs: "10px 20px",
             },
-            display: { xs: "block", md: "none" },
+            display: { xs: "flex", md: "none" },
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <Image
             style={{
-              width: "auto",
+              width: "25px",
               transform: "rotate(180deg)",
               cursor: "pointer",
             }}
@@ -59,6 +61,28 @@ const ProductNavigation: React.FC = () => {
             alt="WhiteHamburger"
             onClick={() => toggleDrawer(true)}
           />
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              gap: { xs: "8px", sm: "15px" },
+            }}
+          >
+            <Image
+              style={{ width: "25px", height: "25px" }}
+              src={svgs.Facebook}
+              alt="facebook"
+            />
+            <Image
+              style={{ width: "25px", height: "25px" }}
+              src={svgs.Twitter}
+              alt="facebook"
+            />
+            <Image
+              style={{ width: "25px", height: "25px" }}
+              src={svgs.Instagram}
+              alt="facebook"
+            />
+          </Box>
         </Box>
 
         {/* Desktop Navigation */}
@@ -75,7 +99,9 @@ const ProductNavigation: React.FC = () => {
           }}
         >
           <Typography
-            onClick={() => handleMouseEnter("All sofas")}
+            // onClick={() => handleMouseEnter("All sofas")}
+            onMouseOver={() => handleMouseEnter("All sofas")}
+            onMouseLeave={handleMouseLeave}
             sx={{
               flex: "0 0 auto",
               fontSize: fontSize.secondaryTypography,

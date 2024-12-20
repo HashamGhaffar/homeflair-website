@@ -45,18 +45,6 @@ export function DrawerMenu({
     },
   };
 
-  const accordionSummaryStyles = {
-    ...accordionStyles,
-    "&.Mui-expanded": {
-      border: "none",
-    },
-  };
-
-  const dividerStyles = {
-    backgroundColor: "#ffffff",
-    margin: 0,
-  };
-
   return (
     <Drawer
       anchor="left"
@@ -83,6 +71,8 @@ export function DrawerMenu({
           alt="WhiteHamburger"
         />
       </Box>
+
+      {/* menu  */}
       <Box>
         {/* All Sofas Accordion */}
         <Accordion sx={{ ...accordionStyles }}>

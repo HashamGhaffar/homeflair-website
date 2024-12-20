@@ -219,6 +219,14 @@ const Navbar: React.FC = () => {
             <ShoppingCartOutlinedIcon sx={{ color: colorTheme.White }} />
           </Box>
         </Box>
+        <Box
+          sx={{
+            float: "right",
+            diplay: "flex",
+            gap: "20px",
+            alignitems: "center",
+          }}
+        ></Box>
       </Box>
 
       {/* background blurr  */}
