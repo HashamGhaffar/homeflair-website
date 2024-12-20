@@ -1,7 +1,7 @@
-import Chair from "./chair.png";
+import RedRoseSofa from "./redRoseSofa.png";
 
 const pngs = {
-  Chair,
+  RedRoseSofa,
 };
 
 export default pngs;
