@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import Footer from "@/_components/Footer";
-import Navbar from "@/_components/navbar/Navbar";
+import Navbar from "@/_components/header/Navbar";
 import Hero from "./_sections/Hero";
 
 export default function HomePage() {
