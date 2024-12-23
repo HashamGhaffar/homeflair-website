@@ -104,7 +104,7 @@ const ProductNavigation: React.FC = () => {
             onMouseLeave={handleMouseLeave}
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -115,7 +115,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -126,7 +126,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -137,7 +137,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -148,7 +148,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -159,7 +159,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -170,7 +170,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",
@@ -181,7 +181,7 @@ const ProductNavigation: React.FC = () => {
           <Typography
             sx={{
               flex: "0 0 auto",
-              fontSize: fontSize.secondaryTypography,
+              fontSize: fontSize.p3,
               color: colorTheme.cloudGray,
               cursor: "pointer",
               padding: "10px 0",

@@ -29,7 +29,7 @@ const PromoBox = ({ text, buttonText }: PromoBoxProps) => {
       <Typography
         sx={{
           color: "grey",
-          fontSize: "16px",
+          fontSize: fontSize.p3,
           textAlign: "right",
           display: "-webkit-box",
           WebkitBoxOrient: "vertical",
@@ -50,7 +50,7 @@ const PromoBox = ({ text, buttonText }: PromoBoxProps) => {
           borderRadius: "40px",
           padding: "10px 30px",
           textTransform: "capitalize",
-          fontSize: fontSize.primaryTypography,
+          fontSize: fontSize.p2,
           border: `1px solid ${colorTheme.White}`,
           "&:hover": {
             boxShadow: "0px 0px 4px 0px #ffffff",

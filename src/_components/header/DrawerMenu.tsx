@@ -22,13 +22,13 @@ export function DrawerMenu({
   toggleDrawer: (isOpen: boolean) => void;
 }) {
   const headingStyles = {
-    fontSize: fontSize.secondaryTypography,
+    fontSize: fontSize.p3,
     color: colorTheme.red,
     textTransform: "uppercase",
   };
 
   const textStyles = {
-    fontSize: fontSize.secondaryTypography,
+    fontSize: fontSize.p3,
     color: colorTheme.cloudGray,
     cursor: "pointer",
   };

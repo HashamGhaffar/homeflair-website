@@ -11,7 +11,7 @@ const Dropdown: React.FC<{
   onMouseLeave: () => void;
 }> = ({ onMouseEnter, onMouseLeave }) => {
   const headingStyles = {
-    fontSize: fontSize.primaryTypography,
+    fontSize: fontSize.p2,
     color: colorTheme.red,
     textDecoration: "underline",
     fontWeight: "700",
@@ -20,9 +20,15 @@ const Dropdown: React.FC<{
   };
   const textStyles = {
     color: colorTheme.SoftAsh,
-    fontSize: fontSize.tertiaryTypography,
+    fontSize: fontSize.p5,
     cursor: "pointer",
     paddingBottom: "8px",
+    "&:hover": {
+      color: colorTheme.forestShadow,
+    },
+    "&:active": {
+      color: colorTheme.forestShadow,
+    },
   };
 
   return (

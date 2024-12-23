@@ -1,15 +1,31 @@
 import React from "react";
-import { Button as MuiButton, ButtonProps } from "@mui/material";
+import MUIButton from "@mui/material/Button";
+import { SxProps, Theme } from "@mui/material/styles";
+import { fontSize, colorTheme } from "@/_utils/themes";
 
-const Button: React.FC<{
-  text: React.ReactNode;
-  type?: ButtonProps["type"];
-  disabled?: boolean;
-}> = ({ text, type, disabled = false }) => {
+interface ButtonProps {
+  text: string;
+  customStyles?: SxProps<Theme>;
+}
+
+const Button: React.FC<ButtonProps> = ({ text, customStyles }) => {
   return (
-    <MuiButton type={type} variant="contained" disabled={disabled}>
+    <MUIButton
+      sx={{
+        padding: "20px 40px",
+        borderRadius: "12px",
+        backgroundColor: colorTheme.red,
+        color: colorTheme.White,
+        textTransform: "none",
+        fontSize: fontSize.p3,
+        "&:hover": {
+          backgroundColor: "#C61728",
+        },
+        ...customStyles,
+      }}
+    >
       {text}
-    </MuiButton>
+    </MUIButton>
   );
 };
 

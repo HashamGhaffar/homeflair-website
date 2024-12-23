@@ -15,11 +15,12 @@ const Navbar: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const textStyle = {
-    fontSize: fontSize.secondaryTypography,
+    fontSize: fontSize.p3,
     fontWeight: "300",
     color: "#FFFFFF",
     overflow: "hidden",
     whiteSpace: "nowrap",
+    mb: 2,
   };
 
   const toggleDrawer = (isOpen: boolean) => {
@@ -189,23 +190,23 @@ const Navbar: React.FC = () => {
             }}
           />
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Home</Typography>
+          <Typography sx={{ ...textStyle }}>Home</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>About Us</Typography>
+          <Typography sx={{ ...textStyle }}>About Us</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Products</Typography>
+          <Typography sx={{ ...textStyle }}>Products</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Products Details</Typography>
+          <Typography sx={{ ...textStyle }}>Products Details</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Cart</Typography>
+          <Typography sx={{ ...textStyle }}>Cart</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Address</Typography>
+          <Typography sx={{ ...textStyle }}>Address</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Shipping</Typography>
+          <Typography sx={{ ...textStyle }}>Shipping</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Payment</Typography>
+          <Typography sx={{ ...textStyle }}>Payment</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle, mb: 2 }}>Contact</Typography>
+          <Typography sx={{ ...textStyle }}>Contact</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
           <Box
             sx={{

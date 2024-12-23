@@ -6,6 +6,7 @@ import WhiteHamburger from "./whiteHamburger.svg";
 import Facebook from "./facebook.svg";
 import Twitter from "./twitter.svg";
 import Instagram from "./instagram.svg";
+import SliderArrow from "./sliderArrow.svg";
 
 const svgs = {
   Logo,
@@ -16,6 +17,7 @@ const svgs = {
   Facebook,
   Twitter,
   Instagram,
+  SliderArrow,
 };
 
 export default svgs;
