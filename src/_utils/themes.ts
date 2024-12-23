@@ -24,6 +24,7 @@ export const colorTheme = {
   black: "#000",
   fadeBlack: "#00000026",
   dimAsh: "#2F302C1A",
+  softSilver: "#AFADB5",
 };
 
 export const fontSize = {
