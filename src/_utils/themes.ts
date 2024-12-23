@@ -16,7 +16,6 @@ export const colorTheme = {
 
   goldenYellow: "#FFCA30",
   SeaGreen: "#276177",
-  obsidianInk: "#2F302C",
   paleMintGreen: "#E6EFEA",
   pureFog: "#F7F7F7",
   red: "#DC1A2C",

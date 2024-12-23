@@ -21,16 +21,13 @@ export default function HeroSlide({
   headingColor = "mistyBlue",
 }: HeroSlideProps) {
   return (
-    <Box
-      sx={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: { xs: "cover", md: "auto 100%" },
-        backgroundPosition: { xs: "center", md: "left" },
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <>
       <Box
         sx={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: { xs: "cover", md: "auto 100%" },
+          backgroundPosition: { xs: "center", md: "left" },
+          backgroundRepeat: "no-repeat",
           padding: {
             xs: "30px",
             sm: "40px 60px",
@@ -53,7 +50,7 @@ export default function HeroSlide({
           <Grid item xs={12} md={6}>
             <Box
               sx={{
-                height: { sx: "500px", sm: "550px", md: "100%" },
+                height: { xs: "500px", sm: "550px", md: "100%" },
               }}
             >
               <Image
@@ -88,7 +85,7 @@ export default function HeroSlide({
             >
               <Typography
                 sx={{
-                  color: colorTheme.obsidianInk,
+                  color: colorTheme.forestShadow,
                   fontSize: fontSize.h5,
                   textTransform: "capitalize",
                 }}
@@ -126,6 +123,6 @@ export default function HeroSlide({
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </>
   );
 }

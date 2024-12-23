@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import pngs from "@/_assets/pngs";
 import svgs from "@/_assets/svgs";
+import FeaturesSection from "../_components/FeaturesSection";
 
 export default function HeroHome() {
   const sliderSettings = {
@@ -16,14 +17,14 @@ export default function HeroHome() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3500,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
 
   return (
-    <Box>
+    <>
       <Slider {...sliderSettings}>
         <HeroSlide
           title="Frosty Season, Hot Offers"
@@ -50,7 +51,8 @@ export default function HeroHome() {
           headingColor="goldenYellow"
         />
       </Slider>
-    </Box>
+      <FeaturesSection />
+    </>
   );
 }
 
