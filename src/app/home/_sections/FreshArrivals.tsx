@@ -3,7 +3,6 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick-theme.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Button from "@/_components/Button";
 import Image, { StaticImageData } from "next/image";
@@ -13,22 +12,32 @@ const cardData = [
   {
     imageSrc: pngs.AluminiumPergola,
     altText: "AluminiumPergola",
-    description: "Bettina Outdoor Garden Dining Chair testing some text",
+    description: "Bettina Outdoor Garden Dining Chair",
+  },
+  {
+    imageSrc: pngs.DiningSet,
+    altText: "DiningSet",
+    description: "Bettina Corner Dining Set with Firepit Table",
+  },
+  {
+    imageSrc: pngs.OutDoorChair,
+    altText: "OutDoorChair",
+    description: "Aluminium Pergola Gazebo",
   },
   {
     imageSrc: pngs.AluminiumPergola,
     altText: "AluminiumPergola",
-    description: "Elegant Outdoor Sofa Set for Relaxation",
+    description: "Bettina Outdoor Garden Dining Chair",
   },
   {
-    imageSrc: pngs.AluminiumPergola,
-    altText: "AluminiumPergola",
-    description: "Stylish Dining Table for Your Garden",
+    imageSrc: pngs.DiningSet,
+    altText: "DiningSet",
+    description: "Bettina Corner Dining Set with Firepit Table",
   },
   {
-    imageSrc: pngs.AluminiumPergola,
-    altText: "AluminiumPergola",
-    description: "Comfortable Lounge Chair for Outdoor Spaces",
+    imageSrc: pngs.OutDoorChair,
+    altText: "OutDoorChair",
+    description: "Aluminium Pergola Gazebo",
   },
 ];
 
