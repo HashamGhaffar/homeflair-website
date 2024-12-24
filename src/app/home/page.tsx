@@ -4,6 +4,7 @@ import Hero from "./_sections/Hero";
 import ChristmasSpecials from "./_sections/ChristmasSpecials";
 import Footer from "@/_components/Footer";
 import FreshArrivals from "./_sections/FreshArrivals";
+import LastSavings from "./_sections/LastSavings";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Hero />
       <ChristmasSpecials />
       <FreshArrivals />
+      <LastSavings />
       <Footer />
     </Box>
   );

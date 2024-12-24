@@ -123,7 +123,6 @@ export default function FreshArrivals(): JSX.Element {
           <Typography
             sx={{
               fontSize: fontSize.p3,
-              fontFamily: "'Playfair Display', serif",
               color: colorTheme.muddyMossGray,
             }}
           >

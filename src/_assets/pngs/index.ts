@@ -9,6 +9,7 @@ import fabricSofa4 from "./fabricSofa4.png";
 import AluminiumPergola from "./aluminiumPergola.png";
 import DiningSet from "./diningSet.png";
 import OutDoorChair from "./outDoorChair.png";
+import BlueVelvetSofa from "./blueVelvetSofa.png";
 
 const pngs = {
   RedRoseSofa,
@@ -22,6 +23,7 @@ const pngs = {
   AluminiumPergola,
   DiningSet,
   OutDoorChair,
+  BlueVelvetSofa,
 };
 
 export default pngs;
