@@ -51,28 +51,46 @@ function ChristmasSpecials() {
       price: "$62.23",
     },
     {
-      image: pngs.fabricSofa1,
+      image: pngs.fabricSofa2,
       title: "Cozy Sofa",
       description: "Modern Sofa Collection ....",
       price: "$75.50",
     },
     {
-      image: pngs.fabricSofa1,
+      image: pngs.fabricSofa3,
       title: "Elegant Couch",
       description: "Premium Fabric Couch ....",
       price: "$85.99",
     },
     {
-      image: pngs.fabricSofa1,
+      image: pngs.fabricSofa4,
       title: "Classic Sofa",
       description: "Classic Sofa Designs ....",
       price: "$120.00",
     },
     {
       image: pngs.fabricSofa1,
-      title: "Stylish Recliner",
-      description: "Stylish Recliner Set ....",
-      price: "$99.99",
+      title: "Lebus Upholstery",
+      description: "Antigua Fabric Sofa collec ....",
+      price: "$62.23",
+    },
+    {
+      image: pngs.fabricSofa2,
+      title: "Cozy Sofa",
+      description: "Modern Sofa Collection ....",
+      price: "$75.50",
+    },
+    {
+      image: pngs.fabricSofa3,
+      title: "Elegant Couch",
+      description: "Premium Fabric Couch ....",
+      price: "$85.99",
+    },
+    {
+      image: pngs.fabricSofa4,
+      title: "Classic Sofa",
+      description: "Classic Sofa Designs ....",
+      price: "$120.00",
     },
   ];
 

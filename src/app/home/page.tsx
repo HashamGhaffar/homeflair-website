@@ -3,6 +3,7 @@ import Navbar from "@/_components/header/Navbar";
 import Hero from "./_sections/Hero";
 import ChristmasSpecials from "./_sections/ChristmasSpecials";
 import Footer from "@/_components/Footer";
+import FreshArrivals from "./_sections/FreshArrivals";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ChristmasSpecials />
+      <FreshArrivals />
       <Footer />
     </Box>
   );
