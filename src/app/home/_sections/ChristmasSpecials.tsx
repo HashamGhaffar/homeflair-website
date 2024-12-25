@@ -110,6 +110,7 @@ function ChristmasSpecials() {
           fontSize: fontSize.h6,
           color: colorTheme.forestShadow,
           textAlign: "center",
+          textTransform: "uppercase",
         }}
       >
         On Your Doorstep Before Christmas

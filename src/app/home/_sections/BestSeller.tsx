@@ -43,7 +43,7 @@ const cardData = [
   },
 ];
 
-export default function LastSavings(): JSX.Element {
+export default function BestSeller(): JSX.Element {
   const sliderSettings = {
     arrows: false,
     infinite: true,
@@ -83,13 +83,13 @@ export default function LastSavings(): JSX.Element {
           sm: "60px",
         },
         paddingX: { xs: "10px", sm: "0" },
-        backgroundColor: colorTheme.red,
+        backgroundColor: colorTheme.pureFog,
       }}
     >
       <Typography
         sx={{
           textAlign: "center",
-          color: colorTheme.White,
+          color: colorTheme.forestShadow,
           fontSize: fontSize.h6,
           width: "100%",
           fontFamily: "'Playfair Display', serif",
@@ -100,7 +100,7 @@ export default function LastSavings(): JSX.Element {
           textTransform: "uppercase",
         }}
       >
-        Last Chance Savings
+        best seller
       </Typography>
       <Box>
         <Slider {...sliderSettings}>
@@ -144,7 +144,7 @@ function FreshArrivalsCard({
         width: { xs: "240px", sm: "290px" },
         overflow: "hidden",
         margin: "auto",
-        color: colorTheme.White,
+        color: colorTheme.red,
       }}
     >
       <Box

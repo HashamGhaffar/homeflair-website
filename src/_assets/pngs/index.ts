@@ -1,15 +1,24 @@
+// home screen images
 import RedRoseSofa from "./redRoseSofa.png";
 import FinestFurniture from "./finestFurniture.png";
 import ChristmasCozyCouches from "./christmasCozyCouches.png";
 import ComfortCouches from "./comfortCouches.png";
+
 import fabricSofa1 from "./fabricSofa1.png";
 import fabricSofa2 from "./fabricSofa2.png";
 import fabricSofa3 from "./fabricSofa3.png";
 import fabricSofa4 from "./fabricSofa4.png";
+
 import AluminiumPergola from "./aluminiumPergola.png";
 import DiningSet from "./diningSet.png";
 import OutDoorChair from "./outDoorChair.png";
+
 import BlueVelvetSofa from "./blueVelvetSofa.png";
+
+import BestSeller1 from "./blueVelvetSofa.png";
+import BestSeller2 from "./bestSeller2.png";
+import BestSeller3 from "./bestSeller3.png";
+import BestSeller4 from "./bestSeller4.png";
 
 const pngs = {
   RedRoseSofa,
@@ -24,6 +33,10 @@ const pngs = {
   DiningSet,
   OutDoorChair,
   BlueVelvetSofa,
+  BestSeller1,
+  BestSeller2,
+  BestSeller3,
+  BestSeller4,
 };
 
 export default pngs;

@@ -116,6 +116,7 @@ export default function FreshArrivals(): JSX.Element {
               fontWeight: "800",
               fontFamily: "'Playfair Display', serif",
               color: colorTheme.forestShadow,
+              textTransform: "uppercase",
             }}
           >
             Fresh Arrivals Await

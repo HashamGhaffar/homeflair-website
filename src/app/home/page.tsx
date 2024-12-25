@@ -5,6 +5,7 @@ import ChristmasSpecials from "./_sections/ChristmasSpecials";
 import Footer from "@/_components/Footer";
 import FreshArrivals from "./_sections/FreshArrivals";
 import LastSavings from "./_sections/LastSavings";
+import BestSeller from "./_sections/BestSeller";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <ChristmasSpecials />
       <FreshArrivals />
       <LastSavings />
+      <BestSeller />
       <Footer />
     </Box>
   );
