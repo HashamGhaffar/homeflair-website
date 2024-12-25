@@ -6,6 +6,7 @@ import Footer from "@/_components/Footer";
 import FreshArrivals from "./_sections/FreshArrivals";
 import LastSavings from "./_sections/LastSavings";
 import BestSeller from "./_sections/BestSeller";
+import PremiumProducts from "./_sections/PremiumProducts";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <FreshArrivals />
       <LastSavings />
       <BestSeller />
+      <PremiumProducts />
       <Footer />
     </Box>
   );

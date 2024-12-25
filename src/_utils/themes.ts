@@ -1,33 +1,45 @@
 // import { colorTheme, fontSize } from "@/_utils/themes";
 export const colorTheme = {
+  // Grey Colors
   grey: "#CFD2D9",
   transparentGrey: "#2F302C66",
   forestShadow: "#2F302C",
-  offWhite: "#D6D6D6",
+  shadowGrey: "#2F302CCC",
+  dimAsh: "#2F302C1A",
+  muddyMossGray: "#8A8F8B",
+  cloudGray: "#D9D9D9",
+  softSilver: "#AFADB5",
+  SoftAsh: "#919290",
+  darkGrey: "#434343",
+
+  // White Colors
   White: "#ffffff",
   white: "#ffffff",
   smokeWhite: "#FFFFFF80",
-  cloudGray: "#D9D9D9",
-  SoftAsh: "#919290",
+  offWhite: "#D6D6D6",
+  pureFog: "#F7F7F7",
 
+  // Black Colors
+  black: "#000",
+  fadeBlack: "#00000026",
+  darkCharcoal: "#151411",
+
+  // Blue Colors
   lightblue: "#253557",
   mistyBlue: "#3C5C8B",
   darkBlue: "#0A1327",
   softCharcoal: "#2F302C80",
 
+  // Yellow Colors
   goldenYellow: "#FFCA30",
-  SeaGreen: "#276177",
   paleMintGreen: "#E6EFEA",
-  pureFog: "#F7F7F7",
+
+  // Green Colors
+  SeaGreen: "#276177",
+
+  // Red Colors
   red: "#DC1A2C",
   fadeRed: "#DC1A2C1A",
-  muddyMossGray: "#8A8F8B",
-  black: "#000",
-  fadeBlack: "#00000026",
-  dimAsh: "#2F302C1A",
-  shadowGrey: "#2F302CCC",
-  softSilver: "#AFADB5",
-  darkCharcoal: "#151411",
 };
 
 export const fontSize = {

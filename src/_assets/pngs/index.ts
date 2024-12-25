@@ -24,6 +24,8 @@ import BestSeller2 from "./bestSeller2.png";
 import BestSeller3 from "./bestSeller3.png";
 import BestSeller4 from "./bestSeller4.png";
 
+import PremiumItem1 from "./premiumItem1.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -44,6 +46,7 @@ const pngs = {
   BestSeller2,
   BestSeller3,
   BestSeller4,
+  PremiumItem1,
 };
 
 export default pngs;
