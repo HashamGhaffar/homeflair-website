@@ -11,6 +11,7 @@ export const colorTheme = {
   softSilver: "#AFADB5",
   SoftAsh: "#919290",
   darkGrey: "#434343",
+  StoneGrey: "#7E7F7C",
 
   // White Colors
   White: "#ffffff",

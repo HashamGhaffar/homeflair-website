@@ -11,6 +11,9 @@ import MadeToOrderIcon from "./MadeToOrderIcon.svg";
 import LifeTimeGuaranteeIcon from "./lifeTimeGuaranteeIcon.svg";
 import FreeSwatchIcon from "./freeSwatchIcon.svg";
 import CustomerSupportIcon from "./customerSupportIcon.svg";
+import Email from "./email.svg";
+import Location from "./location.svg";
+import Phone from "./phone.svg";
 
 const svgs = {
   Logo,
@@ -22,11 +25,13 @@ const svgs = {
   Twitter,
   Instagram,
   SliderArrow,
-
   MadeToOrderIcon,
   LifeTimeGuaranteeIcon,
   FreeSwatchIcon,
   CustomerSupportIcon,
+  Email,
+  Location,
+  Phone,
 };
 
 export default svgs;
