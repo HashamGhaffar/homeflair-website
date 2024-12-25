@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({ text, customStyles }) => {
         padding: "20px 40px",
         borderRadius: "12px",
         backgroundColor: colorTheme.red,
-        color: colorTheme.White,
+        color: colorTheme.white,
         textTransform: "none",
         fontSize: fontSize.p3,
         "&:hover": {

@@ -46,12 +46,12 @@ const PromoBox = ({ text, buttonText }: PromoBoxProps) => {
       <Button
         sx={{
           backgroundColor: colorTheme.lightblue,
-          color: colorTheme.White,
+          color: colorTheme.white,
           borderRadius: "40px",
           padding: "10px 30px",
           textTransform: "capitalize",
           fontSize: fontSize.p2,
-          border: `1px solid ${colorTheme.White}`,
+          border: `1px solid ${colorTheme.white}`,
           "&:hover": {
             boxShadow: "0px 0px 4px 0px #ffffff",
           },

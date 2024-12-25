@@ -5,6 +5,7 @@ export const colorTheme = {
   forestShadow: "#2F302C",
   offWhite: "#D6D6D6",
   White: "#ffffff",
+  white: "#ffffff",
   smokeWhite: "#FFFFFF80",
   cloudGray: "#D9D9D9",
   SoftAsh: "#919290",
@@ -24,7 +25,9 @@ export const colorTheme = {
   black: "#000",
   fadeBlack: "#00000026",
   dimAsh: "#2F302C1A",
+  shadowGrey: "#2F302CCC",
   softSilver: "#AFADB5",
+  darkCharcoal: "#151411",
 };
 
 export const fontSize = {

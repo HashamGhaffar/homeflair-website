@@ -15,6 +15,10 @@ import OutDoorChair from "./outDoorChair.png";
 
 import BlueVelvetSofa from "./blueVelvetSofa.png";
 
+import BlueArmchair from "./blueArmchair.png";
+import BlueOttoman from "./blueOttoman.png";
+import BlueWingback from "./blueWingback.png";
+
 import BestSeller1 from "./blueVelvetSofa.png";
 import BestSeller2 from "./bestSeller2.png";
 import BestSeller3 from "./bestSeller3.png";
@@ -33,6 +37,9 @@ const pngs = {
   DiningSet,
   OutDoorChair,
   BlueVelvetSofa,
+  BlueArmchair,
+  BlueOttoman,
+  BlueWingback,
   BestSeller1,
   BestSeller2,
   BestSeller3,

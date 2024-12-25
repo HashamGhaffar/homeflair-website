@@ -168,12 +168,12 @@ const Navbar: React.FC = () => {
             placeholder="Search"
             fullWidth
             InputProps={{
-              endAdornment: <SearchIcon sx={{ color: colorTheme.White }} />,
+              endAdornment: <SearchIcon sx={{ color: colorTheme.white }} />,
             }}
             sx={{
-              color: colorTheme.White,
+              color: colorTheme.white,
               borderRadius: "50px",
-              border: `1px solid ${colorTheme.White}`,
+              border: `1px solid ${colorTheme.white}`,
               "& .MuiOutlinedInput-root": {
                 borderRadius: "30px",
                 "&.Mui-focused": {
@@ -182,10 +182,10 @@ const Navbar: React.FC = () => {
               },
               "& .MuiOutlinedInput-input": {
                 padding: "8px 16px",
-                color: colorTheme.White,
+                color: colorTheme.white,
               },
               "& .MuiOutlinedInput-input::placeholder": {
-                color: colorTheme.White,
+                color: colorTheme.white,
               },
             }}
           />
@@ -216,8 +216,8 @@ const Navbar: React.FC = () => {
               gap: "20px",
             }}
           >
-            <PersonOutlineOutlinedIcon sx={{ color: colorTheme.White }} />
-            <ShoppingCartOutlinedIcon sx={{ color: colorTheme.White }} />
+            <PersonOutlineOutlinedIcon sx={{ color: colorTheme.white }} />
+            <ShoppingCartOutlinedIcon sx={{ color: colorTheme.white }} />
           </Box>
         </Box>
         <Box

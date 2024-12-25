@@ -13,7 +13,7 @@ export default function FeaturesSection() {
     // width: { xs: "100px", sm: "120px", md: "140px" },
   };
   const textStyles = {
-    color: colorTheme.White,
+    color: colorTheme.white,
     fontSize: fontSize.p3,
     textTransform: "uppercase",
     textAlign: "center",

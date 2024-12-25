@@ -204,7 +204,7 @@ function FreshArrivalsCard({
         <Typography
           sx={{
             padding: "5px",
-            color: colorTheme.White,
+            color: colorTheme.white,
             fontSize: fontSize.p3,
             width: "100%",
           }}

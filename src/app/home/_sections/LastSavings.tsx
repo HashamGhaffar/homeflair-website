@@ -89,7 +89,7 @@ export default function LastSavings(): JSX.Element {
       <Typography
         sx={{
           textAlign: "center",
-          color: colorTheme.White,
+          color: colorTheme.white,
           fontSize: fontSize.h6,
           width: "100%",
           fontFamily: "'Playfair Display', serif",
@@ -98,6 +98,7 @@ export default function LastSavings(): JSX.Element {
             sm: "60px",
           },
           textTransform: "uppercase",
+          fontWeight: "800",
         }}
       >
         Last Chance Savings
@@ -144,7 +145,7 @@ function FreshArrivalsCard({
         width: { xs: "240px", sm: "290px" },
         overflow: "hidden",
         margin: "auto",
-        color: colorTheme.White,
+        color: colorTheme.white,
       }}
     >
       <Box
@@ -210,7 +211,7 @@ function FreshArrivalsCard({
             sx={{
               padding: "10px 20px",
               borderRadius: "12px",
-              backgroundColor: colorTheme.White,
+              backgroundColor: colorTheme.white,
               color: colorTheme.red,
               border: `2px solid ${colorTheme.red}`,
               textTransform: "none",
@@ -218,7 +219,7 @@ function FreshArrivalsCard({
               fontWeight: "600",
               "&:hover": {
                 backgroundColor: colorTheme.red,
-                color: colorTheme.White,
+                color: colorTheme.white,
               },
             }}
           >
