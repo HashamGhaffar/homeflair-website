@@ -4,10 +4,10 @@ import FinestFurniture from "./finestFurniture.png";
 import ChristmasCozyCouches from "./christmasCozyCouches.png";
 import ComfortCouches from "./comfortCouches.png";
 
-import fabricSofa1 from "./fabricSofa1.png";
-import fabricSofa2 from "./fabricSofa2.png";
-import fabricSofa3 from "./fabricSofa3.png";
-import fabricSofa4 from "./fabricSofa4.png";
+import FabricSofa1 from "./fabricSofa1.png";
+import FabricSofa2 from "./fabricSofa2.png";
+import FabricSofa3 from "./fabricSofa3.png";
+import FabricSofa4 from "./fabricSofa4.png";
 
 import AluminiumPergola from "./aluminiumPergola.png";
 import DiningSet from "./diningSet.png";
@@ -26,15 +26,22 @@ import BestSeller4 from "./bestSeller4.png";
 
 import PremiumItem1 from "./premiumItem1.png";
 
+import TwoSeaterSofas from "./twoSeaterSofas.png";
+import ThreeSeaterSofas from "./threeSeaterSofas.png";
+import FourSeaterSofas from "./fourSeaterSofas.png";
+import Footstools from "./footstools.png";
+import CornerSofas from "./cornerSofas.png";
+import Chairs from "./chairs.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
   ChristmasCozyCouches,
   ComfortCouches,
-  fabricSofa1,
-  fabricSofa2,
-  fabricSofa3,
-  fabricSofa4,
+  FabricSofa1,
+  FabricSofa2,
+  FabricSofa3,
+  FabricSofa4,
   AluminiumPergola,
   DiningSet,
   OutDoorChair,
@@ -47,6 +54,12 @@ const pngs = {
   BestSeller3,
   BestSeller4,
   PremiumItem1,
+  TwoSeaterSofas,
+  ThreeSeaterSofas,
+  FourSeaterSofas,
+  Footstools,
+  CornerSofas,
+  Chairs,
 };
 
 export default pngs;

@@ -40,6 +40,20 @@ export const colorTheme = {
   // Red Colors
   red: "#DC1A2C",
   fadeRed: "#DC1A2C1A",
+
+  // Your Color, Your Choice
+  choiceYellow: "#F9D064",
+  choiceWhite: "#FFFFFF",
+  choiceGrey: "#B0AFB0",
+  choiceBlue: "#3C5C8B",
+  choiceCharcoal: "#5F5E63",
+  choiceBrown: "#6D594B",
+  choiceLightBlue: "#7A87A6",
+  choiceGreen: "#579E8C",
+  choiceSoftGrey: "#8F8F96",
+  choiceDarkBlue: "#49586D",
+  choicePink: "#FBCBE5",
+  choiceDarkCharcoal: "#333439",
 };
 
 export const fontSize = {
