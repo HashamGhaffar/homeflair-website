@@ -49,6 +49,7 @@ export default function Welcome() {
                 fontWeight: "900",
                 fontFamily: "'Playfair Display', serif",
                 marginBottom: { xs: "16px", md: "20px" },
+                textTransform: "uppercase",
               }}
             >
               Welcome to Homeflair

@@ -14,6 +14,7 @@ import CustomerSupportIcon from "./customerSupportIcon.svg";
 import Email from "./email.svg";
 import Location from "./location.svg";
 import Phone from "./phone.svg";
+import Tick from "./tick.svg";
 
 const svgs = {
   Logo,
@@ -32,6 +33,7 @@ const svgs = {
   Email,
   Location,
   Phone,
+  Tick,
 };
 
 export default svgs;

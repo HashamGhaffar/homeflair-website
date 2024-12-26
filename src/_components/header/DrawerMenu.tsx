@@ -77,7 +77,7 @@ export function DrawerMenu({
         {/* All Sofas Accordion */}
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>All Sofas</Typography>

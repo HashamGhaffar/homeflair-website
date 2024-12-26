@@ -43,8 +43,9 @@ import LeatherSofa from "./leatherSofa.png";
 
 // about-us screen images
 import HeroAboutUs from "./heroAboutUs.png";
-
 import Welcome from "./welcome.png";
+import UniqueFeaturesImage from "./uniqueFeaturesImage.png";
+import OurMission from "./ourMission.png";
 
 const pngs = {
   RedRoseSofa,
@@ -81,6 +82,8 @@ const pngs = {
   LeatherSofa,
   HeroAboutUs,
   Welcome,
+  UniqueFeaturesImage,
+  OurMission,
 };
 
 export default pngs;
