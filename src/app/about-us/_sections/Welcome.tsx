@@ -6,7 +6,7 @@ import Image from "next/image";
 import pngs from "@/_assets/pngs";
 import Button from "@/_components/Button";
 
-export default function HeroAboutUs() {
+export default function Welcome() {
   return (
     <Box
       sx={{
