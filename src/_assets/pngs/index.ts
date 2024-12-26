@@ -41,6 +41,9 @@ import Chair from "./chair.png";
 import FabricSofa from "./fabricSofa.png";
 import LeatherSofa from "./leatherSofa.png";
 
+// about-us screen images
+import HeroAboutUs from "./heroAboutUs.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -74,6 +77,7 @@ const pngs = {
   Chair,
   FabricSofa,
   LeatherSofa,
+  HeroAboutUs,
 };
 
 export default pngs;

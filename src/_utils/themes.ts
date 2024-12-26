@@ -19,6 +19,8 @@ export const colorTheme = {
   smokeWhite: "#FFFFFF80",
   offWhite: "#D6D6D6",
   pureFog: "#F7F7F7",
+  softWhite: "#FDFBFB",
+  lightSilver: "#EBEDEE",
 
   // Black Colors
   black: "#000",
