@@ -107,7 +107,6 @@ export default function Footer() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              // alignItems: { xs: "center", sm: "flex-start" },
               alignItems: "flex-start",
             }}
           >

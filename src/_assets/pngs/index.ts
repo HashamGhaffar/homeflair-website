@@ -36,6 +36,11 @@ import Chairs from "./chairs.png";
 import BuoyantUpholstery from "./buoyantUpholstery.png";
 import LebusUpholstery from "./lebusUpholstery.png";
 
+import Accessories from "./accessories.png";
+import Chair from "./chair.png";
+import FabricSofa from "./fabricSofa.png";
+import LeatherSofa from "./leatherSofa.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -65,6 +70,10 @@ const pngs = {
   Chairs,
   BuoyantUpholstery,
   LebusUpholstery,
+  Accessories,
+  Chair,
+  FabricSofa,
+  LeatherSofa,
 };
 
 export default pngs;

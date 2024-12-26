@@ -9,6 +9,7 @@ import PremiumProducts from "./_sections/PremiumProducts";
 import CustomizedSize from "./_sections/CustomizedSize";
 import CustomizedColor from "./_sections/CustomizedColor";
 import FallInLove from "./_sections/FallInLove";
+import DecorAccessories from "./_sections/DecorAccessories";
 import Footer from "@/_components/Footer";
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <PremiumProducts />
       <CustomizedSize />
       <CustomizedColor />
+      <DecorAccessories />
       <FallInLove />
       <Footer />
     </Box>
