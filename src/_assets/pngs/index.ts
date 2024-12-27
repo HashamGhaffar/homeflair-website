@@ -50,6 +50,11 @@ import OurMission from "./ourMission.png";
 // product screen images
 import HeroProduct from "./heroProduct.png";
 
+import Sofa1 from "./sofa1.png";
+import Sofa2 from "./sofa2.png";
+import Sofa3 from "./sofa3.png";
+import Sofa4 from "./sofa4.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -88,6 +93,10 @@ const pngs = {
   UniqueFeaturesImage,
   OurMission,
   HeroProduct,
+  Sofa1,
+  Sofa2,
+  Sofa3,
+  Sofa4,
 };
 
 export default pngs;

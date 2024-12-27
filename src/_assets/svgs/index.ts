@@ -15,6 +15,8 @@ import Email from "./email.svg";
 import Location from "./location.svg";
 import Phone from "./phone.svg";
 import Tick from "./tick.svg";
+import Filter from "./filter.svg";
+import SortBy from "./sortBy.svg";
 
 const svgs = {
   Logo,
@@ -34,6 +36,8 @@ const svgs = {
   Location,
   Phone,
   Tick,
+  Filter,
+  SortBy,
 };
 
 export default svgs;
