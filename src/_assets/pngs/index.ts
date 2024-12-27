@@ -47,6 +47,9 @@ import Welcome from "./welcome.png";
 import UniqueFeaturesImage from "./uniqueFeaturesImage.png";
 import OurMission from "./ourMission.png";
 
+// product screen images
+import HeroProduct from "./heroProduct.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -84,6 +87,7 @@ const pngs = {
   Welcome,
   UniqueFeaturesImage,
   OurMission,
+  HeroProduct,
 };
 
 export default pngs;

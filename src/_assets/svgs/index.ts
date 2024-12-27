@@ -7,7 +7,7 @@ import Facebook from "./facebook.svg";
 import Twitter from "./twitter.svg";
 import Instagram from "./instagram.svg";
 import SliderArrow from "./sliderArrow.svg";
-import MadeToOrderIcon from "./MadeToOrderIcon.svg";
+import MadeToOrderIcon from "./madeToOrderIcon.svg";
 import LifeTimeGuaranteeIcon from "./lifeTimeGuaranteeIcon.svg";
 import FreeSwatchIcon from "./freeSwatchIcon.svg";
 import CustomerSupportIcon from "./customerSupportIcon.svg";
