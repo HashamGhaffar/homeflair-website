@@ -23,7 +23,7 @@ export default function HeroProduct() {
           maxWidth: "1200px",
           margin: "auto",
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column-reverse", md: "row" },
           alignItems: { md: "center" },
           gap: { xs: "30px", sm: "50px", lg: "80px", xl: "120px" },
         }}
@@ -53,8 +53,10 @@ export default function HeroProduct() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: { xs: "flex-start", md: "flex-end" },
+            alignItems: { xs: "flex-start", md: "flex-start" },
             gap: "16px",
+            textAlign: "left",
+            maxWidth: "340px",
           }}
         >
           <Typography
