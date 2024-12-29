@@ -21,7 +21,6 @@ export default function ProductDetailHero() {
   return (
     <Box
       sx={{
-        background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
         padding: {
           xs: "40px 20px",
           sm: "50px 30px",

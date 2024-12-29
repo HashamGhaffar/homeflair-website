@@ -57,6 +57,7 @@ import Sofa4 from "./sofa4.png";
 
 // product detail screen images
 import BeatrixFabricSofa from "./beatrixFabricSofa.png";
+import RedColor from "./redColor.png";
 
 const pngs = {
   RedRoseSofa,
@@ -101,6 +102,7 @@ const pngs = {
   Sofa3,
   Sofa4,
   BeatrixFabricSofa,
+  RedColor,
 };
 
 export default pngs;
