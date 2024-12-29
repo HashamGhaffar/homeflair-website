@@ -55,8 +55,9 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
       <Box
         sx={{
           position: "fixed",
-          top: "20px",
-          right: "20px",
+          top: "50%",
+          right: "50%",
+          transform: "translate(50%, -50%)",
           width: { xs: "90%", sm: "300px" },
           maxHeight: "calc(100vh - 40px)",
           overflowY: "auto",
