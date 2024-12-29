@@ -3,8 +3,8 @@ import { Pagination } from "@mui/material";
 import { styled } from "@mui/system";
 
 interface CustomPaginationProps {
-  count: number; // Total number of pages
-  onChange?: (event: React.ChangeEvent<unknown>, value: number) => void; // Handler for page changes
+  count: number;
+  onChange?: (event: React.ChangeEvent<unknown>, value: number) => void;
 }
 
 const StyledPagination = styled(Pagination)(({}) => ({
@@ -34,11 +34,11 @@ const StyledPagination = styled(Pagination)(({}) => ({
     },
   },
   "& .Mui-selected": {
-    color: "#FFFFFF", // Text color of the active box
-    backgroundColor: "#2F302C", // Background color of the active box
-    border: `1px solid #2F302C`, // Border color of the active box
+    color: "#FFFFFF",
+    backgroundColor: "#2F302C",
+    border: `1px solid #2F302C`,
     "&:hover": {
-      backgroundColor: "#272829", // Slightly darker color for hover on the active box
+      backgroundColor: "#272829",
     },
   },
   "& .MuiPaginationItem-previousNext": {

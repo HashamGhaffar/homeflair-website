@@ -55,6 +55,9 @@ import Sofa2 from "./sofa2.png";
 import Sofa3 from "./sofa3.png";
 import Sofa4 from "./sofa4.png";
 
+// product detail screen images
+import BeatrixFabricSofa from "./beatrixFabricSofa.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -97,6 +100,7 @@ const pngs = {
   Sofa2,
   Sofa3,
   Sofa4,
+  BeatrixFabricSofa,
 };
 
 export default pngs;
