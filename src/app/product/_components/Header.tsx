@@ -1,23 +1,46 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import FilterModal from "./FilterModal";
+import SortByDropdown from "./SortByDropdown";
 import svgs from "@/_assets/svgs";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
 function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSortByOpen, setIsSortByOpen] = useState(false);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
+  const toggleSortByDropdown = () => {
+    setIsSortByOpen((prev) => !prev);
+  };
+
+  const handleOpenFilterModal = () => {
+    setIsFilterModalOpen(true);
     document.body.style.overflow = "hidden";
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseFilterModal = () => {
+    setIsFilterModalOpen(false);
     document.body.style.overflow = "auto";
   };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsSortByOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -69,7 +92,17 @@ function Header() {
           &quot;
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: "25px" }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <Box
+            ref={dropdownRef}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              position: "relative",
+              cursor: "pointer",
+            }}
+            onClick={toggleSortByDropdown}
+          >
             <Typography
               sx={{ fontSize: fontSize.p3, color: colorTheme.forestShadow }}
             >
@@ -80,6 +113,9 @@ function Header() {
               src={svgs.SortBy}
               alt="sort by"
             />
+            {isSortByOpen && (
+              <SortByDropdown onClick={(e) => e.stopPropagation()} />
+            )}
           </Box>
           <Box
             sx={{
@@ -88,7 +124,7 @@ function Header() {
               gap: "10px",
               cursor: "pointer",
             }}
-            onClick={handleOpenModal}
+            onClick={handleOpenFilterModal}
           >
             <Typography
               sx={{ fontSize: fontSize.p3, color: colorTheme.forestShadow }}
@@ -104,7 +140,7 @@ function Header() {
         </Box>
       </Box>
 
-      {isModalOpen && <FilterModal onClose={handleCloseModal} />}
+      {isFilterModalOpen && <FilterModal onClose={handleCloseFilterModal} />}
     </>
   );
 }
