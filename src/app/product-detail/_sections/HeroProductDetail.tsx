@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image, { StaticImageData } from "next/image";
 import pngs from "@/_assets/pngs";
@@ -59,7 +59,6 @@ export default function ProductDetailHero() {
           alignItems="flex-start"
           justifyContent="space-between"
         >
-          {/* Image Section */}
           <Grid item xs={12} md={5.9} lg={5.8} xl={5.5}>
             <Box
               sx={{
@@ -95,8 +94,6 @@ export default function ProductDetailHero() {
                 }}
               />
             </Box>
-
-            {/* Navigation Image Box */}
             <Box
               sx={{
                 display: "flex",
@@ -138,63 +135,54 @@ export default function ProductDetailHero() {
               ))}
             </Box>
           </Grid>
-
-          {/* Text Section */}
-          <Grid
-            item
-            xs={12}
-            md={5.9}
-            lg={5.8}
-            xl={5.8}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-            }}
-          >
-            <Box>
+          <Grid item xs={12} md={5.9} lg={5.8} xl={5.8}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                gap: { xs: "16px", md: "24px", xl: "30px" },
+                flexDirection: "column",
+              }}
+            >
               <Typography
                 sx={{
-                  fontSize: {
-                    xs: fontSize.h5.xs,
-                    sm: fontSize.h5.sm,
-                    md: fontSize.h4.md,
-                    lg: fontSize.h4.lg,
-                  },
+                  fontSize: fontSize.h5,
                   fontWeight: "700",
                   color: colorTheme.forestShadow,
                   textTransform: "uppercase",
-                  marginBottom: { xs: "8px", md: "16px" },
                 }}
               >
                 Beatrix Fabric Sofa Collection | Buoyant Upholstery
               </Typography>
-
               <Typography
                 sx={{
-                  fontSize: {
-                    xs: fontSize.p2.xs,
-                    sm: fontSize.p2.sm,
-                    md: fontSize.p1.md,
-                    lg: fontSize.p1.lg,
-                  },
+                  fontSize: fontSize.h6,
                   fontWeight: "700",
                   color: colorTheme.red,
-                  marginBottom: { xs: "12px", md: "24px" },
                 }}
               >
                 £99.98
               </Typography>
-
+              <Divider
+                sx={{
+                  borderColor: "#2F302C33",
+                  borderWidth: "1px",
+                  borderStyle: "solid",
+                }}
+              />
               <Typography
                 sx={{
-                  fontSize: {
-                    xs: fontSize.p3.xs,
-                    sm: fontSize.p2.sm,
-                    md: fontSize.p2.md,
-                    lg: fontSize.p2.lg,
-                  },
+                  fontSize: fontSize.p2,
                   color: colorTheme.forestShadow,
-                  lineHeight: "1.6",
+                  fontWeight: "700",
+                }}
+              >
+                DESCRIPTION
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: fontSize.p3,
+                  color: colorTheme.muddyMossGray,
                 }}
               >
                 Beatrix Fabric Sofa Adding a touch of vibrance and personality,
