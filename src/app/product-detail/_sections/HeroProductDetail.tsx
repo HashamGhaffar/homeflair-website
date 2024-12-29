@@ -60,7 +60,7 @@ export default function ProductDetailHero() {
           justifyContent="space-between"
         >
           {/* Image Section */}
-          <Grid item xs={12} md={5.9} lg={5.8} f xl={5.5}>
+          <Grid item xs={12} md={5.9} lg={5.8} xl={5.5}>
             <Box
               sx={{
                 maxWidth: {
