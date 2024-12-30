@@ -8,7 +8,8 @@ interface ButtonProps {
   customStyles?: SxProps<Theme>;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, customStyles }) => {
+// prev function name Button
+const CustomButton: React.FC<ButtonProps> = ({ text, customStyles }) => {
   return (
     <MUIButton
       sx={{
@@ -29,4 +30,4 @@ const Button: React.FC<ButtonProps> = ({ text, customStyles }) => {
   );
 };
 
-export default Button;
+export default CustomButton;

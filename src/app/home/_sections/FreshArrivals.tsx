@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import Button from "@/_components/Button";
+import CustomButton from "@/_components/Button";
 import Image, { StaticImageData } from "next/image";
 import pngs from "@/_assets/pngs";
 
@@ -130,7 +130,7 @@ export default function FreshArrivals(): JSX.Element {
             Get the latest items immediately with promo prices
           </Typography>
           <Box>
-            <Button text="Shop Now" />
+            <CustomButton text="Shop Now" />
           </Box>
         </Box>
       </Grid>

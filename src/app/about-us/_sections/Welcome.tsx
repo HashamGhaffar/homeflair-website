@@ -4,7 +4,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
 import pngs from "@/_assets/pngs";
-import Button from "@/_components/Button";
+import CustomButton from "@/_components/Button";
 
 export default function Welcome() {
   return (
@@ -71,7 +71,7 @@ export default function Welcome() {
               contemporary designs, our collection is carefully curated to bring
               elegance and functionality to your space.
             </Typography>
-            <Button text="Let's Go To Shop" />
+            <CustomButton text="Let's Go To Shop" />
           </Grid>
         </Grid>
       </Box>

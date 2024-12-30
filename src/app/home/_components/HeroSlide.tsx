@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
-import Button from "@/_components/Button";
+import CustomButton from "@/_components/Button";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
 interface HeroSlideProps {
@@ -113,7 +113,7 @@ export default function HeroSlide({
               >
                 {description}
               </Typography>
-              <Button
+              <CustomButton
                 text="Go To Shop"
                 customStyles={{
                   width: { xs: "100%", sm: "auto" },
