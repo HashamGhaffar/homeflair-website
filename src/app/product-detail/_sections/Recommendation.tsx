@@ -1,0 +1,60 @@
+import React from "react";
+import { Box, Typography, Divider } from "@mui/material";
+import { colorTheme, fontSize } from "@/_utils/themes";
+import PremiumCollectionSlider from "@/app/home/_components/PremiumCollectionSlider";
+
+export default function Recommendation() {
+  return (
+    <>
+      <Box
+        sx={{
+          paddingY: {
+            xs: "20px",
+            sm: "40px",
+            md: "60px",
+          },
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{
+              fontSize: fontSize.h6,
+              textTransform: "uppercase",
+              color: colorTheme.forestShadow,
+              textAlign: "center",
+              fontWeight: "900",
+              paddingBottom: {
+                xs: "20px",
+                sm: "40px",
+                md: "60px",
+              },
+              paddingX: {
+                xs: "20px",
+                sm: "40px",
+                md: "60px",
+              },
+            }}
+          >
+            BEST RECOMMENDATIONS
+          </Typography>
+          <PremiumCollectionSlider />
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginX: { xs: "20px", sm: "40px", md: "80px", lg: "100px" },
+        }}
+      >
+        <Divider
+          sx={{
+            border: "0.75px solid #2F302C33",
+            width: "100%",
+            maxWidth: "1200px",
+          }}
+        />
+      </Box>
+    </>
+  );
+}

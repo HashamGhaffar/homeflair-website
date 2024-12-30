@@ -38,7 +38,6 @@ export default function Detail() {
           sm: "0px 40px 40px 40px",
           md: "0px 60px 60px 60px",
         },
-        paddingTop: "0px",
       }}
     >
       <Box
