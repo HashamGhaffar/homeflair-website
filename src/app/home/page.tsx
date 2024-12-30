@@ -6,11 +6,11 @@ import FreshArrivals from "./_sections/FreshArrivals";
 
 import LastSavings from "./_sections/LastSavings";
 import BestSeller from "./_sections/BestSeller";
-import PremiumProducts from "./_sections/PremiumProducts";
-import CustomizedSize from "./_sections/CustomizedSize";
-import CustomizedColor from "./_sections/CustomizedColor";
-import FallInLove from "./_sections/FallInLove";
-import DecorAccessories from "./_sections/DecorAccessories";
+// import PremiumProducts from "./_sections/PremiumProducts";
+// import CustomizedSize from "./_sections/CustomizedSize";
+// import CustomizedColor from "./_sections/CustomizedColor";
+// import FallInLove from "./_sections/FallInLove";
+// import DecorAccessories from "./_sections/DecorAccessories";
 // import Footer from "@/_components/Footer";
 
 export default function HomePage() {
@@ -22,11 +22,11 @@ export default function HomePage() {
       <FreshArrivals />
       <LastSavings />
       <BestSeller />
-      <PremiumProducts />
+      {/*<PremiumProducts />
       <CustomizedSize />
       <CustomizedColor />
       <DecorAccessories />
-      <FallInLove />
+      <FallInLove /> */}
       {/* <Footer /> */}
     </Box>
   );
