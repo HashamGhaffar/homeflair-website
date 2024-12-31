@@ -12,6 +12,7 @@ export const colorTheme = {
   SoftAsh: "#919290",
   darkGrey: "#434343",
   StoneGrey: "#7E7F7C",
+  subtleGrey: "#A2A3B1",
 
   // White Colors
   White: "#ffffff",
@@ -32,6 +33,7 @@ export const colorTheme = {
   mistyBlue: "#3C5C8B",
   darkBlue: "#0A1327",
   softCharcoal: "#2F302C80",
+  deepBlue: "#17183B",
 
   // Yellow Colors
   goldenYellow: "#FFCA30",
