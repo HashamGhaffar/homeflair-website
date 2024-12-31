@@ -30,7 +30,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
         sx={{ alignItems: "center", justifyContent: "space-between" }}
       >
         <Grid item xs={12} sm={6} md={4}>
-          <Box sx={{ height: "160px", width: "160px" }}>
+          <Box sx={{ height: "160px", width: "160px", margin: "auto" }}>
             <Image
               src={mainImage}
               alt={heading}
@@ -48,6 +48,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             flexDirection: "column",
             alignItems: "flex-start",
             rowGap: "12px",
+            margin: "auto",
           }}
           item
           xs={12}
