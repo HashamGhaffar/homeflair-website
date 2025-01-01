@@ -9,7 +9,7 @@ const OrderSummary: React.FC = () => {
       sx={{
         border: `1px solid ${colorTheme.red}`,
         borderRadius: "8px",
-        padding: "30px",
+        padding: { xs: "20px", md: "30px", xl: "40px" },
         width: "100%",
       }}
     >
@@ -198,7 +198,8 @@ const OrderSummary: React.FC = () => {
           text="Proceed to Checkout"
           customStyles={{
             width: "100%",
-            paddingY: "16px",
+            padding: "16px",
+            textWrap: "nowrap",
           }}
         />
       </Box>

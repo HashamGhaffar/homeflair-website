@@ -2,9 +2,9 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import OrderSummary from "../_components/OrderSummery";
 import ProductDetails from "../_components/ProductDetails";
 import pngs from "@/_assets/pngs";
+import OrderSummary from "@/_components/OrderSummery";
 
 export default function OrderDetail() {
   return (
