@@ -7,7 +7,7 @@ interface CustomTabsProps {
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
 }
 
-const NavigationCustomTabs: React.FC<CustomTabsProps> = ({
+const HeaderCustomTabs: React.FC<CustomTabsProps> = ({
   value,
   handleChange,
 }) => {
@@ -38,4 +38,4 @@ const NavigationCustomTabs: React.FC<CustomTabsProps> = ({
   );
 };
 
-export default NavigationCustomTabs;
+export default HeaderCustomTabs;
