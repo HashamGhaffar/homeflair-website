@@ -1,40 +1,67 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+import { SxProps, Theme } from "@mui/material/styles";
+import { colorTheme, fontSize } from "@/_utils/themes";
 
 interface StandardInputProps {
   type?: string;
   label?: string;
   multiline?: boolean;
-  value?: string;
   defaultValue?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error?: boolean;
   helperText?: string;
+  sx?: SxProps<Theme>;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>; // Added to support native input attributes
 }
 
 export default function StandardInput({
   type = "text",
   label = "Outlined",
   multiline = false,
-  value,
   defaultValue,
   onChange,
   error = false,
   helperText = "",
+  sx,
+  inputProps,
   ...props
 }: StandardInputProps) {
   return (
     <TextField
-      type={type === "message" ? "text" : type}
+      type={type}
       label={label}
       variant="outlined"
-      multiline={multiline || type === "message"}
-      rows={type === "message" || multiline ? 4 : 1}
-      value={value}
+      multiline={multiline}
+      rows={multiline ? 4 : 1}
       defaultValue={defaultValue}
       onChange={onChange}
       error={error}
       helperText={helperText}
+      inputProps={inputProps} // Pass inputProps to TextField
+      sx={{
+        width: "100%",
+        "& .MuiOutlinedInput-root": {
+          borderRadius: "12px",
+          "& fieldset": {
+            borderColor: colorTheme.muddyMossGray,
+          },
+          "&:hover fieldset": {
+            borderColor: colorTheme.softCharcoal,
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: colorTheme.softCharcoal,
+          },
+        },
+        "& .MuiInputLabel-root": {
+          fontSize: fontSize.p3,
+          color: colorTheme.softCharcoal,
+        },
+        "& .MuiOutlinedInput-input": {
+          padding: fontSize.p3,
+        },
+        ...sx,
+      }}
       {...props}
     />
   );

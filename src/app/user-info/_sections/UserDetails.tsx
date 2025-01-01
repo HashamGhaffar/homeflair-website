@@ -3,7 +3,8 @@ import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
-import NavigationCustomTabs from "../_components/NavigationCustomTabs";
+import NavigationCustomTabs from "../_components/HeaderCustomTabs";
+import UserInfo from "../_components/UserInfo";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function CustomTabPanel({
@@ -80,7 +81,7 @@ export default function UserDetails() {
 
               {/* item 1 detail */}
               <CustomTabPanel value={tabValue} index={0}>
-                <Typography>User Information Content</Typography>
+                <UserInfo />
               </CustomTabPanel>
 
               {/* item 2 detail */}
@@ -93,17 +94,6 @@ export default function UserDetails() {
                 <Typography sx={{ marginBottom: "16px" }}>
                   Please provide your payment details below to complete the
                   purchase. We support various secure payment options.
-                </Typography>
-                <Typography>
-                  <ul>
-                    <li>Credit or Debit Card</li>
-                    <li>PayPal</li>
-                    <li>Bank Transfer</li>
-                    <li>Cash on Delivery (Available in select regions)</li>
-                  </ul>
-                </Typography>
-                <Typography sx={{ color: "red", marginTop: "16px" }}>
-                  * Ensure all payment details are accurate to avoid delays.
                 </Typography>
               </CustomTabPanel>
             </Box>
