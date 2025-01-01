@@ -5,6 +5,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
 import NavigationCustomTabs from "../_components/HeaderCustomTabs";
 import UserInfo from "../_components/UserInfo";
+import Shipping from "../_components/Shipping";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function CustomTabPanel({
@@ -86,7 +87,7 @@ export default function UserDetails() {
 
               {/* item 2 detail */}
               <CustomTabPanel value={tabValue} index={1}>
-                <Typography>Shipping Details Content</Typography>
+                <Shipping />
               </CustomTabPanel>
 
               {/* item 3 detail */}
