@@ -10,8 +10,10 @@ import {
 } from "@mui/icons-material";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ProductNavigation from "./ProductNavigation";
+import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const textStyle = {
@@ -21,6 +23,7 @@ const Navbar: React.FC = () => {
     overflow: "hidden",
     whiteSpace: "nowrap",
     mb: 2,
+    cursor: "pointer",
   };
 
   const toggleDrawer = (isOpen: boolean) => {
@@ -64,9 +67,11 @@ const Navbar: React.FC = () => {
         >
           {/* nav logo  */}
           <Box
+            onClick={() => router.push("/")}
             sx={{
               height: "auto",
               width: { xs: "90px", sm: "120px", lg: "140px" },
+              cursor: "pointer",
             }}
           >
             <Image
@@ -117,7 +122,7 @@ const Navbar: React.FC = () => {
             }}
           >
             <Image
-              style={{ width: "24px", objectFit: "contain" }}
+              style={{ width: "24px", objectFit: "contain", cursor: "pointer" }}
               src={svgs.ShoppingCart}
               alt="shopping cart"
             />
@@ -131,7 +136,7 @@ const Navbar: React.FC = () => {
             />
             <Image
               onClick={() => toggleDrawer(!isDrawerOpen)}
-              style={{ width: "24px", objectFit: "contain" }}
+              style={{ width: "24px", objectFit: "contain", cursor: "pointer" }}
               src={svgs.Hamburger}
               alt="shopping cart"
             />
@@ -159,7 +164,7 @@ const Navbar: React.FC = () => {
         <Box sx={{ padding: "20px" }}>
           <Box
             onClick={() => toggleDrawer(false)}
-            sx={{ paddingBottom: "20px" }}
+            sx={{ paddingBottom: "20px", cursor: "pointer" }}
           >
             <Image src={svgs.WhiteHamburger} alt="WhiteHamburger" />
           </Box>
@@ -190,9 +195,16 @@ const Navbar: React.FC = () => {
             }}
           />
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle }}>Home</Typography>
+          <Typography onClick={() => router.push("/")} sx={{ ...textStyle }}>
+            Home
+          </Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
-          <Typography sx={{ ...textStyle }}>About Us</Typography>
+          <Typography
+            onClick={() => router.push("about-us")}
+            sx={{ ...textStyle }}
+          >
+            About Us
+          </Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
           <Typography sx={{ ...textStyle }}>Products</Typography>
           <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
@@ -216,8 +228,12 @@ const Navbar: React.FC = () => {
               gap: "20px",
             }}
           >
-            <PersonOutlineOutlinedIcon sx={{ color: colorTheme.white }} />
-            <ShoppingCartOutlinedIcon sx={{ color: colorTheme.white }} />
+            <PersonOutlineOutlinedIcon
+              sx={{ color: colorTheme.white, cursor: "pointer" }}
+            />
+            <ShoppingCartOutlinedIcon
+              sx={{ color: colorTheme.white, cursor: "pointer" }}
+            />
           </Box>
         </Box>
         <Box

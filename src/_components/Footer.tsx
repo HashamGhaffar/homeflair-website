@@ -1,13 +1,18 @@
+"use client";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
+
   const textStyles = {
     fontSize: fontSize.p5,
     color: colorTheme.StoneGrey,
+    cursor: "pointer",
   };
 
   const headingStyles = {
@@ -56,11 +61,12 @@ export default function Footer() {
             }}
           >
             <Image
+              onClick={() => router.push("./")}
               src={svgs.Logo}
               alt="Homeflair Logo"
               width={110}
               height={60.28}
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "contain", cursor: "pointer" }}
             />
           </Box>
 
@@ -75,8 +81,18 @@ export default function Footer() {
           >
             <Typography sx={{ ...headingStyles }}>Company</Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <Typography sx={{ ...textStyles }}>Home</Typography>
-              <Typography sx={{ ...textStyles }}>About</Typography>
+              <Typography
+                onClick={() => router.push("./")}
+                sx={{ ...textStyles }}
+              >
+                Home
+              </Typography>
+              <Typography
+                onClick={() => router.push("about-us")}
+                sx={{ ...textStyles }}
+              >
+                About
+              </Typography>
               <Typography sx={{ ...textStyles }}>Products</Typography>
               <Typography sx={{ ...textStyles }}>Contact</Typography>
             </Box>
