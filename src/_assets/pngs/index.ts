@@ -60,6 +60,9 @@ import BeatrixFabricSofa from "./beatrixFabricSofa.png";
 import RedColor from "./redColor.png";
 import Fabric from "./fabric.png";
 
+// contact us
+import ContactUsCard from "./contactUsCard.png";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -105,6 +108,7 @@ const pngs = {
   BeatrixFabricSofa,
   RedColor,
   Fabric,
+  ContactUsCard,
 };
 
 export default pngs;
