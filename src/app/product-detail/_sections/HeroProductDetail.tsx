@@ -164,7 +164,7 @@ export default function ProductDetailHero() {
               </Typography>
               <Divider
                 sx={{
-                  borderColor: "#2F302C33",
+                  borderColor: colorTheme.transparentForestShadow,
                   borderWidth: "1px",
                   borderStyle: "solid",
                 }}

@@ -7,6 +7,18 @@ import pngs from "@/_assets/pngs";
 import svgs from "@/_assets/svgs";
 
 export default function UniqueFeatures() {
+  const titleStyles = {
+    fontSize: fontSize.p1,
+    color: colorTheme.forestShadow,
+    marginBottom: { xs: "6px", md: "10px" },
+    fontWeight: "700",
+  };
+
+  const descriptionStyles = {
+    fontSize: fontSize.p2,
+    color: colorTheme.softCharcoal,
+    marginBottom: { xs: "6px", md: "10px" },
+  };
   return (
     <Box
       sx={{
@@ -35,23 +47,15 @@ export default function UniqueFeatures() {
           <Grid item xs={12} md={6}>
             <Typography
               sx={{
-                fontSize: fontSize.h6,
-                color: colorTheme.forestShadow,
+                ...titleStyles,
                 fontWeight: "900",
                 fontFamily: "'Playfair Display', serif",
-                marginBottom: { xs: "16px", md: "20px" },
                 textTransform: "uppercase",
               }}
             >
               What Makes Us Different?
             </Typography>
-            <Typography
-              sx={{
-                fontSize: fontSize.p2,
-                color: colorTheme.softCharcoal,
-                marginBottom: { xs: "25px", md: "30px" },
-              }}
-            >
+            <Typography sx={{ ...descriptionStyles }}>
               Whether you&#39;re furnishing a cozy apartment or a sprawling
               estate, we&#39;re here to help you find the perfect pieces to
               reflect your personality and lifestyle.
@@ -70,22 +74,10 @@ export default function UniqueFeatures() {
                   alt="tick"
                 />
                 <Box>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p1,
-                      color: colorTheme.forestShadow,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...titleStyles }}>
                     Quality Craftsmanship
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p2,
-                      color: colorTheme.softCharcoal,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...descriptionStyles }}>
                     We work with skilled artisans and trusted manufacturers to
                     ensure every piece is built to last.
                   </Typography>
@@ -104,22 +96,10 @@ export default function UniqueFeatures() {
                   alt="tick"
                 />
                 <Box>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p1,
-                      color: colorTheme.forestShadow,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...titleStyles }}>
                     Quality Craftsmanship
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p2,
-                      color: colorTheme.softCharcoal,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...descriptionStyles }}>
                     We work with skilled artisans and trusted manufacturers to
                     ensure every piece is built to last.
                   </Typography>
@@ -138,22 +118,10 @@ export default function UniqueFeatures() {
                   alt="tick"
                 />
                 <Box>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p1,
-                      color: colorTheme.forestShadow,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...titleStyles }}>
                     Quality Craftsmanship
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: fontSize.p2,
-                      color: colorTheme.softCharcoal,
-                      marginBottom: { xs: "6px", md: "10px" },
-                    }}
-                  >
+                  <Typography sx={{ ...descriptionStyles }}>
                     We work with skilled artisans and trusted manufacturers to
                     ensure every piece is built to last.
                   </Typography>

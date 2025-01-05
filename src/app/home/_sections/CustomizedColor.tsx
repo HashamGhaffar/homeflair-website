@@ -53,8 +53,7 @@ export default function CustomizedColor() {
               height: "50px",
               backgroundColor: color,
               borderRadius: "50%",
-              boxShadow:
-                "0px -4px 8px 0px #00000033 inset, 0px 4px 8px 0px #00000033 inset",
+              boxShadow: `0px -4px 8px 0px ${colorTheme.softBlack} inset, 0px 4px 8px 0px ${colorTheme.softBlack} inset`,
             }}
           ></Box>
         ))}

@@ -49,7 +49,7 @@ export default function Recommendation() {
       >
         <Divider
           sx={{
-            border: "0.75px solid #2F302C33",
+            border: `0.75px solid ${colorTheme.transparentForestShadow}`,
             width: "100%",
             maxWidth: "1200px",
           }}

@@ -13,6 +13,9 @@ export const colorTheme = {
   darkGrey: "#434343",
   StoneGrey: "#7E7F7C",
   subtleGrey: "#A2A3B1",
+  lightGrey: "#f8f8f8",
+  mediumGrey: "#e0e0e0",
+  darkAsh: "#666666",
 
   // White Colors
   White: "#ffffff",
@@ -27,6 +30,9 @@ export const colorTheme = {
   black: "#000",
   fadeBlack: "#00000026",
   darkCharcoal: "#151411",
+  subtleBlack: "#0000001A",
+  softBlack: "#00000033",
+  transparentBlack: "#00000080",
 
   // Blue Colors
   lightblue: "#253557",
@@ -59,6 +65,10 @@ export const colorTheme = {
   choiceDarkBlue: "#49586D",
   choicePink: "#FBCBE5",
   choiceDarkCharcoal: "#333439",
+
+  // none transparent
+  transparent: "#00000000",
+  transparentForestShadow: "#2F302C33",
 };
 
 export const fontSize = {

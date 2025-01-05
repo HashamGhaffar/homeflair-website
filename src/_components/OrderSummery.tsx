@@ -122,7 +122,7 @@ const OrderSummary: React.FC = () => {
         </Box>
         <Divider
           sx={{
-            borderColor: "#919290",
+            borderColor: colorTheme.SoftAsh,
             width: "100%",
           }}
         />
@@ -183,13 +183,13 @@ const OrderSummary: React.FC = () => {
             marginBottom: "10px",
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "#919290",
+                borderColor: colorTheme.SoftAsh,
               },
               "&:hover fieldset": {
-                borderColor: "#919290",
+                borderColor: colorTheme.SoftAsh,
               },
               "&.Mui-focused fieldset": {
-                borderColor: "#919290",
+                borderColor: colorTheme.SoftAsh,
               },
             },
           }}

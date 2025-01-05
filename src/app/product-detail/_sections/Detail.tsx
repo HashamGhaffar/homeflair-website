@@ -129,7 +129,7 @@ export default function Detail() {
 
               <Divider
                 sx={{
-                  border: "1px solid #2F302C33",
+                  border: `1px solid ${colorTheme.transparentForestShadow}`,
                   marginBottom: "20px",
                   display: { xs: "none", md: "block" },
                 }}

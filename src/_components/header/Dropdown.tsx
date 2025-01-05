@@ -40,7 +40,7 @@ const Dropdown: React.FC<{
         top: "100%",
         left: 0,
         width: "100%",
-        backgroundColor: "#f8f8f8",
+        backgroundColor: colorTheme.lightGrey,
         zIndex: 1000,
         padding: {
           xs: "20px 20px",
@@ -48,7 +48,7 @@ const Dropdown: React.FC<{
           lg: "20px 90px",
           xl: "20px 120px",
         },
-        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        boxShadow: `0px 4px 6px ${colorTheme.subtleBlack}`,
         display: "flex",
         justifyContent: "center",
       }}

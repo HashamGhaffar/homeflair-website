@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: "#fff",
+        backgroundColor: colorTheme.white,
         paddingY: "40px",
         paddingX: { xs: "20px", sm: "40px", md: "80px", lg: "100px" },
       }}
@@ -160,7 +160,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <Box
           sx={{
-            borderTop: "1px solid #e0e0e0",
+            borderTop: `1px solid ${colorTheme.mediumGrey}`,
             paddingTop: "20px",
             display: "flex",
             justifyContent: "space-between",
@@ -170,7 +170,7 @@ export default function Footer() {
             marginTop: "20px",
           }}
         >
-          <Typography sx={{ fontSize: "14px", color: "#666" }}>
+          <Typography sx={{ fontSize: "14px", color: colorTheme.darkAsh }}>
             © 2023 Homeflair. All rights reserved.
           </Typography>
           <Box

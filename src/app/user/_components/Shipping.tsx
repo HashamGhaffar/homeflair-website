@@ -44,9 +44,9 @@ const Shipping: React.FC = () => {
           <Radio
             checked={selectedMethod === "free"}
             sx={{
-              color: "#A2A3B1",
+              color: colorTheme.subtleGrey,
               "&.Mui-checked": {
-                color: "#DC1A2C",
+                color: colorTheme.red,
               },
             }}
           />
@@ -79,9 +79,9 @@ const Shipping: React.FC = () => {
           <Radio
             checked={selectedMethod === "priority"}
             sx={{
-              color: "#A2A3B1",
+              color: colorTheme.subtleGrey,
               "&.Mui-checked": {
-                color: "#DC1A2C",
+                color: colorTheme.red,
               },
             }}
           />
@@ -115,9 +115,9 @@ const Shipping: React.FC = () => {
           <Radio
             checked={selectedMethod === "schedule"}
             sx={{
-              color: "#A2A3B1",
+              color: colorTheme.subtleGrey,
               "&.Mui-checked": {
-                color: "#DC1A2C",
+                color: colorTheme.red,
               },
             }}
           />
@@ -141,7 +141,7 @@ const Shipping: React.FC = () => {
                 fontSize: "inherit",
                 color: colorTheme.deepBlue,
                 minWidth: "120px",
-                border: "1px solid #E0E0E0",
+                border: `1px solid ${colorTheme.mediumGrey}`,
                 borderRadius: "4px",
                 padding: "4px",
               }}

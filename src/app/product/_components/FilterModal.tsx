@@ -48,7 +48,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: colorTheme.transparentBlack,
           zIndex: 1000,
         }}
       />
@@ -61,7 +61,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           width: { xs: "90%", sm: "300px" },
           maxHeight: "calc(100vh - 40px)",
           overflowY: "auto",
-          backgroundColor: "white",
+          backgroundColor: colorTheme.white,
           borderRadius: "8px",
           zIndex: 1001,
           padding: "20px",

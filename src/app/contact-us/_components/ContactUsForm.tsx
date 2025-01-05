@@ -77,7 +77,7 @@ const ContactUsForm: React.FC = () => {
       </Box>
       <Typography
         sx={{
-          color: "#2F302C",
+          color: colorTheme.forestShadow,
           fontSize: "12px",
           fontWeight: "700",
           textTransform: "uppercase",

@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import svgs from "@/_assets/svgs"; // Replace with the correct path
-import pngs from "@/_assets/pngs"; // Replace with the correct path
+import svgs from "@/_assets/svgs";
+import pngs from "@/_assets/pngs";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
 const ContactInfoCard: React.FC = () => {
@@ -31,12 +31,12 @@ const ContactInfoCard: React.FC = () => {
           bottom: { xs: "-2px", lg: "-3px" },
           right: "0",
           height: {
-            md: "90px", // Smaller height for extra small screens
-            lg: "150px", // Default height for medium and larger screens
+            md: "90px",
+            lg: "150px",
           },
           width: {
-            md: "90px", // Smaller width for extra small screens
-            lg: "150px", // Default width for medium and larger screens
+            md: "90px",
+            lg: "150px",
           },
         }}
       >

@@ -34,7 +34,7 @@ export function DrawerMenu({
   };
 
   const accordionStyles = {
-    backgroundColor: "transparent",
+    backgroundColor: colorTheme.transparent,
     boxShadow: "none",
     margin: 0,
     padding: 0,
@@ -77,7 +77,7 @@ export function DrawerMenu({
         {/* All Sofas Accordion */}
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>All Sofas</Typography>
@@ -85,7 +85,7 @@ export function DrawerMenu({
           <AccordionDetails>
             <Accordion sx={{ ...accordionStyles }}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
                 sx={{ ...accordionStyles }}
               >
                 <Typography sx={headingStyles}>Type</Typography>
@@ -101,7 +101,7 @@ export function DrawerMenu({
             </Accordion>
             <Accordion sx={{ ...accordionStyles }}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
                 sx={{ ...accordionStyles }}
               >
                 <Typography sx={headingStyles}>Model</Typography>
@@ -115,7 +115,7 @@ export function DrawerMenu({
             </Accordion>
             <Accordion sx={{ ...accordionStyles }}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
                 sx={{ ...accordionStyles }}
               >
                 <Typography sx={headingStyles}>Material</Typography>
@@ -129,7 +129,7 @@ export function DrawerMenu({
             </Accordion>
             <Accordion sx={{ ...accordionStyles }}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
                 sx={{ ...accordionStyles }}
               >
                 <Typography sx={headingStyles}>Color</Typography>
@@ -145,7 +145,7 @@ export function DrawerMenu({
             </Accordion>
             <Accordion sx={{ ...accordionStyles }}>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
                 sx={{ ...accordionStyles }}
               >
                 <Typography sx={headingStyles}>Price</Typography>
@@ -162,62 +162,62 @@ export function DrawerMenu({
         {/* Remaining Options as Typography */}
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Fabric sofas</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
 
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Corner sofas</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
 
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Leather sofas</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
 
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Chair</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
 
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Quick delivery</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
 
         <Accordion sx={{ ...accordionStyles }}>
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: colorTheme.white }} />}
             sx={{ ...accordionStyles }}
           >
             <Typography sx={textStyles}>Accessories</Typography>
           </AccordionSummary>
-          <Divider sx={{ backgroundColor: "#ffffff", margin: 0 }} />
+          <Divider sx={{ backgroundColor: colorTheme.white, margin: 0 }} />
         </Accordion>
       </Box>
     </Drawer>

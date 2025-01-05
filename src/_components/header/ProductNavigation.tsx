@@ -31,6 +31,14 @@ const ProductNavigation: React.FC = () => {
     setIsDrawerOpen(isOpen);
   };
 
+  const textStyles = {
+    flex: "0 0 auto",
+    fontSize: fontSize.p3,
+    color: colorTheme.cloudGray,
+    cursor: "pointer",
+    padding: "10px 0",
+  };
+
   return (
     <Box
       sx={{
@@ -102,93 +110,17 @@ const ProductNavigation: React.FC = () => {
             // onClick={() => handleMouseEnter("All sofas")}
             onMouseOver={() => handleMouseEnter("All sofas")}
             onMouseLeave={handleMouseLeave}
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
+            sx={{ ...textStyles }}
           >
             All sofas
           </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Fabric sofas
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Corner sofas
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Leather sofas
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Chair
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Fabric
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Quick delivery
-          </Typography>
-          <Typography
-            sx={{
-              flex: "0 0 auto",
-              fontSize: fontSize.p3,
-              color: colorTheme.cloudGray,
-              cursor: "pointer",
-              padding: "10px 0",
-            }}
-          >
-            Accesoories
-          </Typography>
+          <Typography sx={{ ...textStyles }}>Fabric sofas</Typography>
+          <Typography sx={{ ...textStyles }}>Corner sofas</Typography>
+          <Typography sx={{ ...textStyles }}>Leather sofas</Typography>
+          <Typography sx={{ ...textStyles }}>Chair</Typography>
+          <Typography sx={{ ...textStyles }}>Fabric</Typography>
+          <Typography sx={{ ...textStyles }}>Quick delivery</Typography>
+          <Typography sx={{ ...textStyles }}>Accesoories</Typography>
         </Box>
       </Box>
 

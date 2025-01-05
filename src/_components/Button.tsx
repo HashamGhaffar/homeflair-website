@@ -13,15 +13,12 @@ const CustomButton: React.FC<ButtonProps> = ({ text, customStyles }) => {
   return (
     <MUIButton
       sx={{
-        padding: "20px 40px",
+        padding: { xs: "15px 30px", lg: "20px 40px" },
         borderRadius: "12px",
         backgroundColor: colorTheme.red,
         color: colorTheme.white,
         textTransform: "none",
         fontSize: fontSize.p3,
-        "&:hover": {
-          backgroundColor: "#C61728",
-        },
         ...customStyles,
       }}
     >

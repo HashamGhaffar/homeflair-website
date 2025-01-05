@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   const textStyle = {
     fontSize: fontSize.p3,
     fontWeight: "300",
-    color: "#FFFFFF",
+    color: colorTheme.white,
     overflow: "hidden",
     whiteSpace: "nowrap",
     mb: 2,
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "30px",
                   "&.Mui-focused": {
-                    borderColor: "#0A1327",
+                    borderColor: colorTheme.darkBlue,
                   },
                 },
                 "& .MuiOutlinedInput-input": {
@@ -194,32 +194,52 @@ const Navbar: React.FC = () => {
               },
             }}
           />
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography onClick={() => router.push("/")} sx={{ ...textStyle }}>
             Home
           </Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography
             onClick={() => router.push("about-us")}
             sx={{ ...textStyle }}
           >
             About Us
           </Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Products</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Products Details</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Cart</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Address</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Shipping</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Payment</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Typography sx={{ ...textStyle }}>Contact</Typography>
-          <Divider sx={{ margin: "16px 0", backgroundColor: "#ffffff" }} />
+          <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          />
           <Box
             sx={{
               display: "flex",

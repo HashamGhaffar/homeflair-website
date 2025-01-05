@@ -38,7 +38,7 @@ export default function StandardInput({
       onChange={onChange}
       error={error}
       helperText={helperText}
-      inputProps={inputProps} // Pass inputProps to TextField
+      inputProps={inputProps}
       sx={{
         width: "100%",
         "& .MuiOutlinedInput-root": {

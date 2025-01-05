@@ -10,7 +10,6 @@ export default function FeaturesSection() {
     gap: "10px",
     justifyContent: "center",
     alignItems: "center",
-    // width: { xs: "100px", sm: "120px", md: "140px" },
   };
   const textStyles = {
     color: colorTheme.white,
@@ -20,7 +19,7 @@ export default function FeaturesSection() {
   };
   const dividerStyles = {
     height: "60px",
-    borderRight: "1px solid rgb(255, 255, 255)",
+    borderRight: `1px solid ${colorTheme.white}`,
     display: { xs: "none", sm: "block" },
   };
   return (
