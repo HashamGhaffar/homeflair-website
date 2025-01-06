@@ -93,7 +93,12 @@ export default function Footer() {
               >
                 About
               </Typography>
-              <Typography sx={{ ...textStyles }}>Products</Typography>
+              <Typography
+                onClick={() => router.push("product")}
+                sx={{ ...textStyles }}
+              >
+                Products
+              </Typography>
               <Typography sx={{ ...textStyles }}>Contact</Typography>
             </Box>
           </Box>
