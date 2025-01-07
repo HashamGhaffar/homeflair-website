@@ -12,14 +12,14 @@ function Header() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // const toggleSortByDropdown = () => {
-  //   setIsSortByOpen((prev) => !prev);
-  // };
+  const toggleSortByDropdown = () => {
+    setIsSortByOpen((prev) => !prev);
+  };
 
-  // const handleOpenFilterModal = () => {
-  //   setIsFilterModalOpen(true);
-  //   document.body.style.overflow = "hidden";
-  // };
+  const handleOpenFilterModal = () => {
+    setIsFilterModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
 
   const handleCloseFilterModal = () => {
     setIsFilterModalOpen(false);
@@ -101,7 +101,7 @@ function Header() {
               position: "relative",
               cursor: "pointer",
             }}
-            // onClick={toggleSortByDropdown}
+            onClick={toggleSortByDropdown}
           >
             <Typography
               sx={{ fontSize: fontSize.p3, color: colorTheme.forestShadow }}
@@ -124,7 +124,7 @@ function Header() {
               gap: "10px",
               cursor: "pointer",
             }}
-            // onClick={handleOpenFilterModal}
+            onClick={handleOpenFilterModal}
           >
             <Typography
               sx={{ fontSize: fontSize.p3, color: colorTheme.forestShadow }}

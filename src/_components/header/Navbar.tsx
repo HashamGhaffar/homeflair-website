@@ -221,7 +221,12 @@ const Navbar: React.FC = () => {
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
-          <Typography sx={{ ...textStyle }}>Products Details</Typography>
+          <Typography
+            onClick={() => router.push("product-detail")}
+            sx={{ ...textStyle }}
+          >
+            Products Details
+          </Typography>
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
