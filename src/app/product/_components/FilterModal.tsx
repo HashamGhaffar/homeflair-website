@@ -47,7 +47,9 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           top: 0,
           left: 0,
           width: "100%",
+          // width: isFilterModalOpen ? { xs: "60vw", sm: "300px" } : "0",
           height: "100%",
+          transition: "all .5s ease",
           backgroundColor: colorTheme.transparentBlack,
           zIndex: 1000,
         }}
@@ -55,14 +57,12 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
       <Box
         sx={{
           position: "fixed",
-          top: "50%",
-          right: "50%",
-          transform: "translate(50%, -50%)",
-          width: { xs: "90%", sm: "300px" },
-          maxHeight: "calc(100vh - 40px)",
+          top: "0",
+          left: "0",
+          width: { xs: "250px", md: "300px" },
+          height: "100vh",
           overflowY: "auto",
           backgroundColor: colorTheme.white,
-          borderRadius: "8px",
           zIndex: 1001,
           padding: "20px",
         }}
