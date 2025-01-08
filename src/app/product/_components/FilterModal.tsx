@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -12,6 +12,24 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
 export default function FilterModal({ onClose }: { onClose: () => void }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 10);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(() => {
+      setIsAnimating(false);
+      onClose();
+    }, 500);
+  };
+
+  if (!isAnimating) return null;
+
   const filterOptions: Record<
     "furniture" | "type" | "material",
     { label: string }[]
@@ -41,15 +59,15 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
   return (
     <>
       <Box
-        onClick={onClose}
+        onClick={handleClose}
         sx={{
           position: "fixed",
           top: 0,
           left: 0,
           width: "100%",
-          // width: isFilterModalOpen ? { xs: "60vw", sm: "300px" } : "0",
           height: "100%",
-          transition: "all .5s ease",
+          transition: "opacity 0.5s ease",
+          opacity: isVisible ? 1 : 0,
           backgroundColor: colorTheme.transparentBlack,
           zIndex: 1000,
         }}
@@ -58,13 +76,14 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
         sx={{
           position: "fixed",
           top: "0",
-          left: "0",
+          left: isVisible ? "0" : "-300px",
           width: { xs: "250px", md: "300px" },
           height: "100vh",
           overflowY: "auto",
           backgroundColor: colorTheme.white,
           zIndex: 1001,
           padding: "20px",
+          transition: "left 0.5s ease",
         }}
       >
         {(Object.keys(filterOptions) as (keyof typeof filterOptions)[]).map(
