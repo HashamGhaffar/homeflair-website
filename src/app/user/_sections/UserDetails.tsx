@@ -1,34 +1,63 @@
 "use client";
-import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+} from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
-import NavigationCustomTabs from "../_components/HeaderCustomTabs";
-import UserInfo from "../_components/UserInfo";
-// import Shipping from "../_components/Shipping";
-// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import UserInfo, { UserInfoFormValues } from "../_components/UserInfo";
 
-function CustomTabPanel({
+function CustomStepPanel({
   children,
-  value,
-  index,
+  activeStep,
+  stepIndex,
 }: {
   children: React.ReactNode;
-  value: number;
-  index: number;
+  activeStep: number;
+  stepIndex: number;
 }) {
   return (
-    <div role="tabpanel" hidden={value !== index}>
-      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
-    </div>
+    <Box
+      role="tabpanel"
+      hidden={activeStep !== stepIndex}
+      sx={{ display: activeStep === stepIndex ? "block" : "none", mt: 2 }}
+    >
+      {children}
+    </Box>
   );
 }
 
 export default function UserDetails() {
-  const [tabValue, setTabValue] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const [isUserInfoValid, setIsUserInfoValid] = useState(false);
+  const [userInfoData, setUserInfoData] = useState<UserInfoFormValues | null>(
+    null
+  );
+  // just to remove typscript error from userInfoData
+  console.log("User Info Data:", userInfoData);
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
+  const steps = ["User Information", "Shipping Details", "Payment Details"];
+
+  const handleUserInfoValidation = (
+    isValid: boolean,
+    data: UserInfoFormValues
+  ) => {
+    setIsUserInfoValid(isValid);
+    setUserInfoData(data);
+  };
+
+  const handleNext = () => {
+    if (activeStep === 0 && isUserInfoValid) {
+      setActiveStep(1);
+    } else if (activeStep === 1) {
+      setActiveStep(2);
+    }
   };
 
   return (
@@ -54,48 +83,67 @@ export default function UserDetails() {
             color: colorTheme.subtleGrey,
             marginBottom: { xs: "30px", sm: "40px", md: "60px" },
             textTransform: "uppercase",
-          }}
-        >
-          <span
-            style={{
+            "& span": {
               fontFamily: "'Playfair Display', serif",
               color: colorTheme.forestShadow,
               fontWeight: "800",
-            }}
-          >
-            Cart
-          </span>{" "}
-          / 2 Items
+            },
+          }}
+        >
+          <span>Cart</span> / 2 Items
         </Typography>
-
         <Grid container spacing={4} alignItems={"flex-start"}>
           <Grid item xs={12} md={8}>
-            <Box>
-              {/* </Tabs> */}
-              <Box>
-                <NavigationCustomTabs
-                  value={tabValue}
-                  handleChange={handleTabChange}
-                />
+            <Stepper activeStep={activeStep} alternativeLabel>
+              {steps.map((label, index) => (
+                <Step key={index}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+
+            {/* Step 1: User Information */}
+            <CustomStepPanel activeStep={activeStep} stepIndex={0}>
+              <UserInfo onValidate={handleUserInfoValidation} />
+              <Box sx={{ textAlign: "right", mt: 4 }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  disabled={!isUserInfoValid}
+                >
+                  Next
+                </Button>
               </Box>
-              {/* details */}
+            </CustomStepPanel>
 
-              {/* item 1 detail */}
-              <CustomTabPanel value={tabValue} index={0}>
-                <UserInfo />
-              </CustomTabPanel>
+            {/* Step 2: Shipping Details */}
+            <CustomStepPanel activeStep={activeStep} stepIndex={1}>
+              <Typography>Shipping Details (Dummy Data)</Typography>
+              <Box sx={{ textAlign: "right", mt: 4 }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                >
+                  Next
+                </Button>
+              </Box>
+            </CustomStepPanel>
 
-              {/* item 2 detail */}
-              <CustomTabPanel value={tabValue} index={1}>
-                {/* <Shipping /> */}
-                <Typography>dummy data</Typography>
-              </CustomTabPanel>
-
-              {/* item 3 detail */}
-              <CustomTabPanel value={tabValue} index={2}>
-                <Typography>dummy data</Typography>
-              </CustomTabPanel>
-            </Box>
+            {/* Step 3: Payment Details */}
+            <CustomStepPanel activeStep={activeStep} stepIndex={2}>
+              <Typography>Payment Details (Dummy Data)</Typography>
+              <Box sx={{ textAlign: "right", mt: 4 }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => alert("Purchase Complete!")}
+                >
+                  Finish
+                </Button>
+              </Box>
+            </CustomStepPanel>
           </Grid>
 
           <Grid item xs={12} md={4}>

@@ -58,7 +58,7 @@ export default function StandardInput({
           color: colorTheme.softCharcoal,
         },
         "& .MuiOutlinedInput-input": {
-          padding: fontSize.p3,
+          padding: "16px",
         },
         ...sx,
       }}
