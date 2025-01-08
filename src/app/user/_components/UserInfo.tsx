@@ -167,33 +167,36 @@ const UserInfo: React.FC<{
             )}
           />
         </Box>
-        <Box sx={{ ...inputBox, flexDirection: "column" }}>
-          <Controller
-            name="phoneNumber"
-            control={control}
-            rules={{
-              required: "Phone number is required",
-              validate: (value) =>
-                value ? true : "Please enter a valid phone number",
-            }}
-            render={({ field }) => (
-              <PhoneInput
-                {...field}
-                placeholder="Enter phone number"
-                defaultCountry="US"
-                international
-                countryCallingCodeEditable={false}
-                style={{
-                  width: "100%",
-                  padding: "16px",
-                  borderRadius: "12px",
-                  border: `1px solid ${
-                    errors.phoneNumber ? "red" : colorTheme.muddyMossGray
-                  }`,
-                }}
-              />
-            )}
-          />
+        <Box sx={{ ...inputBox, width: "100%" }}>
+          <Box sx={{ width: "100%", height: "55px" }}>
+            <Controller
+              name="phoneNumber"
+              control={control}
+              rules={{
+                required: "Phone number is required",
+                validate: (value) =>
+                  value ? true : "Please enter a valid phone number",
+              }}
+              render={({ field }) => (
+                <PhoneInput
+                  {...field}
+                  placeholder="Enter phone number"
+                  defaultCountry="US"
+                  international
+                  countryCallingCodeEditable={false}
+                  style={{
+                    padding: "16px",
+                    borderRadius: "12px",
+                    border: `1px solid ${
+                      errors.phoneNumber ? "red" : colorTheme.muddyMossGray
+                    }`,
+                    height: "100%", // Ensures it stretches to match the sibling
+                    boxSizing: "border-box", // Includes padding and border in height
+                  }}
+                />
+              )}
+            />
+          </Box>
           {errors.phoneNumber && (
             <Typography color="error" sx={{ fontSize: fontSize.p3 }}>
               {errors.phoneNumber.message}
@@ -216,6 +219,9 @@ const UserInfo: React.FC<{
                 type="email"
                 error={!!errors.email}
                 helperText={errors.email?.message}
+                sx={{
+                  height: "100%", // Ensures it takes the full height
+                }}
               />
             )}
           />
