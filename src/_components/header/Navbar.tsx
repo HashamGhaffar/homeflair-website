@@ -230,19 +230,23 @@ const Navbar: React.FC = () => {
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
-          <Typography sx={{ ...textStyle }}>Cart</Typography>
+          <Typography onClick={() => router.push("cart")} sx={{ ...textStyle }}>
+            Cart
+          </Typography>
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
-          <Typography sx={{ ...textStyle }}>Address</Typography>
+          <Typography onClick={() => router.push("user")} sx={{ ...textStyle }}>
+            User Details
+          </Typography>
+          {/* <Divider
+            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
+          /> */}
+          {/* <Typography sx={{ ...textStyle }}>Shipping</Typography>
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
-          <Typography sx={{ ...textStyle }}>Shipping</Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography sx={{ ...textStyle }}>Payment</Typography>
+          <Typography sx={{ ...textStyle }}>Payment</Typography> */}
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />

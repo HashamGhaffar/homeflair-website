@@ -5,7 +5,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
 import NavigationCustomTabs from "../_components/HeaderCustomTabs";
 import UserInfo from "../_components/UserInfo";
-import Shipping from "../_components/Shipping";
+// import Shipping from "../_components/Shipping";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function CustomTabPanel({
@@ -87,15 +87,13 @@ export default function UserDetails() {
 
               {/* item 2 detail */}
               <CustomTabPanel value={tabValue} index={1}>
-                <Shipping />
+                {/* <Shipping /> */}
+                <Typography>dummy data</Typography>
               </CustomTabPanel>
 
               {/* item 3 detail */}
               <CustomTabPanel value={tabValue} index={2}>
-                <Typography sx={{ marginBottom: "16px" }}>
-                  Please provide your payment details below to complete the
-                  purchase. We support various secure payment options.
-                </Typography>
+                <Typography>dummy data</Typography>
               </CustomTabPanel>
             </Box>
           </Grid>

@@ -23,10 +23,10 @@ const HeaderCustomTabs: React.FC<CustomTabsProps> = ({
           fontSize: fontSize.p3,
           textTransform: "none",
           color: colorTheme.subtleGrey,
+          fontWeight: "800",
           fontFamily: "'Playfair Display', serif",
           "&.Mui-selected": {
             color: colorTheme.forestShadow,
-            fontWeight: "800",
           },
         },
       }}
