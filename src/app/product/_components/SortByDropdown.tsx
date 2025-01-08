@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Checkbox } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
@@ -8,6 +8,23 @@ export default function SortByDropdown({
 }: {
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 10); // Delay to trigger transition
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => {
+    setIsVisible(false); // Start the closing animation
+    setTimeout(() => {
+      setIsAnimating(false); // Unmount after animation completes
+    }, 400); // Match the transition duration
+  };
+
+  if (!isAnimating) return null; // Prevent rendering after unmounting
+
   const sortOptions = [
     { label: "Name (A to Z)" },
     { label: "Name (Z to A)" },
@@ -19,11 +36,16 @@ export default function SortByDropdown({
 
   return (
     <Box
-      onClick={onClick}
+      onClick={(e) => {
+        onClick(e);
+        handleClose();
+      }}
       sx={{
         position: "absolute",
         top: "calc(100% + 8px)",
         right: 0,
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "scale(1)" : "scale(0.95)",
         width: { sx: "180px", sm: "250px", lg: "300px" },
         backgroundColor: colorTheme.white,
         borderRadius: "8px",
@@ -31,6 +53,8 @@ export default function SortByDropdown({
         border: `1px solid ${colorTheme.red}`,
         zIndex: 1001,
         padding: "10px 0",
+        transition: "opacity 0.4s ease-in-out, transform 0.4s ease-in-out",
+        pointerEvents: isVisible ? "auto" : "none",
       }}
     >
       {sortOptions.map((option, index) => (
