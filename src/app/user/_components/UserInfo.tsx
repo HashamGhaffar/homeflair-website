@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import StandardInput from "@/_components/StandardInput";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 export interface UserInfoFormValues {
   firstName: string;
@@ -20,12 +21,14 @@ export interface UserInfoFormValues {
 
 const UserInfo: React.FC<{
   onValidate: (isValid: boolean, data: UserInfoFormValues) => void;
-}> = ({ onValidate }) => {
+  onNext: () => void;
+}> = ({ onValidate, onNext }) => {
   const {
     control,
     handleSubmit,
     formState: { errors, isValid },
     watch,
+    trigger,
   } = useForm<UserInfoFormValues>({
     mode: "onChange",
     defaultValues: {
@@ -43,6 +46,16 @@ const UserInfo: React.FC<{
 
   const onSubmit = (data: UserInfoFormValues) => {
     onValidate(isValid, data);
+    if (isValid) {
+      onNext();
+    }
+  };
+
+  const handleNextClick = async () => {
+    const valid = await trigger();
+    if (valid) {
+      onNext();
+    }
   };
 
   React.useEffect(() => {
@@ -52,7 +65,7 @@ const UserInfo: React.FC<{
   const inputBox = {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
     flexDirection: { xs: "column", sm: "row" },
     gap: { xs: "10px", lg: "20px" },
   };
@@ -168,40 +181,96 @@ const UserInfo: React.FC<{
           />
         </Box>
         <Box sx={{ ...inputBox, width: "100%" }}>
-          <Box sx={{ width: "100%", height: "55px" }}>
+          <Box sx={{ width: "100%" }}>
             <Controller
               name="phoneNumber"
               control={control}
               rules={{
                 required: "Phone number is required",
-                validate: (value) =>
-                  value ? true : "Please enter a valid phone number",
+                validate: (value) => {
+                  if (!value) return "Phone number is required";
+                  if (!isValidPhoneNumber(value))
+                    return "Please enter a valid phone number";
+                  return true; // Valid case
+                },
               }}
               render={({ field }) => (
-                <PhoneInput
-                  {...field}
-                  placeholder="Enter phone number"
-                  defaultCountry="US"
-                  international
-                  countryCallingCodeEditable={false}
-                  style={{
-                    padding: "16px",
-                    borderRadius: "12px",
-                    border: `1px solid ${
-                      errors.phoneNumber ? "red" : colorTheme.muddyMossGray
-                    }`,
-                    height: "100%", // Ensures it stretches to match the sibling
-                    boxSizing: "border-box", // Includes padding and border in height
-                  }}
-                />
+                <>
+                  <PhoneInput
+                    {...field}
+                    placeholder="Enter phone number"
+                    defaultCountry="US"
+                    international
+                    countryCallingCodeEditable={false}
+                    style={{
+                      padding: "16px",
+                      borderRadius: "12px",
+                      border: `1px solid ${
+                        errors.phoneNumber ? "red" : colorTheme.muddyMossGray
+                      }`,
+                      height: "55px",
+                      boxSizing: "border-box",
+                      width: "100%",
+                    }}
+                  />
+                  {errors.phoneNumber && (
+                    <Typography
+                      color="error"
+                      sx={{ fontSize: fontSize.p6, mt: 1 }}
+                    >
+                      {errors.phoneNumber.message}
+                    </Typography>
+                  )}
+                </>
               )}
             />
           </Box>
-          {errors.phoneNumber && (
-            <Typography color="error" sx={{ fontSize: fontSize.p3 }}>
-              {errors.phoneNumber.message}
-            </Typography>
-          )}
+          {/* <Box sx={{ width: "100%", height: "55px" }}>
+            <Controller
+              name="phoneNumber"
+              control={control}
+              rules={{
+                required: "Phone number is required",
+                validate: (value) => {
+                  console.log(value, isValidPhoneNumber(value));
+                  return (
+                    isValidPhoneNumber(value) ||
+                    "Please enter a valid phone number"
+                  );
+                },
+              }}
+              render={({ field }) => (
+                <>
+                  <PhoneInput
+                    {...field}
+                    placeholder="Enter phone number"
+                    defaultCountry="US"
+                    international
+                    countryCallingCodeEditable={false}
+                    style={{
+                      padding: "16px",
+                      borderRadius: "12px",
+                      border: `1px solid ${
+                        errors.phoneNumber ? "red" : colorTheme.muddyMossGray
+                      }`,
+                      height: "55px",
+                      boxSizing: "border-box",
+                      width: "100%",
+                    }}
+                  />
+                  {errors.phoneNumber && (
+                    <Typography
+                      color="error"
+                      sx={{ fontSize: fontSize.p6, mt: 1 }}
+                    >
+                      {errors.phoneNumber.message}
+                    </Typography>
+                  )}
+                </>
+              )}
+            />
+          </Box> */}
+
           <Controller
             name="email"
             control={control}
@@ -220,11 +289,16 @@ const UserInfo: React.FC<{
                 error={!!errors.email}
                 helperText={errors.email?.message}
                 sx={{
-                  height: "100%", // Ensures it takes the full height
+                  height: "100%",
                 }}
               />
             )}
           />
+        </Box>
+        <Box sx={{ textAlign: "right", mt: 4 }}>
+          <Button variant="contained" color="primary" onClick={handleNextClick}>
+            Next
+          </Button>
         </Box>
       </Box>
     </form>

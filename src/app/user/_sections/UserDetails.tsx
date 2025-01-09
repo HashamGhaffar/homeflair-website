@@ -105,16 +105,22 @@ export default function UserDetails() {
 
             {/* Step 1: User Information */}
             <CustomStepPanel activeStep={activeStep} stepIndex={0}>
-              <UserInfo onValidate={handleUserInfoValidation} />
+              <UserInfo
+                onValidate={handleUserInfoValidation}
+                onNext={() => {
+                  if (isUserInfoValid) {
+                    handleNext();
+                  }
+                }}
+              />
               <Box sx={{ textAlign: "right", mt: 4 }}>
-                <Button
+                {/* <Button
                   variant="contained"
                   color="primary"
-                  onClick={handleNext}
-                  disabled={!isUserInfoValid}
+                  onClick={() => handleNext()}
                 >
                   Next
-                </Button>
+                </Button> */}
               </Box>
             </CustomStepPanel>
 
