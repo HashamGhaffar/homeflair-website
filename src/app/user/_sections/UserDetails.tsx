@@ -12,6 +12,7 @@ import {
 import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
 import UserInfo, { UserInfoFormValues } from "../_components/UserInfo";
+import Shipping from "../_components/Shipping";
 
 function CustomStepPanel({
   children,
@@ -119,7 +120,7 @@ export default function UserDetails() {
 
             {/* Step 2: Shipping Details */}
             <CustomStepPanel activeStep={activeStep} stepIndex={1}>
-              <Typography>Shipping Details (Dummy Data)</Typography>
+              <Shipping />
               <Box sx={{ textAlign: "right", mt: 4 }}>
                 <Button
                   variant="contained"
