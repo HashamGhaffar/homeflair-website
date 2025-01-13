@@ -3,8 +3,39 @@ import "./CheckoutIntegrationSample.css";
 
 declare global {
   interface Window {
-    Worldpay: any;
+    Worldpay: {
+      checkout: {
+        init: (
+          config: WorldpayCheckoutConfig,
+          callback: (
+            error: Error | null,
+            checkoutInstance: WorldpayCheckoutInstance
+          ) => void
+        ) => void;
+      };
+    };
   }
+}
+interface WorldpayCheckoutConfig {
+  id: string;
+  form: string;
+  fields: {
+    pan: { selector: string };
+    expiry: { selector: string };
+    cvv: { selector: string };
+  };
+  styles?: {
+    [key: string]: { color: string };
+  };
+  enablePanFormatting?: boolean;
+}
+
+interface WorldpayCheckoutInstance {
+  generateSessionState: (
+    callback: (error: Error | null, session: string) => void
+  ) => void;
+  clearForm: (callback?: () => void) => void;
+  remove: () => void;
 }
 
 function scriptAlreadyLoaded(src: string): boolean {
@@ -26,7 +57,7 @@ function loadCheckoutScript(src: string): Promise<void> {
   });
 }
 
-function addWorldpayCheckoutToPage(): Promise<any> {
+function addWorldpayCheckoutToPage(): Promise<WorldpayCheckoutInstance> {
   const id = "dd0ea6d1-6a59-4fc2-89b3-f50296d7aec5"; // Replace with your valid identity
   return new Promise((resolve, reject) => {
     window.Worldpay.checkout.init(
@@ -45,7 +76,7 @@ function addWorldpayCheckoutToPage(): Promise<any> {
         },
         enablePanFormatting: true,
       },
-      (error: Error | null, checkout: unknown) => {
+      (error: Error | null, checkout: WorldpayCheckoutInstance) => {
         if (error) {
           reject(error);
         } else {
@@ -57,7 +88,7 @@ function addWorldpayCheckoutToPage(): Promise<any> {
 }
 
 const CheckoutIntegrationSample: React.FC = () => {
-  const checkoutRef = useRef<any>(null);
+  const checkoutRef = useRef<WorldpayCheckoutInstance | null>(null);
   const checkoutScriptUrl =
     "https://try.access.worldpay.com/access-checkout/v2/checkout.js";
 
