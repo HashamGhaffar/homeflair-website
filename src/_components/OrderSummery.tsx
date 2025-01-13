@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
-import { Box, Typography, Divider, TextField } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import CustomButton from "@/_components/Button";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { useRouter } from "next/navigation";
 
 const OrderSummary: React.FC = () => {
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -174,7 +177,7 @@ const OrderSummary: React.FC = () => {
             01 Feb, 2023
           </Typography>
         </Box>
-        <TextField
+        {/* <TextField
           placeholder="Coupon Code"
           size="small"
           fullWidth
@@ -193,15 +196,17 @@ const OrderSummary: React.FC = () => {
               },
             },
           }}
-        />
-        <CustomButton
-          text="Proceed to Checkout"
-          customStyles={{
-            width: "100%",
-            padding: "16px",
-            textWrap: "nowrap",
-          }}
-        />
+        /> */}
+        <Box onClick={() => router.push("check-out")}>
+          <CustomButton
+            text="Proceed to Checkout"
+            customStyles={{
+              width: "100%",
+              padding: "16px",
+              textWrap: "nowrap",
+            }}
+          />
+        </Box>
       </Box>
     </Box>
   );

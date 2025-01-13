@@ -39,7 +39,7 @@ export default function OrderDetail() {
               fontWeight: "800",
             }}
           >
-            Cart
+            Checkout
           </span>{" "}
           / 2 Items
         </Typography>

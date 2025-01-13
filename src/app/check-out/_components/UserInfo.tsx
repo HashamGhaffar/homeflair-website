@@ -191,7 +191,7 @@ const UserInfo: React.FC<{
                   if (!value) return "Phone number is required";
                   if (!isValidPhoneNumber(value))
                     return "Please enter a valid phone number";
-                  return true; // Valid case
+                  return true;
                 },
               }}
               render={({ field }) => (
@@ -199,7 +199,7 @@ const UserInfo: React.FC<{
                   <PhoneInput
                     {...field}
                     placeholder="Enter phone number"
-                    defaultCountry="US"
+                    defaultCountry="GB"
                     international
                     countryCallingCodeEditable={false}
                     style={{

@@ -92,7 +92,7 @@ export default function UserDetails() {
             },
           }}
         >
-          <span>Cart</span> / 2 Items
+          <span>check Out</span> / 2 Items
         </Typography>
         <Grid container spacing={4} alignItems={"flex-start"}>
           <Grid item xs={12} md={8}>
