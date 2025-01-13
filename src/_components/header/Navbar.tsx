@@ -236,20 +236,6 @@ const Navbar: React.FC = () => {
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
           />
-          <Typography onClick={() => router.push("user")} sx={{ ...textStyle }}>
-            User Details
-          </Typography>
-          {/* <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          /> */}
-          {/* <Typography sx={{ ...textStyle }}>Shipping</Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography sx={{ ...textStyle }}>Payment</Typography> */}
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
           <Typography
             onClick={() => router.push("contact-us")}
             sx={{ ...textStyle }}
