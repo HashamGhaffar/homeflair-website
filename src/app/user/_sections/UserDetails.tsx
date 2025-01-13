@@ -13,6 +13,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
 import UserInfo, { UserInfoFormValues } from "../_components/UserInfo";
 import Shipping from "../_components/Shipping";
+import CheckoutIntegrationSample from "./CheckoutIntegrationSample";
 
 function CustomStepPanel({
   children,
@@ -35,7 +36,7 @@ function CustomStepPanel({
 }
 
 export default function UserDetails() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
   const [isUserInfoValid, setIsUserInfoValid] = useState(false);
   const [userInfoData, setUserInfoData] = useState<UserInfoFormValues | null>(
     null
@@ -141,6 +142,8 @@ export default function UserDetails() {
             {/* Step 3: Payment Details */}
             <CustomStepPanel activeStep={activeStep} stepIndex={2}>
               <Typography>Payment Details (Dummy Data)</Typography>
+              <CheckoutIntegrationSample />
+
               <Box sx={{ textAlign: "right", mt: 4 }}>
                 <Button
                   variant="contained"
