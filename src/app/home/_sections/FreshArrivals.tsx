@@ -6,42 +6,13 @@ import "slick-carousel/slick/slick.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import CustomButton from "@/_components/Button";
 import Image, { StaticImageData } from "next/image";
-import pngs from "@/_assets/pngs";
+import { Product } from "@/types/product";
 
-const cardData = [
-  {
-    imageSrc: pngs.AluminiumPergola,
-    altText: "AluminiumPergola",
-    description: "Bettina Outdoor Garden Dining Chair",
-  },
-  {
-    imageSrc: pngs.DiningSet,
-    altText: "DiningSet",
-    description: "Bettina Corner Dining Set with Firepit Table",
-  },
-  {
-    imageSrc: pngs.OutDoorChair,
-    altText: "OutDoorChair",
-    description: "Aluminium Pergola Gazebo",
-  },
-  {
-    imageSrc: pngs.AluminiumPergola,
-    altText: "AluminiumPergola",
-    description: "Bettina Outdoor Garden Dining Chair",
-  },
-  {
-    imageSrc: pngs.DiningSet,
-    altText: "DiningSet",
-    description: "Bettina Corner Dining Set with Firepit Table",
-  },
-  {
-    imageSrc: pngs.OutDoorChair,
-    altText: "OutDoorChair",
-    description: "Aluminium Pergola Gazebo",
-  },
-];
-
-export default function FreshArrivals(): JSX.Element {
+export default function FreshArrivals({
+  products,
+}: {
+  products: Product[];
+}): JSX.Element {
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -146,12 +117,12 @@ export default function FreshArrivals(): JSX.Element {
         md={8}
       >
         <Slider {...sliderSettings}>
-          {cardData.map((card, index) => (
+          {products.map((card, index) => (
             <FreshArrivalsCard
               key={index}
-              imageSrc={card.imageSrc}
-              altText={card.altText}
-              description={card.description}
+              imageSrc={card.mainImage}
+              altText={card.name}
+              description={card.shortDescription}
             />
           ))}
         </Slider>
@@ -183,13 +154,13 @@ function FreshArrivalsCard({
     >
       <Box sx={{ height: "400px", width: "265px" }}>
         <Image
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "contain",
-          }}
           src={imageSrc}
           alt={altText}
+          width={265}
+          height={400}
+          style={{
+            objectFit: "contain",
+          }}
         />
       </Box>
       <Box
@@ -207,6 +178,11 @@ function FreshArrivalsCard({
             color: colorTheme.white,
             fontSize: fontSize.p3,
             width: "100%",
+            display: "-webkit-box",
+            WebkitLineClamp: 4,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
           {description}

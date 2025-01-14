@@ -5,8 +5,13 @@ import "slick-carousel/slick/slick.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import { LastSavingItems } from "../_components/LastSavingItems";
 import PremiumCollectionSlider from "../_components/PremiumCollectionSlider";
+import { Product } from "@/types/product";
 
-export default function BestSeller(): JSX.Element {
+export default function BestSeller({
+  products,
+}: {
+  products: Product[];
+}): JSX.Element {
   return (
     <Box
       sx={{
@@ -32,7 +37,7 @@ export default function BestSeller(): JSX.Element {
         best seller
       </Typography>
       <LastSavingItems />
-      <PremiumCollectionSlider />
+      <PremiumCollectionSlider products={products} />
     </Box>
   );
 }

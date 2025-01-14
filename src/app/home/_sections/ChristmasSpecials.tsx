@@ -7,8 +7,10 @@ import pngs from "@/_assets/pngs";
 import Image, { StaticImageData } from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Product } from "@/types/product";
+import { formatPrice } from "@/_utils/helpers";
 
-function ChristmasSpecials() {
+function ChristmasSpecials({ products }: { products: Product[] }) {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -43,57 +45,6 @@ function ChristmasSpecials() {
     ],
   };
 
-  const cardData = [
-    {
-      image: pngs.FabricSofa1,
-      title: "Lebus Upholstery",
-      description: "Antigua Fabric Sofa collec ....",
-      price: "$62.23",
-    },
-    {
-      image: pngs.FabricSofa2,
-      title: "Cozy Sofa",
-      description: "Modern Sofa Collection ....",
-      price: "$75.50",
-    },
-    {
-      image: pngs.FabricSofa3,
-      title: "Elegant Couch",
-      description: "Premium Fabric Couch ....",
-      price: "$85.99",
-    },
-    {
-      image: pngs.FabricSofa4,
-      title: "Classic Sofa",
-      description: "Classic Sofa Designs ....",
-      price: "$120.00",
-    },
-    {
-      image: pngs.FabricSofa1,
-      title: "Lebus Upholstery",
-      description: "Antigua Fabric Sofa collec ....",
-      price: "$62.23",
-    },
-    {
-      image: pngs.FabricSofa2,
-      title: "Cozy Sofa",
-      description: "Modern Sofa Collection ....",
-      price: "$75.50",
-    },
-    {
-      image: pngs.FabricSofa3,
-      title: "Elegant Couch",
-      description: "Premium Fabric Couch ....",
-      price: "$85.99",
-    },
-    {
-      image: pngs.FabricSofa4,
-      title: "Classic Sofa",
-      description: "Classic Sofa Designs ....",
-      price: "$120.00",
-    },
-  ];
-
   return (
     <Box
       sx={{
@@ -116,13 +67,13 @@ function ChristmasSpecials() {
         On Your Doorstep Before Christmas
       </Typography>
       <Slider {...sliderSettings}>
-        {cardData.map((item, index) => (
+        {products.map((item, index) => (
           <ChristmasSpecialsCard
             key={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            price={item.price}
+            image={item.mainImage}
+            title={item.name}
+            description={item.shortDescription}
+            price={formatPrice(item.price)}
           />
         ))}
       </Slider>
@@ -131,10 +82,10 @@ function ChristmasSpecials() {
 }
 
 interface ChristmasSpecialsCardProps {
-  image: StaticImageData;
+  image: StaticImageData | string;
   title: string;
   description: string;
-  price: string;
+  price: string | number;
 }
 
 function ChristmasSpecialsCard({
@@ -163,13 +114,13 @@ function ChristmasSpecialsCard({
         }}
       >
         <Image
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "contain",
-          }}
           src={image}
           alt={title}
+          width={260} // Added width
+          height={260} // Added height
+          style={{
+            objectFit: "contain",
+          }}
         />
       </Box>
       <Box

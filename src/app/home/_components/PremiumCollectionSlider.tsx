@@ -5,34 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import Image, { StaticImageData } from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import pngs from "@/_assets/pngs";
-
-const cardData: PremiumCollectionCardProps[] = [
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "Red Rose Sofas",
-    details: "Bespoke Winchester Fabric ....",
-    price: "$62.23",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "Red Rose Sofas",
-    details: "Bespoke Winchester Fabric ....",
-    price: "$62.23",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "Red Rose Sofas",
-    details: "Bespoke Winchester Fabric ....",
-    price: "$62.23",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "Red Rose Sofas",
-    details: "Bespoke Winchester Fabric ....",
-    price: "$62.23",
-  },
-];
+import { Product } from "@/types/product";
+import { formatPrice } from "@/_utils/helpers";
 
 const sliderSettings = {
   arrows: false,
@@ -72,16 +46,20 @@ const sliderSettings = {
   ],
 };
 
-export default function PremiumCollectionSlider(): JSX.Element {
+export default function PremiumCollectionSlider({
+  products,
+}: {
+  products: Product[];
+}): JSX.Element {
   return (
     <Slider {...sliderSettings}>
-      {cardData.map((card, index) => (
+      {products.map((card, index) => (
         <PremiumCollectionCard
           key={index}
-          imageSrc={card.imageSrc}
-          productName={card.productName}
-          details={card.details}
-          price={card.price}
+          imageSrc={card.mainImage}
+          productName={card.name}
+          details={card.shortDescription}
+          price={formatPrice(card.price)}
         />
       ))}
     </Slider>
@@ -119,10 +97,10 @@ export function PremiumCollectionCard({
       >
         <Image
           style={{
-            height: "100%",
-            width: "100%",
             objectFit: "contain",
           }}
+          width={290}
+          height={265}
           src={imageSrc}
           alt="product image"
         />
@@ -142,6 +120,9 @@ export function PremiumCollectionCard({
             color: colorTheme.darkCharcoal,
             fontWeight: "700",
             textTransform: "uppercase",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
           {details}

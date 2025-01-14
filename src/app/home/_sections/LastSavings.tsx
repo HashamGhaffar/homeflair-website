@@ -6,44 +6,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image, { StaticImageData } from "next/image";
-import pngs from "@/_assets/pngs";
+import { Product } from "@/types/product";
+import { formatPrice } from "@/_utils/helpers";
 
-const cardData = [
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "White Aesthetic Chair",
-    details: "2 Seater Fabric Sofas, 3 Seater Fabric Sofas",
-    currentPrice: "£62.23",
-    originalPrice: "£72.23",
-    buttonText: "Go To Shop",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "White Aesthetic Chair",
-    details: "2 Seater Fabric Sofas, 3 Seater Fabric Sofas",
-    currentPrice: "£62.23",
-    originalPrice: "£72.23",
-    buttonText: "Go To Shop",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "White Aesthetic Chair",
-    details: "2 Seater Fabric Sofas, 3 Seater Fabric Sofas",
-    currentPrice: "£62.23",
-    originalPrice: "£72.23",
-    buttonText: "Go To Shop",
-  },
-  {
-    imageSrc: pngs.BlueVelvetSofa,
-    productName: "White Aesthetic Chair",
-    details: "2 Seater Fabric Sofas, 3 Seater Fabric Sofas",
-    currentPrice: "£62.23",
-    originalPrice: "£72.23",
-    buttonText: "Go To Shop",
-  },
-];
-
-export default function LastSavings(): JSX.Element {
+export default function LastSavings({
+  products,
+}: {
+  products: Product[];
+}): JSX.Element {
   const sliderSettings = {
     arrows: false,
     infinite: true,
@@ -105,15 +75,17 @@ export default function LastSavings(): JSX.Element {
       </Typography>
       <Box>
         <Slider {...sliderSettings}>
-          {cardData.map((card, index) => (
+          {products.map((card, index) => (
             <FreshArrivalsCard
               key={index}
-              imageSrc={card.imageSrc}
-              productName={card.productName}
-              details={card.details}
-              currentPrice={card.currentPrice}
-              originalPrice={card.originalPrice}
-              buttonText={card.buttonText}
+              imageSrc={card.mainImage}
+              productName={card.name}
+              details={card.subcategory.map((item) => item).join(", ")}
+              currentPrice={formatPrice(
+                card.price - (card.discount / 100) * card.price
+              )}
+              originalPrice={formatPrice(card.price)}
+              buttonText={"Shop"}
             />
           ))}
         </Slider>
@@ -157,10 +129,10 @@ function FreshArrivalsCard({
       >
         <Image
           style={{
-            height: "100%",
-            width: "100%",
             objectFit: "contain",
           }}
+          width={290}
+          height={265}
           src={imageSrc}
           alt="product image"
         />
