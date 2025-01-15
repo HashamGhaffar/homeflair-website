@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { Box, Typography } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import { colorTheme, fontSize } from "@/_utils/themes";
@@ -12,6 +12,26 @@ export default function BestSeller({
 }: {
   products: Product[];
 }): JSX.Element {
+  const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (products.length) {
+      setSelectedProduct(products[0]);
+    }
+  }, [products]);
+
+  const productItems = useMemo(() => {
+    return (
+      selectedProduct?.images.slice(0, 3).map((image, index) => ({
+        imageSrc: image,
+        altText: `${selectedProduct.name} - Image ${index + 1}`,
+        label: selectedProduct.shortDescription || selectedProduct.name,
+      })) || []
+    );
+  }, [selectedProduct]);
+
   return (
     <Box
       sx={{
@@ -36,8 +56,12 @@ export default function BestSeller({
       >
         best seller
       </Typography>
-      <LastSavingItems />
-      <PremiumCollectionSlider products={products} />
+      <LastSavingItems items={productItems} />
+      <PremiumCollectionSlider
+        products={products}
+        setSelectedProduct={setSelectedProduct}
+        selectedProduct={selectedProduct}
+      />
     </Box>
   );
 }

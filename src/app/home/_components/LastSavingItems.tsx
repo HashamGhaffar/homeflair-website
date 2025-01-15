@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import pngs from "@/_assets/pngs";
 
 interface GridItemData {
   imageSrc: string | StaticImageData;
@@ -10,25 +9,11 @@ interface GridItemData {
   label: string;
 }
 
-const gridItems: GridItemData[] = [
-  {
-    imageSrc: pngs.BlueWingback,
-    altText: "BlueArmchair",
-    label: "red rose sofas",
-  },
-  {
-    imageSrc: pngs.BlueOttoman,
-    altText: "BlueArmchair",
-    label: "red rose sofas",
-  },
-  {
-    imageSrc: pngs.BlueArmchair,
-    altText: "BlueArmchair",
-    label: "red rose sofas",
-  },
-];
+interface LastSavingItemsProps {
+  items: GridItemData[]; // ✅ Dynamic data passed via props
+}
 
-export function LastSavingItems(): JSX.Element {
+export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
   return (
     <Grid
       sx={{
@@ -42,7 +27,7 @@ export function LastSavingItems(): JSX.Element {
       }}
       container
     >
-      {gridItems.map((item, index) => (
+      {items.map((item, index) => (
         <Grid key={index} item xs={12} lg={4} xl={4}>
           <Box
             sx={{
@@ -60,6 +45,8 @@ export function LastSavingItems(): JSX.Element {
               }}
               src={item.imageSrc}
               alt={item.altText}
+              width={480}
+              height={398}
             />
             <Typography
               sx={{
