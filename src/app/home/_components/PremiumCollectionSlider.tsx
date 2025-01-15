@@ -129,12 +129,18 @@ export function PremiumCollectionCard({
             width: { xs: "240px", sm: "290px" },
             marginBottom: { xs: "10px", sm: "18px" },
             overflow: "hidden",
-            "&:first-child": {
-              objectFit: { xs: "contain", sm: "cover !important" },
-            },
+            "&:first-child": {},
           }}
         >
-          <Image width={290} height={265} src={imageSrc} alt="product image" />
+          <Image
+            style={{
+              objectFit: "cover",
+            }}
+            width={290}
+            height={265}
+            src={imageSrc}
+            alt="product image"
+          />
         </Box>
 
         {/* Product Details */}

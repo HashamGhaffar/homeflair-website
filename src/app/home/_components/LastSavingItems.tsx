@@ -32,7 +32,8 @@ export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
           <Box
             sx={{
               maxWidth: { xs: "400px", md: "450px", lg: "480px" },
-              height: { xs: "auto", lg: "398px" },
+              width: "100%",
+              height: { xs: "250px", sm: "300px", md: "320px", lg: "398px" },
               position: "relative",
               margin: "auto",
             }}
