@@ -54,6 +54,11 @@ export default function CustomizedSize() {
             key={index}
             sx={{
               textAlign: "center",
+              cursor: "pointer",
+              transition: "transform 0.3s ease-in",
+              "&:hover": {
+                transform: "scale(1.03)",
+              },
             }}
           >
             <Box

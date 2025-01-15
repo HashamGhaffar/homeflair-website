@@ -52,8 +52,13 @@ export default function CustomizedColor() {
               width: "50px",
               height: "50px",
               backgroundColor: color,
+              cursor: "pointer",
               borderRadius: "50%",
               boxShadow: `0px -4px 8px 0px ${colorTheme.softBlack} inset, 0px 4px 8px 0px ${colorTheme.softBlack} inset`,
+              transition: "transform 0.3s ease-in",
+              "&:hover": {
+                transform: "scale(1.1)",
+              },
             }}
           ></Box>
         ))}
