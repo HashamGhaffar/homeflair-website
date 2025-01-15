@@ -41,7 +41,13 @@ export default function PremiumCollection() {
         >
           premium collection
         </Typography>
-        <PremiumCollectionSlider />
+        <PremiumCollectionSlider
+          products={[]}
+          setSelectedProduct={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          selectedProduct={null}
+        />
       </Box>
     </Box>
   );

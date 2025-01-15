@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
@@ -37,7 +38,13 @@ export default function Recommendation() {
           >
             BEST RECOMMENDATIONS
           </Typography>
-          <PremiumCollectionSlider />
+          <PremiumCollectionSlider
+            products={[]}
+            setSelectedProduct={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+            selectedProduct={null}
+          />
         </Box>
       </Box>
       <Box

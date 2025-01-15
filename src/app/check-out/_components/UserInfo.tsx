@@ -60,7 +60,7 @@ const UserInfo: React.FC<{
 
   React.useEffect(() => {
     onValidate(isValid, watch());
-  }, [isValid, watch]);
+  }, [isValid, onValidate, watch]);
 
   const inputBox = {
     display: "flex",
