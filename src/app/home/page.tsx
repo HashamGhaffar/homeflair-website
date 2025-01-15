@@ -51,7 +51,7 @@ export default function HomePage() {
       <FreshArrivals products={products} />
       <LastSavings products={products} />
       <BestSeller products={products} />
-      <PremiumProducts />
+      <PremiumProducts products={products} />
       <CustomizedSize />
       <CustomizedColor />
       <DecorAccessories />

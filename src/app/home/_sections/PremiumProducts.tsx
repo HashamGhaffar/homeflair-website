@@ -2,8 +2,9 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import PremiumProductSlider from "../_components/PremiumProductSlider";
+import { Product } from "@/types/product";
 
-export default function PremiumProducts() {
+export default function PremiumProducts({ products }: { products: Product[] }) {
   return (
     <Box
       sx={{
@@ -24,7 +25,7 @@ export default function PremiumProducts() {
       >
         Our Premium Products
       </Typography>
-      <PremiumProductSlider />
+      <PremiumProductSlider products={products} />
     </Box>
   );
 }

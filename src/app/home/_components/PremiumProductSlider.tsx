@@ -4,10 +4,14 @@ import Slider from "react-slick";
 import { Box, Typography, Grid } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import pngs from "@/_assets/pngs";
 import svgs from "@/_assets/svgs"; // Ensure this path is correct for your SVG
+import { Product } from "@/types/product";
 
-export default function PremiumProductSlider() {
+export default function PremiumProductSlider({
+  products,
+}: {
+  products: Product[];
+}) {
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -19,23 +23,6 @@ export default function PremiumProductSlider() {
     nextArrow: <NextArrow />,
   };
 
-  const sliderItems = [
-    {
-      image: pngs.PremiumItem1,
-      title: "Lebus Upholstery",
-      subtitle: "ANTIGUA FABRIC SOFA COLLECTION",
-      description:
-        "The Antigua Fabric Sofa is the optima of elegance. Arriving in a rich velvet fabric with a variety of jewel-like colours to choose from, this fabric sofa stands proudly in any living space.",
-    },
-    {
-      image: pngs.PremiumItem1,
-      title: "Lebus Upholstery",
-      subtitle: "ANTIGUA FABRIC SOFA COLLECTION",
-      description:
-        "The Antigua Fabric Sofa is the optima of elegance. Arriving in a rich velvet fabric with a variety of jewel-like colours to choose from, this fabric sofa stands proudly in any living space.",
-    },
-  ];
-
   return (
     <Box
       sx={{
@@ -44,7 +31,7 @@ export default function PremiumProductSlider() {
       }}
     >
       <Slider {...sliderSettings}>
-        {sliderItems.map((item, index) => (
+        {products.map((item: Product, index) => (
           <Box key={index}>
             <Grid container spacing={4} alignItems="center">
               <Grid
@@ -67,11 +54,11 @@ export default function PremiumProductSlider() {
                   }}
                 >
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.mainImage}
+                    alt={item.name}
+                    width={381.73}
+                    height={292.92}
                     style={{
-                      width: "100%",
-                      height: "100%",
                       objectFit: "contain",
                     }}
                   />
@@ -86,7 +73,13 @@ export default function PremiumProductSlider() {
                     marginBottom: "10px",
                   }}
                 >
-                  {item.title}
+                  {item.subcategory
+                    .map((subcategory) =>
+                      typeof subcategory === "string"
+                        ? subcategory
+                        : subcategory.name
+                    )
+                    .join(", ")}
                 </Typography>
                 <Typography
                   sx={{
@@ -98,16 +91,21 @@ export default function PremiumProductSlider() {
                     lineHeight: "24px",
                   }}
                 >
-                  {item.subtitle}
+                  {item.name}
                 </Typography>
                 <Typography
                   sx={{
                     color: colorTheme.smokeWhite,
                     fontSize: fontSize.p3,
                     lineHeight: "1.6",
+                    display: "-webkit-box", // Enables multi-line truncation
+                    WebkitLineClamp: 3, // Limits to 3 lines
+                    WebkitBoxOrient: "vertical", // Sets the text direction vertically
+                    overflow: "hidden", // Hides overflow content
+                    textOverflow: "ellipsis", // Adds ellipsis (...)
                   }}
                 >
-                  {item.description}
+                  {item.shortDescription}
                 </Typography>
               </Grid>
             </Grid>
