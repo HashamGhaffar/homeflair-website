@@ -13,32 +13,39 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1536,
         settings: {
           slidesToShow: 4,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 1200,
         settings: {
+          speed: 500,
           slidesToShow: 3,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 900,
         settings: {
+          speed: 500,
           slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
         settings: {
+          speed: 500,
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],

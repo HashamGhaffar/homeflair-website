@@ -17,7 +17,7 @@ export default function LastSavings({
   const sliderSettings = {
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 4,
     slidesToScroll: 2,
     responsive: [
@@ -30,17 +30,11 @@ export default function LastSavings({
       },
       {
         breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+        settings: { speed: 500, slidesToShow: 2, slidesToScroll: 1 },
       },
       {
         breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+        settings: { speed: 500, slidesToShow: 1, slidesToScroll: 1 },
       },
     ],
   };

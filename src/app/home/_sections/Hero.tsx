@@ -14,10 +14,10 @@ export default function HeroHome() {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3500,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,

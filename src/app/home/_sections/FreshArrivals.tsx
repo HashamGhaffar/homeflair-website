@@ -15,13 +15,14 @@ export default function FreshArrivals({
 }): JSX.Element {
   const sliderSettings = {
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 4,
     slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1600,
         settings: {
+          speed: 500,
           slidesToShow: 3,
           slidesToScroll: 2,
         },
@@ -29,6 +30,7 @@ export default function FreshArrivals({
       {
         breakpoint: 1200,
         settings: {
+          speed: 500,
           slidesToShow: 2,
           slidesToScroll: 1,
         },
@@ -36,6 +38,7 @@ export default function FreshArrivals({
       {
         breakpoint: 600,
         settings: {
+          speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
