@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { Box, Typography, Grid } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import svgs from "@/_assets/svgs"; // Ensure this path is correct for your SVG
+import svgs from "@/_assets/svgs";
 import { Product } from "@/types/product";
 
 export default function PremiumProductSlider({
@@ -32,7 +32,7 @@ export default function PremiumProductSlider({
     >
       <Slider {...sliderSettings}>
         {products.map((item: Product, index) => (
-          <Box key={index}>
+          <Box sx={{ textAlign: { xs: "center", md: "left" } }} key={index}>
             <Grid container spacing={4} alignItems="center">
               <Grid
                 item
@@ -59,7 +59,7 @@ export default function PremiumProductSlider({
                     width={381.73}
                     height={292.92}
                     style={{
-                      objectFit: "contain",
+                      objectFit: "cover",
                     }}
                   />
                 </Box>
@@ -81,28 +81,31 @@ export default function PremiumProductSlider({
                     )
                     .join(", ")}
                 </Typography>
+                {/* <Box> */}
                 <Typography
                   sx={{
                     color: colorTheme.red,
                     fontSize: fontSize.h6,
                     fontWeight: "700",
                     marginBottom: "20px",
-                    maxWidth: "300px",
+                    maxWidth: { xs: "300px", sm: "380px", md: "300px" },
                     lineHeight: "24px",
+                    margin: { xs: "auto", md: "0px" },
                   }}
                 >
                   {item.name}
                 </Typography>
+                {/* </Box> */}
                 <Typography
                   sx={{
                     color: colorTheme.smokeWhite,
                     fontSize: fontSize.p3,
                     lineHeight: "1.6",
-                    display: "-webkit-box", // Enables multi-line truncation
-                    WebkitLineClamp: 3, // Limits to 3 lines
-                    WebkitBoxOrient: "vertical", // Sets the text direction vertically
-                    overflow: "hidden", // Hides overflow content
-                    textOverflow: "ellipsis", // Adds ellipsis (...)
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                   }}
                 >
                   {item.shortDescription}

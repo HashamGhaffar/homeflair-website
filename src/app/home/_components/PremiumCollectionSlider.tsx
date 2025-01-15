@@ -94,92 +94,93 @@ export function PremiumCollectionCard({
   setSelectedProduct = () => {},
 }: PremiumCollectionCardProps): JSX.Element {
   return (
-    <Box
-      onClick={() => setSelectedProduct(product)}
-      sx={{
-        width: { xs: "240px", sm: "290px" },
-        overflow: "hidden",
-        margin: "auto",
-        color: colorTheme.red,
-        border: isSelected ? `2px solid ${colorTheme.forestShadow}` : "none",
-        position: "relative",
-        borderRadius: "8px",
-        cursor: "pointer",
-        "&:hover": {
-          transform: "scale(1.03)",
-        },
-      }}
-    >
-      {isSelected && (
-        <Box
-          sx={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            backgroundColor: colorTheme.white,
-            borderRadius: "50%",
-            padding: "4px",
-          }}
-        >
-          <CheckCircleIcon
-            sx={{ color: colorTheme.choiceGreen, fontSize: "24px" }}
-          />
-        </Box>
-      )}
-
-      {/* Product Image */}
+    <Box sx={{ paddingY: "20px" }}>
       <Box
+        onClick={() => setSelectedProduct(product)}
         sx={{
-          height: { xs: "219.31px", sm: "265px" },
           width: { xs: "240px", sm: "290px" },
-          marginBottom: { xs: "10px", sm: "18px" },
+          overflow: "hidden",
+          margin: "auto",
+          color: colorTheme.red,
+          outline: isSelected
+            ? `0.5px solid ${colorTheme.forestShadow}`
+            : "none",
+          outlineOffset: "5px",
+          position: "relative",
+          borderRadius: "8px",
+          cursor: "pointer",
+          "&:hover": {
+            transform: "scale(1.03)",
+          },
         }}
       >
-        <Image
-          style={{
-            objectFit: "contain",
-          }}
-          width={290}
-          height={265}
-          src={imageSrc}
-          alt="product image"
-        />
-      </Box>
+        {isSelected && (
+          <Box
+            sx={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              backgroundColor: colorTheme.white,
+              borderRadius: "50%",
+              padding: "4px",
+            }}
+          >
+            <CheckCircleIcon
+              sx={{ color: colorTheme.choiceGreen, fontSize: "24px" }}
+            />
+          </Box>
+        )}
 
-      {/* Product Details */}
-      <Box>
-        <Typography
+        {/* Product Image */}
+        <Box
           sx={{
-            fontSize: fontSize.p5,
-            color: colorTheme.softSilver,
+            height: { xs: "219.31px", sm: "265px" },
+            width: { xs: "240px", sm: "290px" },
+            marginBottom: { xs: "10px", sm: "18px" },
+            overflow: "hidden",
+            "&:first-child": {
+              objectFit: { xs: "contain", sm: "cover !important" },
+            },
           }}
         >
-          {productName}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: fontSize.p3,
-            color: colorTheme.darkCharcoal,
-            fontWeight: "700",
-            textTransform: "uppercase",
-            display: "-webkit-box", // Enables multi-line truncation
-            WebkitLineClamp: 3, // Limits text to 3 lines
-            WebkitBoxOrient: "vertical", // Vertical orientation for the box
-            overflow: "hidden", // Hides the overflow text
-            textOverflow: "ellipsis", // Adds "..." to the truncated text
-          }}
-        >
-          {details}
-        </Typography>
-        <Typography
-          sx={{
-            fontWeight: "700",
-            fontSize: fontSize.p3,
-            color: colorTheme.forestShadow,
-          }}
-        >
-          {price}
-        </Typography>
+          <Image width={290} height={265} src={imageSrc} alt="product image" />
+        </Box>
+
+        {/* Product Details */}
+        <Box>
+          <Typography
+            sx={{
+              fontSize: fontSize.p5,
+              color: colorTheme.softSilver,
+            }}
+          >
+            {productName}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: fontSize.p3,
+              color: colorTheme.darkCharcoal,
+              fontWeight: "700",
+              textTransform: "uppercase",
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {details}
+          </Typography>
+          <Typography
+            sx={{
+              fontWeight: "700",
+              fontSize: fontSize.p3,
+              color: colorTheme.forestShadow,
+            }}
+          >
+            {price}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

@@ -19,7 +19,7 @@ export default function LastSavings({
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1536,
@@ -125,11 +125,15 @@ function FreshArrivalsCard({
           height: { xs: "219.31px", sm: "265px" },
           width: { xs: "240px", sm: "290px" },
           marginBottom: { xs: "10px", sm: "18px" },
+          overflow: "hidden",
+          "&:first-child": {
+            objectFit: { xs: "contain !important", sm: "cover" },
+          },
         }}
       >
         <Image
           style={{
-            objectFit: "contain",
+            objectFit: "cover",
           }}
           width={290}
           height={265}

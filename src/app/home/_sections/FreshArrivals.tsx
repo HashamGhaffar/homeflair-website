@@ -17,13 +17,13 @@ export default function FreshArrivals({
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 1536,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
         },
       },
       {
@@ -159,7 +159,7 @@ function FreshArrivalsCard({
           width={265}
           height={400}
           style={{
-            objectFit: "contain",
+            objectFit: "cover",
           }}
         />
       </Box>

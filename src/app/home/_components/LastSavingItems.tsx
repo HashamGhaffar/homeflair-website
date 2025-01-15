@@ -54,9 +54,17 @@ export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
                 backgroundColor: colorTheme.shadowGrey,
                 color: colorTheme.white,
                 position: "absolute",
-                top: { xs: "14px", md: "20px" },
-                left: { xs: "14px", md: "20px" },
+                top: "10px",
+                left: "10px",
+                right: "10px",
+                width: "auto",
                 fontSize: fontSize.p1,
+                // text ellipsis
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
             >
               {item.label}

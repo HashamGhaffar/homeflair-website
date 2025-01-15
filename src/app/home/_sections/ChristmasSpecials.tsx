@@ -3,7 +3,6 @@ import React from "react";
 import Slider from "react-slick";
 import { Box, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import pngs from "@/_assets/pngs";
 import Image, { StaticImageData } from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -116,10 +115,10 @@ function ChristmasSpecialsCard({
         <Image
           src={image}
           alt={title}
-          width={260} // Added width
-          height={260} // Added height
+          width={260}
+          height={260}
           style={{
-            objectFit: "contain",
+            objectFit: "cover",
           }}
         />
       </Box>
