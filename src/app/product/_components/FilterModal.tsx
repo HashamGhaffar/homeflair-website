@@ -11,11 +11,21 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { FilterState } from "../_sections/RezultForItem";
 
-export default function FilterModal({ onClose }: { onClose: () => void }) {
+interface FilterModalProps {
+  onClose: () => void;
+  filters: FilterState;
+  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+}
+
+export default function FilterModal({
+  onClose,
+  filters,
+  setFilters,
+}: FilterModalProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [priceRange, setPriceRange] = useState<number[]>([100, 5000]); // ✅ Default price range
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 10);
@@ -58,8 +68,31 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
     ],
   };
 
+  // ✅ Handle Checkbox Changes
+  const handleCheckboxChange = (
+    category: keyof Omit<FilterState, "priceRange">, // Exclude priceRange
+    value: string
+  ) => {
+    setFilters((prevFilters) => {
+      const currentValues = prevFilters[category];
+
+      const updatedCategory = currentValues.includes(value)
+        ? currentValues.filter((item) => item !== value) // Remove if exists
+        : [...currentValues, value]; // Add if not exists
+
+      return {
+        ...prevFilters,
+        [category]: updatedCategory,
+      };
+    });
+  };
+
+  // ✅ Handle Price Range Changes
   const handlePriceChange = (_: Event, newValue: number | number[]) => {
-    setPriceRange(newValue as number[]);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      priceRange: newValue as number[],
+    }));
   };
 
   return (
@@ -97,7 +130,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
       >
         {/* Dynamic Filter Options */}
         {(Object.keys(filterOptions) as (keyof typeof filterOptions)[]).map(
-          (category, index) => (
+          (category: "seaters" | "furniture" | "material", index) => (
             <Accordion
               key={index}
               sx={{
@@ -124,7 +157,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                {filterOptions[category].map((option, idx) => (
+                {filterOptions[category]?.map((option, idx) => (
                   <Box
                     key={idx}
                     sx={{
@@ -143,6 +176,10 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
                       {option.label}
                     </Typography>
                     <Checkbox
+                      checked={filters[category]?.includes(option.value)}
+                      onChange={() =>
+                        handleCheckboxChange(category, option.value)
+                      }
                       sx={{
                         color: colorTheme.SoftAsh,
                         "&.Mui-checked": {
@@ -183,7 +220,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           </AccordionSummary>
           <AccordionDetails>
             <Slider
-              value={priceRange}
+              value={filters.priceRange}
               onChange={handlePriceChange}
               valueLabelDisplay="auto"
               min={0}
@@ -199,22 +236,8 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
                 marginTop: "10px",
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: fontSize.p3,
-                  color: colorTheme.softCharcoal,
-                }}
-              >
-                £{priceRange[0]}
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: fontSize.p3,
-                  color: colorTheme.softCharcoal,
-                }}
-              >
-                £{priceRange[1]}
-              </Typography>
+              <Typography>£{filters.priceRange[0]}</Typography>
+              <Typography>£{filters.priceRange[1]}</Typography>
             </Box>
           </AccordionDetails>
         </Accordion>

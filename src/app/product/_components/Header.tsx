@@ -6,8 +6,14 @@ import FilterModal from "./FilterModal";
 import SortByDropdown from "./SortByDropdown";
 import svgs from "@/_assets/svgs";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { FilterState } from "../_sections/RezultForItem";
 
-function Header() {
+interface HeaderProps {
+  filters: FilterState;
+  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+}
+
+function Header({ filters, setFilters }: HeaderProps) {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -140,7 +146,13 @@ function Header() {
         </Box>
       </Box>
 
-      {isFilterModalOpen && <FilterModal onClose={handleCloseFilterModal} />}
+      {isFilterModalOpen && (
+        <FilterModal
+          onClose={handleCloseFilterModal}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
     </>
   );
 }

@@ -11,10 +11,24 @@ import { Product } from "@/types/product";
 import { formatPrice } from "@/_utils/helpers";
 import { getProductsByTag } from "@/services/productApi";
 
+export interface FilterState {
+  furniture: string[];
+  seaters: string[];
+  material: string[];
+  priceRange: number[];
+}
+
 export default function RezultForItem() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const [filters, setFilters] = useState<FilterState>({
+    furniture: [],
+    seaters: [],
+    material: [],
+    priceRange: [100, 5000],
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -54,7 +68,7 @@ export default function RezultForItem() {
         }}
       >
         {/* Header */}
-        <Header />
+        <Header filters={filters} setFilters={setFilters} />
 
         {/* Loading State */}
         {loading ? (
