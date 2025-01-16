@@ -8,7 +8,7 @@ import CustomPagination from "../_components/CustomPagination";
 import Header from "../_components/Header";
 import { Product } from "@/types/product";
 import { formatPrice } from "@/_utils/helpers";
-import { getProductsByTag } from "@/services/productApi";
+import { getFilteredProducts } from "@/services/productApi";
 
 export interface FilterState {
   furniture: string[];
@@ -59,8 +59,7 @@ export default function RezultForItem() {
     console.log(appliedFilters, "filters");
     setLoading(true);
     try {
-      const tags = "In Stock";
-      const data = await getProductsByTag(tags);
+      const data = await getFilteredProducts(appliedFilters);
       setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
