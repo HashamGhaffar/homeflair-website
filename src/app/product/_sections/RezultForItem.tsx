@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-
+import { useRouter, useSearchParams } from "next/navigation";
 import { Box, Grid, CircularProgress, Typography } from "@mui/material";
 import { colorTheme } from "@/_utils/themes";
 import FreshArrivalsCard from "../_components/FreshArrivalsCard";
@@ -19,7 +18,9 @@ export interface FilterState {
 }
 
 export default function RezultForItem() {
+  const router = useRouter();
   const searchParams = useSearchParams();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -31,24 +32,61 @@ export default function RezultForItem() {
   });
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const tags = searchParams.get("tags")?.replace(/['"]+/g, ""); // Remove quotes if any
+    const params = new URLSearchParams(searchParams.toString());
 
-      if (tags) {
-        setLoading(true);
-        try {
-          const data = await getProductsByTag(tags);
-          setProducts(data);
-        } catch (error) {
-          console.error("Error fetching products:", error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
+    const furniture = params.get("furniture")?.split(",") || [];
+    const seaters = params.get("seaters")?.split(",") || [];
+    const material = params.get("material")?.split(",") || [];
+    const minPrice = parseInt(params.get("minPrice") || "100");
+    const maxPrice = parseInt(params.get("maxPrice") || "5000");
 
-    fetchProducts();
+    setFilters({
+      furniture,
+      seaters,
+      material,
+      priceRange: [minPrice, maxPrice],
+    });
+
+    fetchProducts({
+      furniture,
+      seaters,
+      material,
+      priceRange: [minPrice, maxPrice],
+    });
   }, [searchParams]);
+
+  const fetchProducts = async (appliedFilters: FilterState) => {
+    console.log(appliedFilters, "filters");
+    setLoading(true);
+    try {
+      const tags = "In Stock";
+      const data = await getProductsByTag(tags);
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const applyFilters = () => {
+    const params = new URLSearchParams();
+
+    if (filters.furniture.length > 0) {
+      params.set("furniture", filters.furniture.join(","));
+    }
+    if (filters.seaters.length > 0) {
+      params.set("seaters", filters.seaters.join(","));
+    }
+    if (filters.material.length > 0) {
+      params.set("material", filters.material.join(","));
+    }
+    params.set("minPrice", filters.priceRange[0].toString());
+    params.set("maxPrice", filters.priceRange[1].toString());
+
+    router.push(`/product?${params.toString()}`);
+    fetchProducts(filters);
+  };
+
   return (
     <Box
       sx={{
@@ -61,16 +99,13 @@ export default function RezultForItem() {
         },
       }}
     >
-      <Box
-        sx={{
-          maxWidth: "1200px",
-          margin: "auto",
-        }}
-      >
-        {/* Header */}
-        <Header filters={filters} setFilters={setFilters} />
+      <Box sx={{ maxWidth: "1200px", margin: "auto" }}>
+        <Header
+          filters={filters}
+          setFilters={setFilters}
+          applyFilters={applyFilters}
+        />
 
-        {/* Loading State */}
         {loading ? (
           <Box
             sx={{
@@ -83,7 +118,6 @@ export default function RezultForItem() {
             <CircularProgress size={60} color="secondary" />
           </Box>
         ) : products.length === 0 ? (
-          // Empty State
           <Box
             sx={{
               display: "flex",
@@ -103,7 +137,6 @@ export default function RezultForItem() {
             </Typography>
           </Box>
         ) : (
-          // Product Grid
           <Grid container spacing={3}>
             {products.map((product, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
@@ -125,7 +158,6 @@ export default function RezultForItem() {
           </Grid>
         )}
 
-        {/* Pagination */}
         {!loading && products.length > 0 && (
           <Box
             sx={{

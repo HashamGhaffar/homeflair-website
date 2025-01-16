@@ -8,6 +8,7 @@ import {
   AccordionDetails,
   Checkbox,
   Slider,
+  Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colorTheme, fontSize } from "@/_utils/themes";
@@ -17,12 +18,14 @@ interface FilterModalProps {
   onClose: () => void;
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+  applyFilters: () => void;
 }
 
 export default function FilterModal({
   onClose,
   filters,
   setFilters,
+  applyFilters,
 }: FilterModalProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(true);
@@ -70,15 +73,15 @@ export default function FilterModal({
 
   // ✅ Handle Checkbox Changes
   const handleCheckboxChange = (
-    category: keyof Omit<FilterState, "priceRange">, // Exclude priceRange
+    category: keyof Omit<FilterState, "priceRange">,
     value: string
   ) => {
     setFilters((prevFilters) => {
       const currentValues = prevFilters[category];
 
       const updatedCategory = currentValues.includes(value)
-        ? currentValues.filter((item) => item !== value) // Remove if exists
-        : [...currentValues, value]; // Add if not exists
+        ? currentValues.filter((item) => item !== value)
+        : [...currentValues, value];
 
       return {
         ...prevFilters,
@@ -130,12 +133,11 @@ export default function FilterModal({
       >
         {/* Dynamic Filter Options */}
         {(Object.keys(filterOptions) as (keyof typeof filterOptions)[]).map(
-          (category: "seaters" | "furniture" | "material", index) => (
+          (category, index) => (
             <Accordion
               key={index}
               sx={{
                 boxShadow: "none",
-                backgroundColor: "none",
                 borderBottom: `2px solid ${colorTheme.dimAsh}`,
                 borderRadius: "0px",
               }}
@@ -198,9 +200,7 @@ export default function FilterModal({
         <Accordion
           sx={{
             boxShadow: "none",
-            backgroundColor: "none",
             borderBottom: `2px solid ${colorTheme.dimAsh}`,
-            borderRadius: "0px",
           }}
         >
           <AccordionSummary
@@ -225,22 +225,34 @@ export default function FilterModal({
               valueLabelDisplay="auto"
               min={0}
               max={10000}
-              sx={{
-                color: colorTheme.red,
-              }}
+              sx={{ color: colorTheme.red }}
             />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginTop: "10px",
-              }}
-            >
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography>£{filters.priceRange[0]}</Typography>
               <Typography>£{filters.priceRange[1]}</Typography>
             </Box>
           </AccordionDetails>
         </Accordion>
+
+        <Button
+          variant="contained"
+          sx={{
+            marginTop: "20px",
+            width: "100%",
+            backgroundColor: colorTheme.red,
+            color: colorTheme.white,
+            fontWeight: "600",
+            "&:hover": {
+              backgroundColor: colorTheme.forestShadow,
+            },
+          }}
+          onClick={() => {
+            applyFilters();
+            handleClose();
+          }}
+        >
+          Apply Filters
+        </Button>
       </Box>
     </>
   );

@@ -11,9 +11,10 @@ import { FilterState } from "../_sections/RezultForItem";
 interface HeaderProps {
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+  applyFilters: () => void;
 }
 
-function Header({ filters, setFilters }: HeaderProps) {
+function Header({ filters, setFilters, applyFilters }: HeaderProps) {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -151,6 +152,7 @@ function Header({ filters, setFilters }: HeaderProps) {
           onClose={handleCloseFilterModal}
           filters={filters}
           setFilters={setFilters}
+          applyFilters={applyFilters}
         />
       )}
     </>
