@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+
 import { Box, Grid, CircularProgress, Typography } from "@mui/material";
 import { colorTheme } from "@/_utils/themes";
 import FreshArrivalsCard from "../_components/FreshArrivalsCard";
@@ -7,14 +9,32 @@ import CustomPagination from "../_components/CustomPagination";
 import Header from "../_components/Header";
 import { Product } from "@/types/product";
 import { formatPrice } from "@/_utils/helpers";
+import { getProductsByTag } from "@/services/productApi";
 
-export default function RezultForItem({
-  products,
-  loading,
-}: {
-  products: Product[];
-  loading: boolean;
-}) {
+export default function RezultForItem() {
+  const searchParams = useSearchParams();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const tags = searchParams.get("tags")?.replace(/['"]+/g, ""); // Remove quotes if any
+
+      if (tags) {
+        setLoading(true);
+        try {
+          const data = await getProductsByTag(tags);
+          setProducts(data);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchProducts();
+  }, [searchParams]);
   return (
     <Box
       sx={{
@@ -105,7 +125,7 @@ export default function RezultForItem({
               justifyContent: "flex-end",
             }}
           >
-            <CustomPagination count={3} />
+            <CustomPagination count={2} />
           </Box>
         )}
       </Box>
