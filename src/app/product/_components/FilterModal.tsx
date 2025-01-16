@@ -7,6 +7,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Checkbox,
+  Slider,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colorTheme, fontSize } from "@/_utils/themes";
@@ -14,6 +15,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 export default function FilterModal({ onClose }: { onClose: () => void }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [priceRange, setPriceRange] = useState<number[]>([100, 5000]); // ✅ Default price range
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 10);
@@ -56,8 +58,13 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
     ],
   };
 
+  const handlePriceChange = (_: Event, newValue: number | number[]) => {
+    setPriceRange(newValue as number[]);
+  };
+
   return (
     <>
+      {/* Overlay */}
       <Box
         onClick={handleClose}
         sx={{
@@ -72,6 +79,8 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           zIndex: 1000,
         }}
       />
+
+      {/* Filter Panel */}
       <Box
         sx={{
           position: "fixed",
@@ -86,6 +95,7 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
           transition: "left 0.5s ease",
         }}
       >
+        {/* Dynamic Filter Options */}
         {(Object.keys(filterOptions) as (keyof typeof filterOptions)[]).map(
           (category, index) => (
             <Accordion
@@ -146,6 +156,68 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
             </Accordion>
           )
         )}
+
+        {/* ✅ Price Range Filter */}
+        <Accordion
+          sx={{
+            boxShadow: "none",
+            backgroundColor: "none",
+            borderBottom: `2px solid ${colorTheme.dimAsh}`,
+            borderRadius: "0px",
+          }}
+        >
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon sx={{ color: colorTheme.forestShadow }} />
+            }
+          >
+            <Typography
+              sx={{
+                color: colorTheme.forestShadow,
+                fontSize: fontSize.p2,
+                fontWeight: "700",
+              }}
+            >
+              Price Range
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Slider
+              value={priceRange}
+              onChange={handlePriceChange}
+              valueLabelDisplay="auto"
+              min={0}
+              max={10000}
+              sx={{
+                color: colorTheme.red,
+              }}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: "10px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: fontSize.p3,
+                  color: colorTheme.softCharcoal,
+                }}
+              >
+                £{priceRange[0]}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: fontSize.p3,
+                  color: colorTheme.softCharcoal,
+                }}
+              >
+                £{priceRange[1]}
+              </Typography>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
       </Box>
     </>
   );
