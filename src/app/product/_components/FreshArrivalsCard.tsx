@@ -5,7 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import { fontSize, colorTheme } from "@/_utils/themes";
 
 interface FreshArrivalsCardProps {
-  imageSrc: StaticImageData;
+  imageSrc: StaticImageData | string;
   productName: string;
   details: string;
   currentPrice: string;
@@ -35,10 +35,10 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
       >
         <Image
           style={{
-            height: "100%",
-            width: "100%",
             objectFit: "contain",
           }}
+          width={230}
+          height={230}
           src={imageSrc}
           alt="product image"
         />

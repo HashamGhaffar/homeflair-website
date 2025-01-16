@@ -31,28 +31,28 @@ export default function FilterModal({ onClose }: { onClose: () => void }) {
   if (!isAnimating) return null;
 
   const filterOptions: Record<
-    "furniture" | "type" | "material",
-    { label: string }[]
+    "furniture" | "seaters" | "material",
+    { label: string; value: string }[]
   > = {
     furniture: [
-      { label: "Sofa" },
-      { label: "Chair" },
-      { label: "Electric Patio Heaters" },
-      { label: "Parasols & Base" },
-      { label: "Cushion Storage Box" },
-      { label: "Furniture Cover" },
+      { label: "Sofas", value: "Sofas" },
+      { label: "Chairs", value: "Chairs" },
+      { label: "Accessories", value: "Accessories" },
+      { label: "Tables", value: "Tables" },
+      { label: "Garden Furniture", value: "Garden Furniture" },
     ],
-    type: [
-      { label: "Buoyant" },
-      { label: "Designer Fabric" },
-      { label: "La-Z-Boy" },
-      { label: "Red Rose" },
+    seaters: [
+      { label: "2 Seaters sofas", value: "2 Seaters sofas" },
+      { label: "3 Seaters sofas", value: "3 Seaters sofas" },
+      { label: "4 Seaters sofas", value: "4 Seaters sofas" },
+      { label: "Corner sofas", value: "Corner sofas" },
+      { label: "Chairs", value: "Chairs" },
+      { label: "Footstools", value: "Footstools" },
     ],
     material: [
-      { label: "Asra Earth" },
-      { label: "Blakely Charcoal" },
-      { label: "Blakely Ivory" },
-      { label: "Blakely Mist" },
+      { label: "Fabric Sofas", value: "Fabric Sofas" },
+      { label: "Leather Sofas", value: "Leather Sofas" },
+      { label: "Fabric Chair", value: "Fabric Chair" },
     ],
   };
 
