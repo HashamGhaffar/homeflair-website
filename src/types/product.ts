@@ -31,6 +31,14 @@ export interface Product {
   __v: number;
 }
 
+export interface PaginatedResponse<T> {
+  count: number;
+  data: T[];
+  totalCount: number;
+  hasMore: boolean;
+  remaining: number;
+}
+
 interface MetaData {
   metaTitle: string;
   metaDescription: string;

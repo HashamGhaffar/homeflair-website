@@ -1,7 +1,7 @@
 // src/services/productService.ts
 import { FilterState } from "@/app/product/_sections/RezultForItem";
 import api from "./api";
-import { Product } from "@/types/product";
+import { PaginatedResponse, Product } from "@/types/product";
 
 export const getProductsByTag = async (tag: string): Promise<Product[]> => {
   try {
@@ -14,10 +14,20 @@ export const getProductsByTag = async (tag: string): Promise<Product[]> => {
 };
 
 export const getFilteredProducts = async (
-  filters: FilterState
-): Promise<Product[]> => {
+  filters: FilterState,
+  page: number,
+  rowsPerPage: number
+): Promise<PaginatedResponse<Product>> => {
   try {
-    const response = await api.post("/product/filter", filters);
+    let queryParams = "";
+    if (page) {
+      queryParams += `&page=${page}`;
+    }
+    if (rowsPerPage) {
+      queryParams += `&rowsPerPage=${rowsPerPage}`;
+    }
+
+    const response = await api.post(`/product/filter?${queryParams}`, filters);
     return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);

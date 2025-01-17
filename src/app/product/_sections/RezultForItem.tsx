@@ -21,6 +21,10 @@ export default function RezultForItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const [page, setPage] = useState(1);
+  const ROWS_PER_PAGE = 30;
+  const [totalProductCount, setTotalProductCount] = useState(0);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -55,11 +59,16 @@ export default function RezultForItem() {
     });
   }, [searchParams]);
 
-  const fetchProducts = async (appliedFilters: FilterState) => {
+  const fetchProducts = async (appliedFilters: FilterState, page = 1) => {
     console.log(appliedFilters, "filters");
     setLoading(true);
     try {
-      const data = await getFilteredProducts(appliedFilters);
+      const { data, totalCount } = await getFilteredProducts(
+        appliedFilters,
+        page,
+        ROWS_PER_PAGE
+      );
+      setTotalProductCount(totalCount);
       setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -86,6 +95,10 @@ export default function RezultForItem() {
     fetchProducts(filters);
   };
 
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    fetchProducts(filters, newPage);
+  };
   return (
     <Box
       sx={{
@@ -170,7 +183,13 @@ export default function RezultForItem() {
               justifyContent: "flex-end",
             }}
           >
-            <CustomPagination count={2} />
+            <CustomPagination
+              cuttentPage={page}
+              count={Math.ceil(totalProductCount / ROWS_PER_PAGE)}
+              onChange={(_event, value) => {
+                handlePageChange(value);
+              }}
+            />
           </Box>
         )}
       </Box>

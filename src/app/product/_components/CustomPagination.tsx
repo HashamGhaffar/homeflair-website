@@ -5,6 +5,7 @@ import { styled } from "@mui/system";
 interface CustomPaginationProps {
   count: number;
   onChange?: (event: React.ChangeEvent<unknown>, value: number) => void;
+  cuttentPage?: number;
 }
 
 const StyledPagination = styled(Pagination)(({}) => ({
@@ -54,8 +55,11 @@ const StyledPagination = styled(Pagination)(({}) => ({
 const CustomPagination: React.FC<CustomPaginationProps> = ({
   count,
   onChange,
+  cuttentPage = 1,
 }) => {
-  return <StyledPagination count={count} onChange={onChange} />;
+  return (
+    <StyledPagination page={cuttentPage} count={count} onChange={onChange} />
+  );
 };
 
 export default CustomPagination;
