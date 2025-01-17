@@ -21,11 +21,13 @@ export default function RezultForItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [page, setPage] = useState(1);
   const ROWS_PER_PAGE = 30;
+  const [page, setPage] = useState(1);
   const [totalProductCount, setTotalProductCount] = useState(0);
 
   const [products, setProducts] = useState<Product[]>([]);
+  const [selectedSort, setSelectedSort] = useState<string>("name_asc");
+
   const [loading, setLoading] = useState<boolean>(false);
 
   const [filters, setFilters] = useState<FilterState>({
@@ -59,14 +61,18 @@ export default function RezultForItem() {
     });
   }, [searchParams]);
 
-  const fetchProducts = async (appliedFilters: FilterState, page = 1) => {
-    console.log(appliedFilters, "filters");
+  const fetchProducts = async (
+    appliedFilters: FilterState,
+    page = 1,
+    selectedSort = "name_asc"
+  ) => {
     setLoading(true);
     try {
       const { data, totalCount } = await getFilteredProducts(
         appliedFilters,
         page,
-        ROWS_PER_PAGE
+        ROWS_PER_PAGE,
+        selectedSort
       );
       setTotalProductCount(totalCount);
       setProducts(data);
@@ -92,12 +98,18 @@ export default function RezultForItem() {
     params.set("maxPrice", filters.priceRange[1].toString());
 
     router.push(`/product?${params.toString()}`);
-    fetchProducts(filters);
+    setPage(1);
+    fetchProducts(filters, 1, selectedSort);
   };
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
-    fetchProducts(filters, newPage);
+    fetchProducts(filters, newPage, selectedSort);
+  };
+
+  const handleSortChange = (sortValue: string) => {
+    setSelectedSort(sortValue);
+    fetchProducts(filters, page, sortValue);
   };
   return (
     <Box
@@ -116,6 +128,8 @@ export default function RezultForItem() {
           filters={filters}
           setFilters={setFilters}
           applyFilters={applyFilters}
+          selectedSort={selectedSort}
+          handleSortChange={handleSortChange}
         />
 
         {loading ? (

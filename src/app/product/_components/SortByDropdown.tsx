@@ -3,42 +3,44 @@ import React, { useState, useEffect } from "react";
 import { Box, Typography, Checkbox } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 
-export default function SortByDropdown({
-  onClick,
-}: {
+interface SortOption {
+  label: string;
+  value: string;
+}
+
+interface SortByDropdownProps {
+  selectedSort: string; // Current selected sorting option
+  onSortChange: (sortValue: string) => void; // Function to update sort option
   onClick: React.MouseEventHandler<HTMLDivElement>;
-}) {
+}
+
+export default function SortByDropdown({
+  selectedSort,
+  onSortChange,
+  onClick,
+}: SortByDropdownProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 10); // Delay to trigger transition
     return () => clearTimeout(timer);
   }, []);
 
-  const handleClose = () => {
-    setIsVisible(false); // Start the closing animation
-    setTimeout(() => {
-      setIsAnimating(false); // Unmount after animation completes
-    }, 400); // Match the transition duration
-  };
-
-  if (!isAnimating) return null; // Prevent rendering after unmounting
-
-  const sortOptions = [
-    { label: "Name (A to Z)" },
-    { label: "Name (Z to A)" },
-    { label: "Price (Low To High)" },
-    { label: "Price (High To Low)" },
-    { label: "Best Selling" },
-    { label: "Featured" },
+  const sortOptions: SortOption[] = [
+    { label: "Name (A to Z)", value: "name_asc" },
+    { label: "Name (Z to A)", value: "name_desc" },
+    { label: "Price (Low To High)", value: "price_asc" },
+    { label: "Price (High To Low)", value: "price_desc" },
   ];
+
+  const handleSortChange = (value: string) => {
+    onSortChange(value); // Update the selected sort option
+  };
 
   return (
     <Box
       onClick={(e) => {
         onClick(e);
-        handleClose();
       }}
       sx={{
         position: "absolute",
@@ -57,9 +59,10 @@ export default function SortByDropdown({
         pointerEvents: isVisible ? "auto" : "none",
       }}
     >
-      {sortOptions.map((option, index) => (
+      {sortOptions.map((option) => (
         <Box
-          key={index}
+          key={option.value}
+          onClick={() => handleSortChange(option.value)}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -78,6 +81,7 @@ export default function SortByDropdown({
             {option.label}
           </Typography>
           <Checkbox
+            checked={selectedSort === option.value} // ✅ Show selected option
             sx={{
               color: colorTheme.SoftAsh,
               "&.Mui-checked": {

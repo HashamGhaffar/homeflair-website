@@ -16,7 +16,8 @@ export const getProductsByTag = async (tag: string): Promise<Product[]> => {
 export const getFilteredProducts = async (
   filters: FilterState,
   page: number,
-  rowsPerPage: number
+  rowsPerPage: number,
+  selectedSort: string
 ): Promise<PaginatedResponse<Product>> => {
   try {
     let queryParams = "";
@@ -25,6 +26,9 @@ export const getFilteredProducts = async (
     }
     if (rowsPerPage) {
       queryParams += `&rowsPerPage=${rowsPerPage}`;
+    }
+    if (selectedSort) {
+      queryParams += `&selectedSort=${selectedSort}`;
     }
 
     const response = await api.post(`/product/filter?${queryParams}`, filters);

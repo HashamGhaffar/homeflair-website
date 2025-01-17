@@ -12,9 +12,17 @@ interface HeaderProps {
   filters: FilterState;
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
   applyFilters: () => void;
+  selectedSort: string;
+  handleSortChange: (sortValue: string) => void;
 }
 
-function Header({ filters, setFilters, applyFilters }: HeaderProps) {
+function Header({
+  filters,
+  setFilters,
+  applyFilters,
+  selectedSort,
+  handleSortChange,
+}: HeaderProps) {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -121,7 +129,11 @@ function Header({ filters, setFilters, applyFilters }: HeaderProps) {
               alt="sort by"
             />
             {isSortByOpen && (
-              <SortByDropdown onClick={(e) => e.stopPropagation()} />
+              <SortByDropdown
+                selectedSort={selectedSort}
+                onSortChange={handleSortChange}
+                onClick={(e) => e.stopPropagation()}
+              />
             )}
           </Box>
           <Box
