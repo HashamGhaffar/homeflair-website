@@ -1,3 +1,5 @@
+import { Product } from "@/types/product";
+
 export const formatPrice = (price: number | string): string => {
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
 
@@ -9,4 +11,32 @@ export const formatPrice = (price: number | string): string => {
     minimumFractionDigits: 2, // Ensures two decimal places
     maximumFractionDigits: 2,
   }).format(numericPrice);
+};
+
+export const getPriceRange = (product: Product): string => {
+  let minPrice = 0;
+  let maxPrice = 1000000;
+
+  let flag = false;
+
+  product.attributes.forEach((attribute) => {
+    if (attribute.type === "model") {
+      attribute.options.forEach((option) => {
+        if (option.price) {
+          flag = true;
+          const price = parseFloat(option.price);
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          minPrice < price && (minPrice = price);
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          maxPrice > price && (maxPrice = price);
+        }
+      });
+    }
+  });
+
+  if (!flag) {
+    return `${formatPrice(product.price)}`;
+  }
+
+  return `${formatPrice(maxPrice)} - ${formatPrice(minPrice)}`;
 };

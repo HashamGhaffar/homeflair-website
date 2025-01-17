@@ -76,7 +76,7 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
           <Typography
             sx={{
               fontWeight: "900",
-              fontSize: fontSize.p1,
+              fontSize: fontSize.p3,
               color: colorTheme.forestShadow,
             }}
           >
