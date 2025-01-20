@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image, { StaticImageData } from "next/image";
@@ -11,13 +11,17 @@ interface NavigationImageProps {
 
 const navigationImages: NavigationImageProps[] = [
   { imageSrc: pngs.BeatrixFabricSofa },
-  { imageSrc: pngs.BeatrixFabricSofa },
-  { imageSrc: pngs.BeatrixFabricSofa },
-  { imageSrc: pngs.BeatrixFabricSofa },
-  { imageSrc: pngs.BeatrixFabricSofa },
+  { imageSrc: pngs.BestSeller1 },
+  { imageSrc: pngs.BestSeller2 },
+  { imageSrc: pngs.BestSeller3 },
+  { imageSrc: pngs.BestSeller4 },
 ];
 
 export default function ProductDetailHero() {
+  const [mainImage, setMainImage] = useState<StaticImageData>(
+    pngs.BeatrixFabricSofa
+  );
+
   return (
     <Box
       sx={{
@@ -49,7 +53,7 @@ export default function ProductDetailHero() {
         >
           Products /{" "}
           <span style={{ color: colorTheme.red }}>
-            Beatrix red Sofa Collection | Buoyant Upholstery
+            Beatrix Red Sofa Collection | Buoyant Upholstery
           </span>
         </Typography>
         <Grid
@@ -61,77 +65,95 @@ export default function ProductDetailHero() {
           <Grid item xs={12} md={5.9} lg={5.8} xl={5.5}>
             <Box
               sx={{
-                maxWidth: {
-                  xs: "220px",
-                  sm: "300px",
-                  md: "450px",
-                  lg: "500px",
-                  xl: "550px",
-                },
-                maxHeight: {
-                  xs: "200px",
-                  sm: "270px",
-                  md: "410px",
-                  lg: "460px",
-                  xl: "500px",
-                },
-                border: `1px solid ${colorTheme.cloudGray}`,
-                backgroundColor: colorTheme.White,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                src={pngs.BeatrixFabricSofa}
-                alt="Beatrix Fabric Sofa"
-                layout="intrinsic"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                }}
-              />
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                gap: "10px",
+                // display: "flex",
+                // flexDirection: "column",
+                // justifyContent: "space-between",
                 width: "100%",
-                paddingTop: { xs: "10px", md: "30px" },
+                height: "100%",
               }}
             >
-              {navigationImages.map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    maxWidth: {
-                      xs: "40px",
-                      sm: "50px",
-                      md: "60px",
-                      xl: "100px",
-                    },
-                    maxHeight: {
-                      xs: "40px",
-                      sm: "50px",
-                      md: "60px",
-                      xl: "100px",
-                    },
+              {/* Main Image */}
+              <Box
+                sx={{
+                  maxWidth: {
+                    xs: "300px",
+                    sm: "300px",
+                    md: "450px",
+                    lg: "500px",
+                    xl: "550px",
+                  },
+                  maxHeight: {
+                    xs: "300px",
+                    sm: "270px",
+                    md: "410px",
+                    lg: "460px",
+                    xl: "500px",
+                  },
+                  // border: `1px solid ${colorTheme.cloudGray}`,
+                  backgroundColor: colorTheme.White,
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Image
+                  src={mainImage}
+                  alt="Beatrix Fabric Sofa"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
-                >
-                  <Image
-                    src={item.imageSrc}
-                    alt={`Navigation Image ${index + 1}`}
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
+                />
+              </Box>
+              {/* Thumbnail Images */}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  gap: "10px",
+                  width: "100%",
+                  paddingTop: { xs: "10px", md: "30px" },
+                }}
+              >
+                {navigationImages.map((item, index) => (
+                  <Box
+                    key={index}
+                    onClick={() => setMainImage(item.imageSrc)} // Set main image on click
+                    sx={{
+                      cursor: "pointer",
+                      border:
+                        mainImage === item.imageSrc
+                          ? `2px solid ${colorTheme.red}`
+                          : "none", // Highlight selected thumbnail
+                      // borderRadius: "8px",
+                      maxWidth: {
+                        xs: "40px",
+                        sm: "50px",
+                        md: "60px",
+                        xl: "100px",
+                      },
+                      maxHeight: {
+                        xs: "40px",
+                        sm: "50px",
+                        md: "60px",
+                        xl: "100px",
+                        width: "100%",
+                        height: "100%",
+                      },
                     }}
-                  />
-                </Box>
-              ))}
+                  >
+                    <Image
+                      src={item.imageSrc}
+                      alt={`Navigation Image ${index + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={12} md={5.9} lg={5.8} xl={5.8}>
