@@ -8,8 +8,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Product } from "@/types/product";
 import { formatPrice } from "@/_utils/helpers";
+import { useRouter } from "next/navigation";
 
 function ChristmasSpecials({ products }: { products: Product[] }) {
+  const router = useRouter();
+
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -80,6 +83,9 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
             title={item.name}
             description={item.shortDescription}
             price={formatPrice(item.price)}
+            onClick={() => {
+              router.push(`/product/${item.slug}`);
+            }}
           />
         ))}
       </Slider>
@@ -92,6 +98,7 @@ interface ChristmasSpecialsCardProps {
   title: string;
   description: string;
   price: string | number;
+  onClick?: () => void;
 }
 
 function ChristmasSpecialsCard({
@@ -99,15 +106,22 @@ function ChristmasSpecialsCard({
   title,
   description,
   price,
+  onClick = () => {},
 }: ChristmasSpecialsCardProps) {
   return (
     <Box
+      onClick={onClick}
       sx={{
         width: {
           xs: "260px",
           md: "260px",
         },
         margin: "0 auto",
+        cursor: "pointer",
+        "&:hover": {
+          transform: "scale(1.02)",
+          transition: "transform 0.3s ease-in-out",
+        },
       }}
     >
       <Box
