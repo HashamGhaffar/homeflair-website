@@ -38,3 +38,13 @@ export const getFilteredProducts = async (
     throw error;
   }
 };
+
+export const getProductsBySlug = async (slug: string): Promise<Product> => {
+  try {
+    const response = await api.get(`/product/${slug}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
+  }
+};

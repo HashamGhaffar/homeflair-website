@@ -53,10 +53,10 @@ interface ProductAttribute {
   _id: string;
 }
 
-interface AttributeOption {
+export interface AttributeOption {
   value: string;
   label: string;
-  image: string | null;
+  image_url: string | null;
   price: string | null;
   discount: string | null;
   _id: string;

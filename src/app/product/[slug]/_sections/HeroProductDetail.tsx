@@ -1,27 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import Image, { StaticImageData } from "next/image";
-import pngs from "@/_assets/pngs";
+import Image from "next/image";
+// import pngs from "@/_assets/pngs";
+import { Product } from "@/types/product";
 
-interface NavigationImageProps {
-  imageSrc: StaticImageData;
-}
+export default function ProductDetailHero({ product }: { product: Product }) {
+  const [mainImage, setMainImage] = useState<string | null>(null);
+  const [navigationImages, setNavigationImages] = useState<string[]>([]);
 
-const navigationImages: NavigationImageProps[] = [
-  { imageSrc: pngs.BeatrixFabricSofa },
-  { imageSrc: pngs.BestSeller1 },
-  { imageSrc: pngs.BestSeller2 },
-  { imageSrc: pngs.BestSeller3 },
-  { imageSrc: pngs.BestSeller4 },
-];
+  useEffect(() => {
+    setMainImage(product.mainImage);
+    setNavigationImages([product.mainImage, ...product.images]);
+  }, [product]);
 
-export default function ProductDetailHero() {
-  const [mainImage, setMainImage] = useState<StaticImageData>(
-    pngs.BeatrixFabricSofa
-  );
-
+  console.log(mainImage, "mainImage");
   return (
     <Box
       sx={{
@@ -52,9 +46,7 @@ export default function ProductDetailHero() {
           }}
         >
           Products /{" "}
-          <span style={{ color: colorTheme.red }}>
-            Beatrix Red Sofa Collection | Buoyant Upholstery
-          </span>
+          <span style={{ color: colorTheme.red }}>{product.name}</span>
         </Typography>
         <Grid
           sx={{ rowGap: { xs: "30px", md: "0" } }}
@@ -96,13 +88,15 @@ export default function ProductDetailHero() {
                 }}
               >
                 <Image
-                  src={mainImage}
+                  src={mainImage || product.mainImage}
                   alt="Beatrix Fabric Sofa"
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
                   }}
+                  width={500}
+                  height={500}
                 />
               </Box>
               {/* Thumbnail Images */}
@@ -119,11 +113,14 @@ export default function ProductDetailHero() {
                 {navigationImages.map((item, index) => (
                   <Box
                     key={index}
-                    onClick={() => setMainImage(item.imageSrc)} // Set main image on click
+                    onClick={() => {
+                      console.log(item, "item");
+                      setMainImage(item);
+                    }} // Set main image on click
                     sx={{
                       cursor: "pointer",
                       border:
-                        mainImage === item.imageSrc
+                        mainImage === item
                           ? `2px solid ${colorTheme.red}`
                           : "none", // Highlight selected thumbnail
                       // borderRadius: "8px",
@@ -144,12 +141,14 @@ export default function ProductDetailHero() {
                     }}
                   >
                     <Image
-                      src={item.imageSrc}
+                      src={item}
                       alt={`Navigation Image ${index + 1}`}
                       style={{
                         width: "100%",
                         height: "100%",
                       }}
+                      width={200}
+                      height={200}
                     />
                   </Box>
                 ))}
@@ -173,9 +172,9 @@ export default function ProductDetailHero() {
                   textTransform: "uppercase",
                 }}
               >
-                Beatrix Fabric Sofa Collection | Buoyant Upholstery
+                {product.name}
               </Typography>
-              <Typography
+              {/* <Typography
                 sx={{
                   fontSize: fontSize.h6,
                   fontWeight: "700",
@@ -183,7 +182,7 @@ export default function ProductDetailHero() {
                 }}
               >
                 £99.98
-              </Typography>
+              </Typography> */}
               <Divider
                 sx={{
                   borderColor: colorTheme.transparentForestShadow,
@@ -206,17 +205,7 @@ export default function ProductDetailHero() {
                   color: colorTheme.muddyMossGray,
                 }}
               >
-                Beatrix Fabric Sofa Adding a touch of vibrance and personality,
-                the Beatrix Fabric Sofa comes with striking floral accent
-                cushions that beautifully contrast against the darker tones of
-                the upholstery. This thoughtful design element creates a dynamic
-                visual appeal and adds a playful pop of colour to your living
-                space. Designed for both comfort and style, the Beatrix Sofa
-                boasts a high backrest that provides excellent support for your
-                posture and adds a touch of grandeur to the overall design. It
-                is available in a range of luxurious colours, allowing you to
-                select the perfect shade to suit your personal taste and
-                complement your existing decor.
+                {product.shortDescription}
               </Typography>
             </Box>
           </Grid>

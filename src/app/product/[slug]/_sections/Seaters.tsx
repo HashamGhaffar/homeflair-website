@@ -3,6 +3,8 @@ import { Box, Typography, Divider } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import pngs from "@/_assets/pngs";
+import { AttributeOption } from "@/types/product";
+import { seaterOptions } from "@/_utils/constants";
 
 const textStyles = {
   fontFamily: "Lato",
@@ -22,7 +24,7 @@ const items = [
   { src: pngs.Footstools, label: "FOOTSTOOLS" },
 ];
 
-export default function Seaters() {
+export default function Seaters({ options }: { options: AttributeOption[] }) {
   return (
     <Box
       sx={{
@@ -55,7 +57,7 @@ export default function Seaters() {
             gap: { xs: "30px", lg: "40px" },
           }}
         >
-          {items.map((item, index) => (
+          {options.map((item, index) => (
             <Box
               key={index}
               sx={{
@@ -73,7 +75,10 @@ export default function Seaters() {
                 }}
               >
                 <Image
-                  src={item.src}
+                  src={
+                    seaterOptions.find((opt) => opt.value === item.value)
+                      ?.image ?? ""
+                  }
                   alt="Sofa Collection"
                   width={128}
                   height={128}
