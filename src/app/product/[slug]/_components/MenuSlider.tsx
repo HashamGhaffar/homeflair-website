@@ -4,12 +4,14 @@ import { Box, Grid, Typography, Divider } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import { AttributeOption } from "@/types/product";
+import { ProductAttributes } from "../page";
 
 interface MenuSliderProps {
   items: AttributeOption[];
   name: string;
-  selectedOptions: unknown;
-  setSelectedOptions: React.Dispatch<React.SetStateAction<unknown>>;
+
+  selectedOptions: ProductAttributes | null;
+  setSelectedOptions: React.Dispatch<React.SetStateAction<ProductAttributes>>;
 }
 
 export function MenuSlider({
@@ -50,7 +52,7 @@ export function MenuSlider({
                 gap: item.label ? { xs: "6px", sm: "8px", md: "12px" } : 0,
               }}
               onClick={() => {
-                setSelectedOptions((prev: any) => ({
+                setSelectedOptions((prev: ProductAttributes) => ({
                   ...prev,
                   [name]: item,
                 }));

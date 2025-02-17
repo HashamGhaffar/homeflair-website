@@ -4,6 +4,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 // import pngs from "@/_assets/pngs";
 import { MenuSlider } from "../_components/MenuSlider";
 import { Product } from "@/types/product";
+import { ProductAttributes } from "../page";
 
 export default function Menu({
   product,
@@ -11,8 +12,8 @@ export default function Menu({
   setSelectedOptions,
 }: {
   product: Product;
-  selectedOptions: unknown;
-  setSelectedOptions: React.Dispatch<React.SetStateAction<unknown>>;
+  selectedOptions: ProductAttributes | null;
+  setSelectedOptions: React.Dispatch<React.SetStateAction<ProductAttributes>>;
 }) {
   return (
     <>

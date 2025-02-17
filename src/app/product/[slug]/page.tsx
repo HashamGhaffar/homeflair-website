@@ -12,6 +12,10 @@ import { useParams } from "next/navigation";
 import { getProductsBySlug } from "@/services/productApi";
 import { AttributeOption, Product } from "@/types/product";
 
+export interface ProductAttributes {
+  [attributeName: string]: AttributeOption;
+}
+
 export default function ProductDetail() {
   // Get params
   const { slug } = useParams() as { slug: string };
@@ -19,7 +23,7 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [selectedOptions, setSelectedOptions] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState<ProductAttributes>({});
   const [selectedModel, setSelectedModel] = useState<AttributeOption | null>(
     null
   );
