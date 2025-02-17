@@ -10,7 +10,7 @@ import Recommendation from "./_sections/Recommendation";
 import Footer from "@/_components/Footer";
 import { useParams } from "next/navigation";
 import { getProductsBySlug } from "@/services/productApi";
-import { Product } from "@/types/product";
+import { AttributeOption, Product } from "@/types/product";
 
 export default function ProductDetail() {
   // Get params
@@ -18,6 +18,11 @@ export default function ProductDetail() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [selectedOptions, setSelectedOptions] = useState(null);
+  const [selectedModel, setSelectedModel] = useState<AttributeOption | null>(
+    null
+  );
 
   useEffect(() => {
     if (!slug) return;
@@ -68,16 +73,28 @@ export default function ProductDetail() {
     <Box>
       <Navbar />
       {product && <ProductDetailHero product={product} />}
-      {product && <Menu product={product} />}
+      {product && (
+        <Menu
+          product={product}
+          setSelectedOptions={setSelectedOptions}
+          selectedOptions={selectedOptions}
+        />
+      )}
       {product?.attributes?.find((attr) => attr.type === "model") && (
         <Seaters
           options={
             product.attributes.find((attr) => attr.type === "model")!.options
           }
+          setSelectedModel={setSelectedModel}
+          selectedModel={selectedModel}
         />
       )}
 
-      {/* <Detail product={product} /> */}
+      <Detail
+        product={product}
+        selectedModel={selectedModel}
+        selectedOptions={selectedOptions}
+      />
       <Recommendation />
       <Footer />
     </Box>

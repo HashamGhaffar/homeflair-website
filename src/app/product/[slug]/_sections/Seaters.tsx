@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import pngs from "@/_assets/pngs";
 import { AttributeOption } from "@/types/product";
 import { seaterOptions } from "@/_utils/constants";
 
@@ -15,16 +14,17 @@ const textStyles = {
   color: colorTheme.SoftAsh,
 };
 
-const items = [
-  { src: pngs.TwoSeaterSofas, label: "2 SEATER SOFAS" },
-  { src: pngs.ThreeSeaterSofas, label: "3 SEATER SOFAS" },
-  { src: pngs.FourSeaterSofas, label: "4 SEATER SOFAS" },
-  { src: pngs.CornerSofas, label: "CORNER SOFAS" },
-  { src: pngs.Chairs, label: "CHAIRS" },
-  { src: pngs.Footstools, label: "FOOTSTOOLS" },
-];
-
-export default function Seaters({ options }: { options: AttributeOption[] }) {
+export default function Seaters({
+  options,
+  selectedModel,
+  setSelectedModel,
+}: {
+  options: AttributeOption[];
+  selectedModel: AttributeOption | null;
+  setSelectedModel: React.Dispatch<
+    React.SetStateAction<AttributeOption | null>
+  >;
+}) {
   return (
     <Box
       sx={{
@@ -63,6 +63,12 @@ export default function Seaters({ options }: { options: AttributeOption[] }) {
               sx={{
                 textAlign: "center",
               }}
+              onClick={() => setSelectedModel(item)}
+              bgcolor={
+                selectedModel?.value === item.value
+                  ? colorTheme.softSilver
+                  : "transparent"
+              }
             >
               <Box
                 sx={{

@@ -15,7 +15,6 @@ export default function ProductDetailHero({ product }: { product: Product }) {
     setNavigationImages([product.mainImage, ...product.images]);
   }, [product]);
 
-  console.log(mainImage, "mainImage");
   return (
     <Box
       sx={{
@@ -114,7 +113,6 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                   <Box
                     key={index}
                     onClick={() => {
-                      console.log(item, "item");
                       setMainImage(item);
                     }} // Set main image on click
                     sx={{

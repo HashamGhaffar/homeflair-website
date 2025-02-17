@@ -7,9 +7,17 @@ import { AttributeOption } from "@/types/product";
 
 interface MenuSliderProps {
   items: AttributeOption[];
+  name: string;
+  selectedOptions: unknown;
+  setSelectedOptions: React.Dispatch<React.SetStateAction<unknown>>;
 }
 
-export function MenuSlider({ items }: MenuSliderProps) {
+export function MenuSlider({
+  items,
+  name,
+  setSelectedOptions,
+  selectedOptions,
+}: MenuSliderProps) {
   return (
     <Grid
       container
@@ -20,48 +28,67 @@ export function MenuSlider({ items }: MenuSliderProps) {
         rowGap: "30px",
       }}
     >
-      {items.map((item, index) => (
-        <Grid item xs={3} sm={2.4} md={2.4} key={index}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: item.label ? { xs: "6px", sm: "8px", md: "12px" } : 0,
-            }}
+      {items.map((item, index) => {
+        return (
+          <Grid
+            item
+            xs={3}
+            sm={2.4}
+            md={2.4}
+            key={index}
+            bgcolor={
+              selectedOptions && selectedOptions[name]?.label === item.label
+                ? colorTheme.softSilver
+                : "transparent"
+            }
           >
-            {item?.image_url && (
-              <Box
-                sx={{
-                  margin: "auto",
-                  width: { xs: "50px", sm: "80px", md: "100px" },
-                  height: { xs: "50px", sm: "80px", md: "100px" },
-                }}
-              >
-                <Image
-                  src={item.image_url}
-                  alt={item.label ?? ""}
-                  layout="responsive"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: item.label ? { xs: "6px", sm: "8px", md: "12px" } : 0,
+              }}
+              onClick={() => {
+                setSelectedOptions((prev: any) => ({
+                  ...prev,
+                  [name]: item,
+                }));
+              }}
+            >
+              {item?.image_url && (
+                <Box
+                  sx={{
+                    margin: "auto",
+                    width: { xs: "50px", sm: "80px", md: "100px" },
+                    height: { xs: "50px", sm: "80px", md: "100px" },
                   }}
-                  width={item.image_url ? 80 : 50}
-                  height={item.image_url ? 80 : 50}
-                />
-              </Box>
-            )}
-            {item.label && (
-              <Typography
-                sx={{ fontSize: fontSize.p3, color: colorTheme.SoftAsh }}
-              >
-                {item.label}
-              </Typography>
-            )}
-          </Box>
-        </Grid>
-      ))}
+                >
+                  <Image
+                    src={item.image_url}
+                    alt={item.label ?? ""}
+                    layout="responsive"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                    width={item.image_url ? 80 : 50}
+                    height={item.image_url ? 80 : 50}
+                  />
+                </Box>
+              )}
+              {item.label && (
+                <Typography
+                  sx={{ fontSize: fontSize.p3, color: colorTheme.SoftAsh }}
+                >
+                  {item.label}
+                </Typography>
+              )}
+            </Box>
+          </Grid>
+        );
+      })}
       <Divider
         sx={{
           marginTop: {

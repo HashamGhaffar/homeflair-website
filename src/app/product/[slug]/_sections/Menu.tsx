@@ -5,19 +5,15 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import { MenuSlider } from "../_components/MenuSlider";
 import { Product } from "@/types/product";
 
-export default function Menu({ product }: { product: Product }) {
-  // const colors = Array(15).fill({ image: pngs.RedColor, alt: "Menu Item" });
-  // const scatterFabrics = Array(15).fill({
-  //   image: pngs.Fabric,
-  //   alt: "Menu Item",
-  //   fabricName: "Asra Earth",
-  // });
-  // const bodyFabrics = Array(15).fill({
-  //   image: pngs.Fabric,
-  //   alt: "Menu Item",
-  //   fabricName: "Asra Earth",
-  // });
-
+export default function Menu({
+  product,
+  selectedOptions,
+  setSelectedOptions,
+}: {
+  product: Product;
+  selectedOptions: unknown;
+  setSelectedOptions: React.Dispatch<React.SetStateAction<unknown>>;
+}) {
   return (
     <>
       <Box
@@ -61,7 +57,12 @@ export default function Menu({ product }: { product: Product }) {
                     >
                       {attr.name}
                     </Typography>
-                    <MenuSlider items={attr.options} />
+                    <MenuSlider
+                      items={attr.options}
+                      name={attr.name}
+                      setSelectedOptions={setSelectedOptions}
+                      selectedOptions={selectedOptions}
+                    />
                   </Box>
                 );
               })}

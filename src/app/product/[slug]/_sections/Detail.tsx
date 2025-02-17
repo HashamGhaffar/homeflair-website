@@ -1,11 +1,19 @@
 import React from "react";
-import { Box, Typography, Grid, Button, Divider } from "@mui/material";
+import { Box, Typography, Grid, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
-import pngs from "@/_assets/pngs";
 import CustomButton from "@/_components/Button";
+import { AttributeOption, Product } from "@/types/product";
 
-export default function Detail() {
+export default function Detail({
+  product,
+  selectedModel,
+  selectedOptions,
+}: {
+  product: Product | null;
+  selectedModel: AttributeOption | null;
+  selectedOptions: Record<string, AttributeOption | null> | null;
+}) {
   const rowBox = {
     display: "flex",
     flexDirection: "row",
@@ -29,6 +37,50 @@ export default function Detail() {
     maxWidth: "400px",
   };
 
+  const getSelectionOption = (name: string) => {
+    if (selectedOptions && selectedOptions[name]) {
+      return selectedOptions[name];
+    }
+    return null;
+  };
+
+  const getSelectionModel = () => {
+    if (selectedModel) {
+      return selectedModel;
+    }
+    return null;
+  };
+
+  const getPrice = () => {
+    if (!product) return 0;
+
+    const isModelPriceEnabled = product.attributes?.some(
+      (attribute) => attribute.type === "model"
+    );
+
+    if (isModelPriceEnabled) {
+      return selectedModel?.price ?? 0;
+    } else {
+      return product.price;
+    }
+  };
+
+  const isAddToCartEnabled = () => {
+    if (!product?.attributes) return true; // If no attributes exist, enable add to cart
+
+    return !product.attributes.some((attribute) => {
+      if (attribute.type === "model") {
+        return !selectedModel; // If no model is selected, disable add to cart
+      }
+      return !(
+        selectedOptions && selectedOptions.hasOwnProperty(attribute.name)
+      ); // If an option is missing, disable add to cart
+    });
+  };
+
+  const addToCart = () => {
+    console.log("add this product to cart ");
+  };
   return (
     <Box
       sx={{
@@ -70,62 +122,54 @@ export default function Detail() {
             >
               <Box sx={{ ...rowBox }}>
                 <Typography sx={{ ...headingStyles }}>ITEM:</Typography>
-                <Typography sx={{ ...textStyles }}>
-                  BEATRIX FABRIC SOFA COLLECTION | BUOYANT UPHOLSTERY
-                </Typography>
+                <Typography sx={{ ...textStyles }}>{product?.name}</Typography>
               </Box>
 
-              <Box sx={{ ...rowBox }}>
-                <Typography sx={{ ...headingStyles }}>COLOR:</Typography>
-                <Box sx={{ height: "50px", width: "50px" }}>
-                  <Image
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
-                    src={pngs.RedColor}
-                    alt="red color"
-                  />
-                </Box>
-              </Box>
-
-              <Box sx={{ ...rowBox }}>
-                <Typography sx={{ ...headingStyles }}>
-                  SCATTER FABRIC:
-                </Typography>
-                <Box sx={{ height: "50px", width: "50px" }}>
-                  <Image
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
-                    src={pngs.Fabric}
-                    alt="red color"
-                  />
-                </Box>
-              </Box>
-
-              <Box sx={{ ...rowBox }}>
-                <Typography sx={{ ...headingStyles }}>BODY FABRIC:</Typography>
-                <Box sx={{ height: "50px", width: "50px" }}>
-                  <Image
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
-                    src={pngs.Fabric}
-                    alt="red color"
-                  />
-                </Box>
-              </Box>
-
-              <Box sx={{ ...rowBox }}>
-                <Typography sx={{ ...headingStyles }}>SEATER:</Typography>
-                <Typography sx={{ ...textStyles }}>2 Seater</Typography>
-              </Box>
+              {product &&
+                product.attributes?.length > 0 &&
+                product.attributes.map((attr) => {
+                  if (attr.type === "model") {
+                    return (
+                      // eslint-disable-next-line react/jsx-key
+                      <Box sx={{ ...rowBox }}>
+                        <Typography sx={{ ...headingStyles }}>
+                          {attr.name}:
+                        </Typography>
+                        {getSelectionModel() && (
+                          <Typography sx={{ ...textStyles }}>
+                            {getSelectionModel()?.label}
+                          </Typography>
+                        )}
+                      </Box>
+                    );
+                  } else {
+                    return (
+                      // eslint-disable-next-line react/jsx-key
+                      <Box sx={{ ...rowBox }}>
+                        <Typography sx={{ ...headingStyles }}>
+                          {attr.name}:
+                        </Typography>
+                        {getSelectionOption(attr.name) && (
+                          <Box sx={{ height: "50px", width: "50px" }}>
+                            <Image
+                              style={{
+                                height: "100%",
+                                width: "100%",
+                                objectFit: "contain",
+                              }}
+                              src={
+                                getSelectionOption(attr.name)?.image_url ?? ""
+                              }
+                              alt="red color"
+                              width={50}
+                              height={50}
+                            />
+                          </Box>
+                        )}
+                      </Box>
+                    );
+                  }
+                })}
 
               <Divider
                 sx={{
@@ -145,11 +189,11 @@ export default function Detail() {
                     color: colorTheme.red,
                   }}
                 >
-                  £928
+                  £{getPrice()}
                 </Typography>
               </Box>
 
-              <Box sx={{ ...rowBox }}>
+              {/* <Box sx={{ ...rowBox }}>
                 <Typography sx={{ ...headingStyles }}>QUANTITY:</Typography>
                 <Box
                   sx={{ display: "flex", alignItems: "center", gap: "10px" }}
@@ -174,9 +218,13 @@ export default function Detail() {
                     +
                   </Button>
                 </Box>
-              </Box>
+              </Box> */}
             </Box>
-            <CustomButton text="ADD TO CART" />
+            <CustomButton
+              text="ADD TO CART"
+              disabled={!isAddToCartEnabled()}
+              onClick={addToCart}
+            />
           </Grid>
 
           {/* Right Side Section */}
@@ -191,7 +239,7 @@ export default function Detail() {
               }}
             >
               <Image
-                src={pngs.BeatrixFabricSofa}
+                src={(product && product.mainImage) ?? ""}
                 alt="Beatrix Fabric Sofa"
                 layout="responsive"
                 width={600}
