@@ -61,7 +61,7 @@ export const products: Product[] = [
           {
             value: "Amazon Autumn (Band Pattern)",
             label: "Amazon Autumn (Band Pattern)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "67862036e77322a3fc161f0a",
@@ -69,7 +69,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Duckegg (Band A)",
             label: "Cosmo Duckegg (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786211ee77322a3fc161f18",
@@ -77,7 +77,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Mist (Band A)",
             label: "Cosmo Mist (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678621c5e77322a3fc161f3c",
@@ -85,7 +85,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Rose (Band A)",
             label: "Cosmo Rose (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786227be77322a3fc161f53",
@@ -93,7 +93,7 @@ export const products: Product[] = [
           {
             value: "Feathers Jewel (Band Pattern)",
             label: "Feathers Jewel (Band Pattern)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "67862819e77322a3fc161faf",
@@ -101,7 +101,7 @@ export const products: Product[] = [
           {
             value: "Festival Blush (Band C)",
             label: "Festival Blush (Band C)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786283de77322a3fc161fb6",
@@ -109,7 +109,7 @@ export const products: Product[] = [
           {
             value: "Festival Grey (Band C)",
             label: "Festival Grey (Band C)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "67862890e77322a3fc161fcb",
@@ -117,7 +117,7 @@ export const products: Product[] = [
           {
             value: "Festival Khaki (Band C)",
             label: "Festival Khaki (Band C)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678628a8e77322a3fc161fd2",
@@ -133,7 +133,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Pewter (Band A)",
             label: "Cosmo Pewter (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786225ae77322a3fc161f4c",
@@ -141,7 +141,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Rose (Band A)",
             label: "Cosmo Rose (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786227be77322a3fc161f53",
@@ -149,7 +149,7 @@ export const products: Product[] = [
           {
             value: "Duke Cedar (Band Plain)",
             label: "Duke Cedar (Band Plain)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "67862319e77322a3fc161f78",
@@ -157,7 +157,7 @@ export const products: Product[] = [
           {
             value: "Couture Multi (Band Deluxe)",
             label: "Couture Multi (Band Deluxe)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678622c2e77322a3fc161f61",
@@ -173,7 +173,7 @@ export const products: Product[] = [
           {
             value: "2seatersofa",
             label: "2-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421189/homeflair/spvj6pb9nqax2hgkvcui.png",
             price: "849",
             discount: "0",
@@ -182,7 +182,7 @@ export const products: Product[] = [
           {
             value: "3seatersofa",
             label: "3-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421100/homeflair/es7rhpr2cdcdefphlt5t.png",
             price: "899",
             discount: "0",
@@ -191,7 +191,7 @@ export const products: Product[] = [
           {
             value: "4seatersofa",
             label: "4-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421072/homeflair/tfzv3satvuzclzw9usws.png",
             price: "949",
             discount: "1",
@@ -347,7 +347,7 @@ export const products: Product[] = [
           {
             value: "Petite Chair",
             label: "Petite Chair",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678664540e88834866875636",
@@ -355,7 +355,7 @@ export const products: Product[] = [
           {
             value: "Standard Chair",
             label: "Standard Chair",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678664540e88834866875637",
@@ -371,7 +371,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Duckegg (Band A)",
             label: "Cosmo Duckegg (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786211ee77322a3fc161f18",
@@ -379,7 +379,7 @@ export const products: Product[] = [
           {
             value: "Cosmo Rose (Band A)",
             label: "Cosmo Rose (Band A)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786227be77322a3fc161f53",
@@ -387,7 +387,7 @@ export const products: Product[] = [
           {
             value: "Feathers Jewel (Band Pattern)",
             label: "Feathers Jewel (Band Pattern)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "67862819e77322a3fc161faf",
@@ -395,7 +395,7 @@ export const products: Product[] = [
           {
             value: "Festival Khaki (Band C)",
             label: "Festival Khaki (Band C)",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "678628a8e77322a3fc161fd2",
@@ -465,7 +465,7 @@ export const products: Product[] = [
           {
             value: "4seatersofa",
             label: "4-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421072/homeflair/tfzv3satvuzclzw9usws.png",
             price: "959.00",
             discount: "0",
@@ -474,7 +474,7 @@ export const products: Product[] = [
           {
             value: "3seatersofa",
             label: "3-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421100/homeflair/es7rhpr2cdcdefphlt5t.png",
             price: "759.00",
             discount: "0",
@@ -483,7 +483,7 @@ export const products: Product[] = [
           {
             value: "2seatersofa",
             label: "2-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421189/homeflair/spvj6pb9nqax2hgkvcui.png",
             price: "729.00",
             discount: "0",
@@ -554,7 +554,7 @@ export const products: Product[] = [
           {
             value: "2seatersofa",
             label: "2-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421189/homeflair/spvj6pb9nqax2hgkvcui.png",
             price: "699.00",
             discount: "0",
@@ -563,7 +563,7 @@ export const products: Product[] = [
           {
             value: "3seatersofa",
             label: "3-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421100/homeflair/es7rhpr2cdcdefphlt5t.png",
             price: "739.00",
             discount: "0",
@@ -572,7 +572,7 @@ export const products: Product[] = [
           {
             value: "4seatersofa",
             label: "4-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421072/homeflair/tfzv3satvuzclzw9usws.png",
             price: "939.00",
             discount: "0",
@@ -640,7 +640,7 @@ export const products: Product[] = [
           {
             value: "2seatersofa",
             label: "2-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421189/homeflair/spvj6pb9nqax2hgkvcui.png",
             price: "789.00",
             discount: "0",
@@ -649,7 +649,7 @@ export const products: Product[] = [
           {
             value: "3seatersofa",
             label: "3-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421100/homeflair/es7rhpr2cdcdefphlt5t.png",
             price: "739.00",
             discount: "0",
@@ -658,7 +658,7 @@ export const products: Product[] = [
           {
             value: "4seatersofa",
             label: "4-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421072/homeflair/tfzv3satvuzclzw9usws.png",
             price: "839.00",
             discount: "0",
@@ -738,7 +738,7 @@ export const products: Product[] = [
           {
             value: "small-chaise-lhf",
             label: "Small Chaise (LHF)",
-            image: null,
+            image_url: null,
             price: "1199",
             discount: "0",
             _id: "6786a1c87bb89051302645ea",
@@ -746,7 +746,7 @@ export const products: Product[] = [
           {
             value: "small-chaise-rhf",
             label: "Small Chaise (RHF)",
-            image: null,
+            image_url: null,
             price: "1199",
             discount: "0",
             _id: "6786a1c87bb89051302645eb",
@@ -754,7 +754,7 @@ export const products: Product[] = [
           {
             value: "large-chaise-rhf",
             label: "Large Chaise (RHF)",
-            image: null,
+            image_url: null,
             price: "1299",
             discount: "0",
             _id: "6786a1c87bb89051302645ec",
@@ -762,7 +762,7 @@ export const products: Product[] = [
           {
             value: "large-chaise-lhf",
             label: "Large Chaise (LHF)",
-            image: null,
+            image_url: null,
             price: "1298",
             discount: "0",
             _id: "6786a1c87bb89051302645ed",
@@ -770,7 +770,7 @@ export const products: Product[] = [
           {
             value: "lounger",
             label: "Lounger",
-            image: null,
+            image_url: null,
             price: "849",
             discount: "0",
             _id: "6786a1c87bb89051302645ee",
@@ -778,7 +778,7 @@ export const products: Product[] = [
           {
             value: "sofa-bed",
             label: "Sofa Bed",
-            image: null,
+            image_url: null,
             price: "1099",
             discount: "0",
             _id: "6786a1c87bb89051302645ef",
@@ -786,7 +786,7 @@ export const products: Product[] = [
           {
             value: "3seatersofa",
             label: "3-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421100/homeflair/es7rhpr2cdcdefphlt5t.png",
             price: "649",
             discount: "0",
@@ -795,7 +795,7 @@ export const products: Product[] = [
           {
             value: "2seatersofa",
             label: "2-Seater Sofa",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421189/homeflair/spvj6pb9nqax2hgkvcui.png",
             price: "599",
             discount: "1",
@@ -804,7 +804,7 @@ export const products: Product[] = [
           {
             value: "chair",
             label: "Chair",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736420955/homeflair/yciozbewcoogn6fa2dfg.png",
             price: "449",
             discount: "0",
@@ -813,7 +813,7 @@ export const products: Product[] = [
           {
             value: "footstool",
             label: "Foot Stool",
-            image:
+            image_url:
               "https://res.cloudinary.com/ddixiuh7h/image/upload/v1736421031/homeflair/zuv0kkrqqg6ohq8ul8tq.png",
             price: "299",
             discount: "0",
@@ -830,7 +830,7 @@ export const products: Product[] = [
           {
             value: "Oak",
             label: "Oak",
-            image:
+            image_url:
               "https://homeflair.com/wp-content/uploads/2023/11/antigua-colours.png",
             price: null,
             discount: null,
@@ -839,7 +839,7 @@ export const products: Product[] = [
           {
             value: "Mahogany",
             label: "Mahogany",
-            image:
+            image_url:
               "https://homeflair.com/wp-content/uploads/2021/11/ashley-colours-2.jpg",
             price: null,
             discount: null,
@@ -856,7 +856,7 @@ export const products: Product[] = [
           {
             value: "Brooklyn Silver",
             label: "Brooklyn Silver",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645f8",
@@ -864,7 +864,7 @@ export const products: Product[] = [
           {
             value: "Brooklyn Beige",
             label: "Brooklyn Beige",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645f9",
@@ -872,7 +872,7 @@ export const products: Product[] = [
           {
             value: "Brooklyn Mink",
             label: "Brooklyn Mink",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645fa",
@@ -880,7 +880,7 @@ export const products: Product[] = [
           {
             value: "Brooklyn Charcoal",
             label: "Brooklyn Charcoal",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645fb",
@@ -888,7 +888,7 @@ export const products: Product[] = [
           {
             value: "Spirit Silver",
             label: "Spirit Silver",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645fc",
@@ -896,7 +896,7 @@ export const products: Product[] = [
           {
             value: "Spirit Cream",
             label: "Spirit Cream",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645fd",
@@ -904,7 +904,7 @@ export const products: Product[] = [
           {
             value: "Spirit Mink",
             label: "Spirit Mink",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645fe",
@@ -912,7 +912,7 @@ export const products: Product[] = [
           {
             value: "Spirit Aqua",
             label: "Spirit Aqua",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb89051302645ff",
@@ -920,7 +920,7 @@ export const products: Product[] = [
           {
             value: "Spirit Charcoal",
             label: "Spirit Charcoal",
-            image: null,
+            image_url: null,
             price: null,
             discount: null,
             _id: "6786a1c87bb8905130264600",
