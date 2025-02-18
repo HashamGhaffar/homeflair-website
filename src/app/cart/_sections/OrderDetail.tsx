@@ -3,10 +3,18 @@ import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import ProductDetails from "../_components/ProductDetails";
-import pngs from "@/_assets/pngs";
 import OrderSummary from "@/_components/OrderSummery";
+import { CartItem, Cart } from "@/types/cart";
 
-export default function OrderDetail() {
+export default function OrderDetail({
+  cartItems,
+  cartData,
+  handleDeleteItem,
+}: {
+  cartItems: CartItem[];
+  cartData: Cart | null;
+  handleDeleteItem: (itemId: string) => void;
+}) {
   return (
     <Box
       sx={{
@@ -41,36 +49,32 @@ export default function OrderDetail() {
           >
             Checkout
           </span>{" "}
-          / 2 Items
+          / {cartItems.length} Items
         </Typography>
 
         <Grid container spacing={4} alignItems={"center"}>
           <Grid item xs={12} md={8}>
-            <ProductDetails
-              heading="SOFA EMPUK BANGET"
-              mainImage={pngs.LeatherSofa}
-              colorImage={pngs.RedColor}
-              scatterFabricImage={pngs.Fabric}
-              bodyFabricImage={pngs.Fabric}
-              seater="2 Seater"
-              price="£149.99"
-            />
-            <Box sx={{ paddingTop: { xs: "40px", md: "60px", xl: "80px" } }}>
-              <ProductDetails
-                heading="SLEEKLINE  MODULUS MORDERN SOFA"
-                mainImage={pngs.LeatherSofa}
-                colorImage={pngs.RedColor}
-                scatterFabricImage={pngs.Fabric}
-                bodyFabricImage={pngs.Fabric}
-                seater="2 Seater"
-                price="£149.99"
-              />
-            </Box>
+            {cartItems.map((item) => (
+              <Box
+                key={item._id}
+                sx={{ paddingTop: { xs: "40px", md: "60px", xl: "80px" } }}
+              >
+                <ProductDetails
+                  heading={item.productId.name}
+                  mainImage={item.productId.mainImage}
+                  price={`£${item.totalPrice}`}
+                  selectedOptions={item.selectedOptions ?? {}}
+                  onDelete={() => handleDeleteItem(item._id)} // Pass the onDelete callback
+                />
+              </Box>
+            ))}
           </Grid>
 
-          <Grid item xs={12} md={4}>
-            <OrderSummary />
-          </Grid>
+          {cartItems.length > 0 && (
+            <Grid item xs={12} md={4}>
+              <OrderSummary cartData={cartData} />
+            </Grid>
+          )}
         </Grid>
       </Box>
     </Box>

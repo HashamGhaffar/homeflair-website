@@ -125,6 +125,7 @@ const Navbar: React.FC = () => {
               style={{ width: "24px", objectFit: "contain", cursor: "pointer" }}
               src={svgs.ShoppingCart}
               alt="shopping cart"
+              onClick={() => router.push("/cart")}
             />
             <Divider
               orientation="vertical"
@@ -138,7 +139,7 @@ const Navbar: React.FC = () => {
               onClick={() => toggleDrawer(!isDrawerOpen)}
               style={{ width: "24px", objectFit: "contain", cursor: "pointer" }}
               src={svgs.Hamburger}
-              alt="shopping cart"
+              alt="hamburger"
             />
           </Box>
         </Box>
@@ -217,15 +218,6 @@ const Navbar: React.FC = () => {
             sx={{ ...textStyle }}
           >
             Products
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography
-            onClick={() => router.push("product-detail")}
-            sx={{ ...textStyle }}
-          >
-            Products Details
           </Typography>
           <Divider
             sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}

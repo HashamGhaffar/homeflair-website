@@ -4,8 +4,9 @@ import { Box, Typography, Divider } from "@mui/material";
 import CustomButton from "@/_components/Button";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import { useRouter } from "next/navigation";
+import { Cart } from "@/types/cart";
 
-const OrderSummary: React.FC = () => {
+const OrderSummary: React.FC<{ cartData: Cart | null }> = ({ cartData }) => {
   const router = useRouter();
   return (
     <Box
@@ -48,10 +49,10 @@ const OrderSummary: React.FC = () => {
               color: colorTheme.forestShadow,
             }}
           >
-            £319.98
+            £{cartData?.totalCartPrice}
           </Typography>
         </Box>
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -74,7 +75,7 @@ const OrderSummary: React.FC = () => {
           >
             £31.9
           </Typography>
-        </Box>
+        </Box> */}
         <Box
           sx={{
             display: "flex",
@@ -96,10 +97,10 @@ const OrderSummary: React.FC = () => {
               color: colorTheme.forestShadow,
             }}
           >
-            Free
+            Flat rate: £89.00
           </Typography>
         </Box>
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -122,7 +123,7 @@ const OrderSummary: React.FC = () => {
           >
             £0.00
           </Typography>
-        </Box>
+        </Box> */}
         <Divider
           sx={{
             borderColor: colorTheme.SoftAsh,
@@ -150,7 +151,7 @@ const OrderSummary: React.FC = () => {
               color: colorTheme.forestShadow,
             }}
           >
-            £288.08
+            £{cartData?.totalCartPrice}
           </Typography>
         </Box>
         <Box
@@ -174,7 +175,9 @@ const OrderSummary: React.FC = () => {
               color: colorTheme.forestShadow,
             }}
           >
-            01 Feb, 2023
+            {new Date(
+              new Date().setDate(new Date().getDate() + 15)
+            ).toLocaleDateString()}
           </Typography>
         </Box>
         {/* <TextField
