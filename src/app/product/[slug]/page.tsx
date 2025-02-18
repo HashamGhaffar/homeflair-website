@@ -11,6 +11,9 @@ import Footer from "@/_components/Footer";
 import { useParams } from "next/navigation";
 import { getProductsBySlug } from "@/services/productApi";
 import { AttributeOption, Product } from "@/types/product";
+import { getProductPrice } from "@/_utils/helpers";
+import { addToCart, AddToCartRequest } from "@/services/cartApi";
+import { showError, showSuccess } from "@/_utils/toast";
 
 export interface ProductAttributes {
   [attributeName: string]: AttributeOption;
@@ -46,6 +49,43 @@ export default function ProductDetail() {
 
     fetchProduct();
   }, [slug]);
+
+  const addProductToCart = async () => {
+    const price = getProductPrice(product, selectedModel);
+    try {
+      const cartSelectedOptions: Record<string, string> = {};
+      if (selectedOptions) {
+        Object.keys(selectedOptions).forEach((key) => {
+          cartSelectedOptions[key] = selectedOptions[key].value;
+        });
+      }
+      if (selectedModel) {
+        const modelKeys: string[] = [];
+        product?.attributes.forEach((attr) => {
+          if (attr.type === "model") {
+            modelKeys.push(attr.name);
+          }
+        });
+        modelKeys.forEach((key) => {
+          cartSelectedOptions[key] = selectedModel?.value;
+        });
+      }
+      const itemData: AddToCartRequest = {
+        productId: product?._id ?? "",
+        price: typeof price === "string" ? parseFloat(price) : price,
+        quantity: 1,
+        sessionId: localStorage.getItem("sessionId") ?? "",
+        selectedOptions: cartSelectedOptions,
+      };
+      await addToCart(itemData);
+      showSuccess("Product added to the cart");
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      console.log("error: ", error);
+      showError("Failed to add into the cart");
+    }
+  };
 
   if (loading) {
     return (
@@ -98,6 +138,7 @@ export default function ProductDetail() {
         product={product}
         selectedModel={selectedModel}
         selectedOptions={selectedOptions}
+        addProductToCart={addProductToCart}
       />
       <Recommendation />
       <Footer />

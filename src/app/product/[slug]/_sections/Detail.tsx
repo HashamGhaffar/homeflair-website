@@ -4,15 +4,18 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
 import CustomButton from "@/_components/Button";
 import { AttributeOption, Product } from "@/types/product";
+import { getProductPrice } from "@/_utils/helpers";
 
 export default function Detail({
   product,
   selectedModel,
   selectedOptions,
+  addProductToCart,
 }: {
   product: Product | null;
   selectedModel: AttributeOption | null;
   selectedOptions: Record<string, AttributeOption | null> | null;
+  addProductToCart: () => void;
 }) {
   const rowBox = {
     display: "flex",
@@ -51,20 +54,6 @@ export default function Detail({
     return null;
   };
 
-  const getPrice = () => {
-    if (!product) return 0;
-
-    const isModelPriceEnabled = product.attributes?.some(
-      (attribute) => attribute.type === "model"
-    );
-
-    if (isModelPriceEnabled) {
-      return selectedModel?.price ?? 0;
-    } else {
-      return product.price;
-    }
-  };
-
   const isAddToCartEnabled = () => {
     if (!product?.attributes) return true; // If no attributes exist, enable add to cart
 
@@ -78,9 +67,6 @@ export default function Detail({
     });
   };
 
-  const addToCart = () => {
-    console.log("add this product to cart ");
-  };
   return (
     <Box
       sx={{
@@ -189,7 +175,7 @@ export default function Detail({
                     color: colorTheme.red,
                   }}
                 >
-                  £{getPrice()}
+                  £{getProductPrice(product, selectedModel)}
                 </Typography>
               </Box>
 
@@ -223,7 +209,7 @@ export default function Detail({
             <CustomButton
               text="ADD TO CART"
               disabled={!isAddToCartEnabled()}
-              onClick={addToCart}
+              onClick={addProductToCart}
             />
           </Grid>
 

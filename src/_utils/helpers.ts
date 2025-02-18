@@ -1,4 +1,4 @@
-import { Product } from "@/types/product";
+import { AttributeOption, Product } from "@/types/product";
 
 export const formatPrice = (price: number | string): string => {
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
@@ -39,4 +39,21 @@ export const getPriceRange = (product: Product): string => {
   }
 
   return `${formatPrice(maxPrice)} - ${formatPrice(minPrice)}`;
+};
+
+export const getProductPrice = (
+  product: Product | null,
+  selectedModel: AttributeOption | null
+) => {
+  if (!product) return 0;
+
+  const isModelPriceEnabled = product.attributes?.some(
+    (attribute) => attribute.type === "model"
+  );
+
+  if (isModelPriceEnabled) {
+    return selectedModel?.price ?? 0;
+  } else {
+    return product.price;
+  }
 };
