@@ -44,7 +44,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
             },
           }}
         >
-          Products /{" "}
+          Products /
           <span style={{ color: colorTheme.red }}>{product.name}</span>
         </Typography>
         <Grid
@@ -73,17 +73,15 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                     lg: "500px",
                     xl: "550px",
                   },
-                  maxHeight: {
+                  height: {
                     xs: "300px",
                     sm: "270px",
                     md: "410px",
                     lg: "460px",
                     xl: "500px",
                   },
-                  // border: `1px solid ${colorTheme.cloudGray}`,
                   backgroundColor: colorTheme.White,
                   width: "100%",
-                  height: "100%",
                 }}
               >
                 <Image
@@ -92,7 +90,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={500}
                   height={500}
@@ -172,15 +170,6 @@ export default function ProductDetailHero({ product }: { product: Product }) {
               >
                 {product.name}
               </Typography>
-              {/* <Typography
-                sx={{
-                  fontSize: fontSize.h6,
-                  fontWeight: "700",
-                  color: colorTheme.red,
-                }}
-              >
-                £99.98
-              </Typography> */}
               <Divider
                 sx={{
                   borderColor: colorTheme.transparentForestShadow,

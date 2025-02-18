@@ -53,8 +53,8 @@ export default function Seaters({
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: { xs: "center", lg: "space-between" },
-            gap: { xs: "30px", lg: "40px" },
+            justifyContent: { xs: "center" },
+            gap: { xs: "30px", lg: "40px", xl: "60px" },
           }}
         >
           {options.map((item, index) => (
@@ -62,6 +62,11 @@ export default function Seaters({
               key={index}
               sx={{
                 textAlign: "center",
+                transition: "transform 0.4s ease-in-out",
+                paddingX: "20px",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
               }}
               onClick={() => setSelectedModel(item)}
               bgcolor={
