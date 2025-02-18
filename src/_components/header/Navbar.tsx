@@ -12,7 +12,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ProductNavigation from "./ProductNavigation";
 import { useRouter } from "next/navigation";
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -121,12 +121,44 @@ const Navbar: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Image
-              style={{ width: "24px", objectFit: "contain", cursor: "pointer" }}
-              src={svgs.ShoppingCart}
-              alt="shopping cart"
-              onClick={() => router.push("/cart")}
-            />
+            <div style={{ position: "relative", display: "inline-block" }}>
+              {/* Shopping Cart Icon */}
+              <Image
+                style={{
+                  width: "24px",
+                  objectFit: "contain",
+                  cursor: "pointer",
+                }}
+                src={svgs.ShoppingCart} // Replace with your actual icon path
+                alt="shopping cart"
+                onClick={() => router.push("/cart")}
+              />
+
+              {/* Badge for Item Count */}
+              {cartItems > 0 && (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-8px", // Adjust to position the badge
+                    right: "-8px", // Adjust to position the badge
+                    backgroundColor: "red", // Badge color
+                    color: "white", // Text color
+                    borderRadius: "50%", // Make it circular
+                    padding: "2px 6px", // Padding for the badge
+                    fontSize: "12px", // Font size
+                    fontWeight: "bold", // Bold text
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: "20px", // Ensure the badge has a minimum width
+                    height: "20px", // Ensure the badge has a fixed height
+                  }}
+                >
+                  {cartItems}
+                </span>
+              )}
+            </div>
+
             <Divider
               orientation="vertical"
               sx={{
