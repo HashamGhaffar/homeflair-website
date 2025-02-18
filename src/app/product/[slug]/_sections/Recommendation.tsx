@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import PremiumCollectionSlider from "@/app/home/_components/PremiumCollectionSlider";
+import { products } from "@/_utils/mock";
 
 export default function Recommendation() {
   return (
@@ -39,7 +40,7 @@ export default function Recommendation() {
             BEST RECOMMENDATIONS
           </Typography>
           <PremiumCollectionSlider
-            products={[]}
+            products={products}
             setSelectedProduct={function (): void {
               throw new Error("Function not implemented.");
             }}
