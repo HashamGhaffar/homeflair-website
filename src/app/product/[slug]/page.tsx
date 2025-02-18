@@ -25,6 +25,7 @@ export default function ProductDetail() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [noOfCartItem, setNumberOfCartItems] = useState<number>(0);
 
   const [selectedOptions, setSelectedOptions] = useState<ProductAttributes>({});
   const [selectedModel, setSelectedModel] = useState<AttributeOption | null>(
@@ -34,6 +35,10 @@ export default function ProductDetail() {
   useEffect(() => {
     if (!slug) return;
 
+    const Item = localStorage.getItem("noOfCartItem");
+    if (Item) {
+      setNumberOfCartItems(JSON.parse(Item));
+    }
     const fetchProduct = async () => {
       try {
         setLoading(true);
@@ -77,7 +82,7 @@ export default function ProductDetail() {
         sessionId: localStorage.getItem("sessionId") ?? "",
         selectedOptions: cartSelectedOptions,
       };
-      await addToCart(itemData);
+      await addToCart(itemData, setNumberOfCartItems);
       showSuccess("Product added to the cart");
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -115,7 +120,7 @@ export default function ProductDetail() {
 
   return (
     <Box>
-      <Navbar />
+      <Navbar cartItems={noOfCartItem} />
       {product && <ProductDetailHero product={product} />}
       {product && (
         <Menu

@@ -71,7 +71,7 @@ export default function Cart() {
 
   return (
     <Box>
-      <Navbar />
+      <Navbar cartItems={cartItems.length} />
       <OrderDetail
         cartItems={cartItems}
         cartData={cartData}
