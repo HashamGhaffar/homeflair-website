@@ -10,9 +10,9 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 export interface UserInfoFormValues {
   firstName: string;
   lastName: string;
-  companyName: string;
   country: string;
   address: string;
+  state: string;
   town: string;
   postCode: string;
   phoneNumber: string;
@@ -27,15 +27,14 @@ const UserInfo: React.FC<{
     control,
     handleSubmit,
     formState: { errors, isValid },
-    watch,
     trigger,
   } = useForm<UserInfoFormValues>({
     mode: "onChange",
     defaultValues: {
       firstName: "",
       lastName: "",
-      companyName: "",
       country: "",
+      state: "",
       address: "",
       town: "",
       postCode: "",
@@ -57,10 +56,6 @@ const UserInfo: React.FC<{
       onNext();
     }
   };
-
-  React.useEffect(() => {
-    onValidate(isValid, watch());
-  }, [isValid, onValidate, watch]);
 
   const inputBox = {
     display: "flex",
@@ -110,24 +105,32 @@ const UserInfo: React.FC<{
             )}
           />
         </Box>
+
         <Box sx={{ ...inputBox }}>
-          <Controller
-            name="companyName"
-            control={control}
-            render={({ field }) => (
-              <StandardInput {...field} label="Company Name" />
-            )}
-          />
           <Controller
             name="country"
             control={control}
-            rules={{ required: "Country/Region is required" }}
+            rules={{ required: "Country is required" }}
             render={({ field }) => (
               <StandardInput
                 {...field}
-                label="Country / Region"
+                label="Country"
                 error={!!errors.country}
                 helperText={errors.country?.message}
+              />
+            )}
+          />
+
+          <Controller
+            name="state"
+            control={control}
+            rules={{ required: "State is required" }}
+            render={({ field }) => (
+              <StandardInput
+                {...field}
+                label="State"
+                error={!!errors.state}
+                helperText={errors.state?.message}
               />
             )}
           />
@@ -296,7 +299,12 @@ const UserInfo: React.FC<{
           />
         </Box>
         <Box sx={{ textAlign: "right", mt: 4 }}>
-          <Button variant="contained" color="primary" onClick={handleNextClick}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            onClick={handleNextClick}
+          >
             Next
           </Button>
         </Box>

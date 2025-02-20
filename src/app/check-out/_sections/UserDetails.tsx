@@ -12,8 +12,9 @@ import {
 import { colorTheme, fontSize } from "@/_utils/themes";
 import OrderSummary from "@/_components/OrderSummery";
 import UserInfo, { UserInfoFormValues } from "../_components/UserInfo";
-import Shipping from "../_components/Shipping";
 import CheckoutIntegrationSample from "./CheckoutIntegrationSample";
+import { Cart, CartItem } from "@/types/cart";
+import { createOrder, CreateOrderRequest } from "@/services/orderApi";
 
 function CustomStepPanel({
   children,
@@ -35,33 +36,62 @@ function CustomStepPanel({
   );
 }
 
-export default function UserDetails() {
-  const [activeStep, setActiveStep] = useState(2);
+export default function UserDetails({
+  cartItems,
+  cartData,
+}: {
+  cartItems: CartItem[];
+  cartData: Cart | null;
+}) {
+  const [activeStep, setActiveStep] = useState(0);
   const [isUserInfoValid, setIsUserInfoValid] = useState(false);
-  const [userInfoData, setUserInfoData] = useState<UserInfoFormValues | null>(
-    null
-  );
-  // just to remove typscript error from userInfoData
-  console.log("User Info Data:", userInfoData);
 
-  const steps = ["User Information", "Shipping Details", "Payment Details"];
+  const steps = ["User Information", "Payment Details"];
 
-  const handleUserInfoValidation = (
+  const handleUserInfoValidation = async (
     isValid: boolean,
     data: UserInfoFormValues
   ) => {
     setIsUserInfoValid(isValid);
-    setUserInfoData(data);
+    handleNext();
+    // await handleCreateOrder(data);
   };
 
   const handleNext = () => {
     if (activeStep === 0 && isUserInfoValid) {
       setActiveStep(1);
-    } else if (activeStep === 1) {
-      setActiveStep(2);
     }
   };
 
+  const handleCreateOrder = async (data: UserInfoFormValues) => {
+    try {
+      const sessionId = localStorage.getItem("sessionId") ?? "";
+
+      const orderData: CreateOrderRequest = {
+        sessionId,
+        paymentMethod: "card",
+        email: data?.email ?? "",
+        firstName: data?.firstName ?? "",
+        lastName: data?.lastName ?? "",
+        phone: data?.phoneNumber ?? "",
+        billingAddress: {
+          street: data?.address ?? "",
+          city: data?.town ?? "",
+          state: data?.state ?? "",
+          postalCode: data?.postCode ?? "",
+          country: data?.country ?? "",
+          address: data?.address ?? "",
+        },
+      };
+
+      await createOrder(orderData);
+      handleNext();
+    } catch (error) {
+      console.error("Error creating order:", error);
+    }
+  };
+
+  console.log(activeStep, "activeStep");
   return (
     <Box
       sx={{
@@ -92,7 +122,7 @@ export default function UserDetails() {
             },
           }}
         >
-          <span>check Out</span> / 2 Items
+          <span>check Out</span> / {cartItems?.length} Items
         </Typography>
         <Grid container spacing={4} alignItems={"flex-start"}>
           <Grid item xs={12} md={8}>
@@ -114,33 +144,9 @@ export default function UserDetails() {
                   }
                 }}
               />
-              <Box sx={{ textAlign: "right", mt: 4 }}>
-                {/* <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleNext()}
-                >
-                  Next
-                </Button> */}
-              </Box>
             </CustomStepPanel>
 
-            {/* Step 2: Shipping Details */}
             <CustomStepPanel activeStep={activeStep} stepIndex={1}>
-              <Shipping />
-              <Box sx={{ textAlign: "right", mt: 4 }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNext}
-                >
-                  Next
-                </Button>
-              </Box>
-            </CustomStepPanel>
-
-            {/* Step 3: Payment Details */}
-            <CustomStepPanel activeStep={activeStep} stepIndex={2}>
               <Typography>Payment Details (Dummy Data)</Typography>
               <CheckoutIntegrationSample />
 
@@ -157,7 +163,7 @@ export default function UserDetails() {
           </Grid>
 
           <Grid item xs={12} md={4}>
-            <OrderSummary />
+            <OrderSummary cartData={cartData} />
           </Grid>
         </Grid>
       </Box>

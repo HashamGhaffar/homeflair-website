@@ -151,7 +151,7 @@ const OrderSummary: React.FC<{ cartData: Cart | null }> = ({ cartData }) => {
               color: colorTheme.forestShadow,
             }}
           >
-            £{cartData?.totalCartPrice}
+            £{cartData?.totalCartPrice && cartData?.totalCartPrice + 89}
           </Typography>
         </Box>
         <Box
