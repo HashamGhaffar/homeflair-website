@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useForm, Controller } from "react-hook-form";
 import StandardInput from "@/_components/StandardInput";
 import PhoneInput from "react-phone-number-input";
@@ -20,14 +21,13 @@ export interface UserInfoFormValues {
 }
 
 const UserInfo: React.FC<{
-  onValidate: (isValid: boolean, data: UserInfoFormValues) => void;
-  onNext: () => void;
-}> = ({ onValidate, onNext }) => {
+  onNext: (data: UserInfoFormValues) => void;
+  loading: boolean;
+}> = ({ onNext, loading }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
-    trigger,
+    formState: { errors },
   } = useForm<UserInfoFormValues>({
     mode: "onChange",
     defaultValues: {
@@ -44,17 +44,7 @@ const UserInfo: React.FC<{
   });
 
   const onSubmit = (data: UserInfoFormValues) => {
-    onValidate(isValid, data);
-    if (isValid) {
-      onNext();
-    }
-  };
-
-  const handleNextClick = async () => {
-    const valid = await trigger();
-    if (valid) {
-      onNext();
-    }
+    onNext(data);
   };
 
   const inputBox = {
@@ -228,51 +218,6 @@ const UserInfo: React.FC<{
               )}
             />
           </Box>
-          {/* <Box sx={{ width: "100%", height: "55px" }}>
-            <Controller
-              name="phoneNumber"
-              control={control}
-              rules={{
-                required: "Phone number is required",
-                validate: (value) => {
-                  console.log(value, isValidPhoneNumber(value));
-                  return (
-                    isValidPhoneNumber(value) ||
-                    "Please enter a valid phone number"
-                  );
-                },
-              }}
-              render={({ field }) => (
-                <>
-                  <PhoneInput
-                    {...field}
-                    placeholder="Enter phone number"
-                    defaultCountry="US"
-                    international
-                    countryCallingCodeEditable={false}
-                    style={{
-                      padding: "16px",
-                      borderRadius: "12px",
-                      border: `1px solid ${
-                        errors.phoneNumber ? "red" : colorTheme.muddyMossGray
-                      }`,
-                      height: "55px",
-                      boxSizing: "border-box",
-                      width: "100%",
-                    }}
-                  />
-                  {errors.phoneNumber && (
-                    <Typography
-                      color="error"
-                      sx={{ fontSize: fontSize.p6, mt: 1 }}
-                    >
-                      {errors.phoneNumber.message}
-                    </Typography>
-                  )}
-                </>
-              )}
-            />
-          </Box> */}
 
           <Controller
             name="email"

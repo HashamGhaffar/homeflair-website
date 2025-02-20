@@ -44,27 +44,12 @@ export default function UserDetails({
   cartData: Cart | null;
 }) {
   const [activeStep, setActiveStep] = useState(0);
-  const [isUserInfoValid, setIsUserInfoValid] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const steps = ["User Information", "Payment Details"];
-
-  const handleUserInfoValidation = async (
-    isValid: boolean,
-    data: UserInfoFormValues
-  ) => {
-    setIsUserInfoValid(isValid);
-    handleNext();
-    // await handleCreateOrder(data);
-  };
-
-  const handleNext = () => {
-    if (activeStep === 0 && isUserInfoValid) {
-      setActiveStep(1);
-    }
-  };
 
   const handleCreateOrder = async (data: UserInfoFormValues) => {
     try {
+      setLoading(true);
       const sessionId = localStorage.getItem("sessionId") ?? "";
 
       const orderData: CreateOrderRequest = {
@@ -85,13 +70,14 @@ export default function UserDetails({
       };
 
       await createOrder(orderData);
-      handleNext();
+      setActiveStep(1);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error("Error creating order:", error);
     }
   };
 
-  console.log(activeStep, "activeStep");
   return (
     <Box
       sx={{
@@ -136,14 +122,7 @@ export default function UserDetails({
 
             {/* Step 1: User Information */}
             <CustomStepPanel activeStep={activeStep} stepIndex={0}>
-              <UserInfo
-                onValidate={handleUserInfoValidation}
-                onNext={() => {
-                  if (isUserInfoValid) {
-                    handleNext();
-                  }
-                }}
-              />
+              <UserInfo onNext={handleCreateOrder} loading={loading} />
             </CustomStepPanel>
 
             <CustomStepPanel activeStep={activeStep} stepIndex={1}>
