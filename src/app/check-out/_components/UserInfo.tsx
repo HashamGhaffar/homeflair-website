@@ -244,12 +244,7 @@ const UserInfo: React.FC<{
           />
         </Box>
         <Box sx={{ textAlign: "right", mt: 4 }}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            onClick={handleNextClick}
-          >
+          <Button type="submit" variant="contained" color="primary">
             Next
           </Button>
         </Box>
