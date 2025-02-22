@@ -7,6 +7,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import CustomButton from "@/_components/Button";
 import Image, { StaticImageData } from "next/image";
 import { Product } from "@/types/product";
+import { useRouter } from "next/navigation";
 
 export default function FreshArrivals({
   products,
@@ -46,6 +47,7 @@ export default function FreshArrivals({
     ],
   };
 
+  const router = useRouter();
   return (
     <Grid
       sx={{
@@ -104,7 +106,10 @@ export default function FreshArrivals({
             Get the latest items immediately with promo prices
           </Typography>
           <Box>
-            <CustomButton text="Shop Now" />
+            <CustomButton
+              onClick={() => router.push("/product")}
+              text="Shop Now"
+            />
           </Box>
         </Box>
       </Grid>

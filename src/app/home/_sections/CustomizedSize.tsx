@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import pngs from "@/_assets/pngs";
+import { useRouter } from "next/navigation";
 
 const textStyles = {
   fontFamily: "Lato",
@@ -13,15 +14,33 @@ const textStyles = {
 };
 
 const items = [
-  { src: pngs.TwoSeaterSofas, label: "2 SEATER SOFAS" },
-  { src: pngs.ThreeSeaterSofas, label: "3 SEATER SOFAS" },
-  { src: pngs.FourSeaterSofas, label: "4 SEATER SOFAS" },
-  { src: pngs.CornerSofas, label: "CORNER SOFAS" },
-  { src: pngs.Chairs, label: "CHAIRS" },
-  { src: pngs.Footstools, label: "FOOTSTOOLS" },
+  {
+    src: pngs.TwoSeaterSofas,
+    label: "2 SEATER SOFAS",
+    query: "seaters=2+Seaters+sofas",
+  },
+  {
+    src: pngs.ThreeSeaterSofas,
+    label: "3 SEATER SOFAS",
+    query: "seaters=3+Seaters+sofas",
+  },
+  {
+    src: pngs.FourSeaterSofas,
+    label: "4 SEATER SOFAS",
+    query: "seaters=4+Seaters+sofas",
+  },
+  {
+    src: pngs.CornerSofas,
+    label: "CORNER SOFAS",
+    query: "seaters=Corner+sofas",
+  },
+  { src: pngs.Chairs, label: "CHAIRS", query: "seaters=Chairs" },
+  { src: pngs.Footstools, label: "FOOTSTOOLS", query: "seaters=Footstools" },
 ];
 
 export default function CustomizedSize() {
+  const router = useRouter();
+
   return (
     <Box
       sx={{
@@ -59,6 +78,9 @@ export default function CustomizedSize() {
               "&:hover": {
                 transform: "scale(1.03)",
               },
+            }}
+            onClick={() => {
+              router.push("product?" + item.query);
             }}
           >
             <Box

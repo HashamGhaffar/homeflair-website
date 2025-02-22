@@ -13,11 +13,11 @@ const gridItems = [
   },
   {
     imageSrc: pngs.BuoyantUpholstery,
-    label: "red rose sofas",
+    label: "Buoyant Upholstery",
   },
   {
     imageSrc: pngs.LebusUpholstery,
-    label: "red rose sofas",
+    label: "Lebus Upholstery",
   },
 ];
 

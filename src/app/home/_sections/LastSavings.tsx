@@ -8,6 +8,7 @@ import { colorTheme, fontSize } from "@/_utils/themes";
 import Image, { StaticImageData } from "next/image";
 import { Product } from "@/types/product";
 import { formatPrice } from "@/_utils/helpers";
+import { useRouter } from "next/navigation";
 
 export default function LastSavings({
   products,
@@ -39,6 +40,7 @@ export default function LastSavings({
     ],
   };
 
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -80,6 +82,9 @@ export default function LastSavings({
               )}
               originalPrice={formatPrice(card.price)}
               buttonText={"Shop"}
+              onClick={() => {
+                router.push(`product/${card.slug}`);
+              }}
             />
           ))}
         </Slider>
@@ -95,6 +100,7 @@ interface FreshArrivalsCardProps {
   currentPrice: string;
   originalPrice: string;
   buttonText: string;
+  onClick?: () => void;
 }
 
 function FreshArrivalsCard({
@@ -104,6 +110,7 @@ function FreshArrivalsCard({
   currentPrice,
   originalPrice,
   buttonText,
+  onClick = () => {},
 }: FreshArrivalsCardProps): JSX.Element {
   return (
     <Box
@@ -178,6 +185,7 @@ function FreshArrivalsCard({
             </Typography>
           </Box>
           <MUIButton
+            onClick={onClick}
             sx={{
               padding: "10px 20px",
               borderRadius: "12px",
