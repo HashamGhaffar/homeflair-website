@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import CustomButton from "@/_components/Button";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { useRouter } from "next/navigation";
 
 interface HeroSlideProps {
   title: string;
@@ -20,6 +21,7 @@ export default function HeroSlide({
   imageSrc,
   headingColor = "mistyBlue",
 }: HeroSlideProps) {
+  const router = useRouter();
   return (
     <>
       <Box
@@ -117,6 +119,9 @@ export default function HeroSlide({
                 text="Go To Shop"
                 customStyles={{
                   width: { xs: "100%", sm: "auto" },
+                }}
+                onClick={() => {
+                  router.push("/product");
                 }}
               />
             </Box>

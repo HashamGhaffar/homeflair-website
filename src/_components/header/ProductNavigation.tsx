@@ -39,6 +39,19 @@ const ProductNavigation: React.FC = () => {
     padding: "10px 0",
   };
 
+  // Define navigation items dynamically
+  const navigationItems = [
+    { label: "All sofas", category: "All sofas" },
+    { label: "Fabric sofas", category: "Fabric sofas" },
+    { label: "Corner sofas", category: "Corner sofas" },
+    { label: "Leather sofas", category: "Leather sofas" },
+    { label: "Chair", category: "Chair" },
+    // Uncomment these to enable additional categories
+    // { label: "Fabric", category: "Fabric" },
+    // { label: "Quick delivery", category: "Quick delivery" },
+    // { label: "Accessories", category: "Accessories" },
+  ];
+
   return (
     <Box
       sx={{
@@ -83,12 +96,12 @@ const ProductNavigation: React.FC = () => {
             <Image
               style={{ width: "25px", height: "25px" }}
               src={svgs.Twitter}
-              alt="facebook"
+              alt="twitter"
             />
             <Image
               style={{ width: "25px", height: "25px" }}
               src={svgs.Instagram}
-              alt="facebook"
+              alt="instagram"
             />
           </Box>
         </Box>
@@ -106,21 +119,16 @@ const ProductNavigation: React.FC = () => {
             "&::-webkit-scrollbar": { display: "none" },
           }}
         >
-          <Typography
-            // onClick={() => handleMouseEnter("All sofas")}
-            onMouseOver={() => handleMouseEnter("All sofas")}
-            onMouseLeave={handleMouseLeave}
-            sx={{ ...textStyles }}
-          >
-            All sofas
-          </Typography>
-          <Typography sx={{ ...textStyles }}>Fabric sofas</Typography>
-          <Typography sx={{ ...textStyles }}>Corner sofas</Typography>
-          <Typography sx={{ ...textStyles }}>Leather sofas</Typography>
-          <Typography sx={{ ...textStyles }}>Chair</Typography>
-          <Typography sx={{ ...textStyles }}>Fabric</Typography>
-          <Typography sx={{ ...textStyles }}>Quick delivery</Typography>
-          <Typography sx={{ ...textStyles }}>Accesoories</Typography>
+          {navigationItems.map(({ label, category }) => (
+            <Typography
+              key={category}
+              onMouseOver={() => handleMouseEnter(category)}
+              onMouseLeave={handleMouseLeave}
+              sx={textStyles}
+            >
+              {label}
+            </Typography>
+          ))}
         </Box>
       </Box>
 
