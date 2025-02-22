@@ -1,3 +1,4 @@
+"use client";
 import { Box } from "@mui/material";
 import Navbar from "@/_components/header/Navbar";
 import HeroAboutUs from "./_sections/HeroAboutUs";

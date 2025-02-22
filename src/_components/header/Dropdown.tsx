@@ -2,8 +2,8 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import Image from "next/image";
-import pngs from "@/_assets/pngs";
+// import Image from "next/image";
+// import pngs from "@/_assets/pngs";
 import { useRouter } from "next/navigation";
 
 const Dropdown: React.FC<{

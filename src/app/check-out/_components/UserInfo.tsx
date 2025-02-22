@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
+// import CircularProgress from "@mui/material/CircularProgress";
 import { useForm, Controller } from "react-hook-form";
 import StandardInput from "@/_components/StandardInput";
 import PhoneInput from "react-phone-number-input";
@@ -23,7 +23,7 @@ export interface UserInfoFormValues {
 const UserInfo: React.FC<{
   onNext: (data: UserInfoFormValues) => void;
   loading: boolean;
-}> = ({ onNext, loading }) => {
+}> = ({ onNext }) => {
   const {
     control,
     handleSubmit,
