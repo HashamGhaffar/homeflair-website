@@ -14,6 +14,7 @@ export interface FilterState {
   furniture: string[];
   seaters: string[];
   material: string[];
+  colour: string[];
   priceRange: number[];
 }
 
@@ -34,6 +35,7 @@ export default function RezultForItem() {
     furniture: [],
     seaters: [],
     material: [],
+    colour: [],
     priceRange: [100, 5000],
   });
 
@@ -43,6 +45,7 @@ export default function RezultForItem() {
     const furniture = params.get("furniture")?.split(",") || [];
     const seaters = params.get("seaters")?.split(",") || [];
     const material = params.get("material")?.split(",") || [];
+    const colour = params.get("colour")?.split(",") || [];
     const minPrice = parseInt(params.get("minPrice") || "100");
     const maxPrice = parseInt(params.get("maxPrice") || "5000");
 
@@ -50,6 +53,7 @@ export default function RezultForItem() {
       furniture,
       seaters,
       material,
+      colour,
       priceRange: [minPrice, maxPrice],
     });
 
@@ -57,6 +61,7 @@ export default function RezultForItem() {
       furniture,
       seaters,
       material,
+      colour,
       priceRange: [minPrice, maxPrice],
     });
   }, [searchParams]);
@@ -93,6 +98,9 @@ export default function RezultForItem() {
     }
     if (filters.material.length > 0) {
       params.set("material", filters.material.join(","));
+    }
+    if (filters.colour.length > 0) {
+      params.set("colour", filters.colour.join(","));
     }
     params.set("minPrice", filters.priceRange[0].toString());
     params.set("maxPrice", filters.priceRange[1].toString());

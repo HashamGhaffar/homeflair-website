@@ -73,17 +73,40 @@ const Dropdown: React.FC<{
     //     { label: "Red Rose", query: "" },
     //   ],
     // },
-    // {
-    //   title: "Color",
-    //   items: [
-    //     { label: "Beige", query: "" },
-    //     { label: "Teal", query: "" },
-    //     { label: "Blue", query: "" },
-    //     { label: "Grey", query: "" },
-    //     { label: "Green", query: "" },
-    //     { label: "Orange", query: "" },
-    //   ],
-    // },
+
+    {
+      title: "Color",
+      items: [
+        {
+          label: "Yellow",
+          query: `colour=${encodeURIComponent(colorTheme.choiceYellow)}`,
+        },
+        {
+          label: "White",
+          query: `colour=${encodeURIComponent(colorTheme.choiceWhite)}`,
+        },
+        {
+          label: "Grey",
+          query: `colour=${encodeURIComponent(colorTheme.choiceGrey)}`,
+        },
+        {
+          label: "Blue",
+          query: `colour=${encodeURIComponent(colorTheme.choiceBlue)}`,
+        },
+        {
+          label: "Charcoal",
+          query: `colour=${encodeURIComponent(colorTheme.choiceCharcoal)}`,
+        },
+        {
+          label: "Brown",
+          query: `colour=${encodeURIComponent(colorTheme.choiceBrown)}`,
+        },
+        {
+          label: "Light Blue",
+          query: `colour=${encodeURIComponent(colorTheme.choiceLightBlue)}`,
+        },
+      ],
+    },
   ];
 
   return (

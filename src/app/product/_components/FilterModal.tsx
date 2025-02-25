@@ -21,6 +21,23 @@ interface FilterModalProps {
   applyFilters: () => void;
 }
 
+function ColorLabel({ color, label }: { color: string; label: string }) {
+  return (
+    <Box sx={{ display: "flex", gap: 2 }}>
+      <Box
+        sx={{
+          width: "20px",
+          height: "20px",
+          backgroundColor: color,
+        }}
+      />
+      <Typography variant="body2" sx={{ fontSize: fontSize.p3 }}>
+        {label}
+      </Typography>
+    </Box>
+  );
+}
+
 export default function FilterModal({
   onClose,
   filters,
@@ -46,8 +63,8 @@ export default function FilterModal({
   if (!isAnimating) return null;
 
   const filterOptions: Record<
-    "furniture" | "seaters" | "material",
-    { label: string; value: string }[]
+    "furniture" | "seaters" | "material" | "colour",
+    { label: string | React.ReactNode; value: string }[]
   > = {
     furniture: [
       { label: "Sofas", value: "Sofas" },
@@ -68,6 +85,67 @@ export default function FilterModal({
       { label: "Fabric Sofas", value: "Fabric Sofas" },
       { label: "Leather Sofas", value: "Leather Sofas" },
       { label: "Fabric Chair", value: "Fabric Chair" },
+    ],
+
+    colour: [
+      {
+        label: <ColorLabel color={colorTheme.choiceYellow} label="Yellow" />,
+        value: colorTheme.choiceYellow,
+      },
+      {
+        label: <ColorLabel color={colorTheme.choiceWhite} label="White" />,
+        value: colorTheme.choiceWhite,
+      },
+      {
+        label: <ColorLabel color={colorTheme.choiceGrey} label="Grey" />,
+        value: colorTheme.choiceGrey,
+      },
+      {
+        label: <ColorLabel color={colorTheme.choiceBlue} label="Blue" />,
+        value: colorTheme.choiceBlue,
+      },
+      {
+        label: (
+          <ColorLabel color={colorTheme.choiceCharcoal} label="Charcoal" />
+        ),
+        value: colorTheme.choiceCharcoal,
+      },
+
+      {
+        label: (
+          <ColorLabel color={colorTheme.choiceLightBlue} label="Light Blue" />
+        ),
+        value: colorTheme.choiceLightBlue,
+      },
+      {
+        label: <ColorLabel color={colorTheme.choiceGreen} label="Green" />,
+        value: colorTheme.choiceGreen,
+      },
+      {
+        label: (
+          <ColorLabel color={colorTheme.choiceSoftGrey} label="Soft Grey" />
+        ),
+        value: colorTheme.choiceSoftGrey,
+      },
+      {
+        label: (
+          <ColorLabel color={colorTheme.choiceDarkBlue} label="Dark Blue" />
+        ),
+        value: colorTheme.choiceDarkBlue,
+      },
+      {
+        label: <ColorLabel color={colorTheme.choicePink} label="Pink" />,
+        value: colorTheme.choicePink,
+      },
+      {
+        label: (
+          <ColorLabel
+            color={colorTheme.choiceDarkCharcoal}
+            label="Dark Charcoal"
+          />
+        ),
+        value: colorTheme.choiceDarkCharcoal,
+      },
     ],
   };
 

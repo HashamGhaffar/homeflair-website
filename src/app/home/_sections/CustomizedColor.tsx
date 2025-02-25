@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
+import { useRouter } from "next/navigation";
 
 export default function CustomizedColor() {
   const colors = [
@@ -18,6 +19,7 @@ export default function CustomizedColor() {
     colorTheme.choiceDarkCharcoal,
   ];
 
+  const navigation = useRouter();
   return (
     <Box
       sx={{
@@ -60,7 +62,10 @@ export default function CustomizedColor() {
                 transform: "scale(1.1)",
               },
             }}
-          ></Box>
+            onClick={() => {
+              navigation.push(`/product?colour=${encodeURIComponent(color)}`);
+            }}
+          />
         ))}
       </Box>
     </Box>
