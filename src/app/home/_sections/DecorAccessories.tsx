@@ -14,7 +14,7 @@ export default function DecorAccessories() {
   return (
     <Box
       sx={{
-        backgroundColor: colorTheme.white,
+        background: "linear-gradient(90deg, #FDFBFB 0%, #EBEDEE 100%)",
         padding: { xs: "40px", sm: "60px" },
       }}
     >
