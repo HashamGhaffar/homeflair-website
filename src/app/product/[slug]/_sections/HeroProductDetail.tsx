@@ -28,7 +28,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
     >
       <Box
         sx={{
-          maxWidth: "1200px",
+          maxWidth: "1440px",
           margin: "auto",
         }}
       >
@@ -66,16 +66,16 @@ export default function ProductDetailHero({ product }: { product: Product }) {
               {/* Main Image */}
               <Box
                 sx={{
-                  maxWidth: {
-                    xs: "300px",
-                    sm: "300px",
-                    md: "450px",
-                    lg: "500px",
-                    xl: "550px",
-                  },
+                  // maxWidth: {
+                  //   xs: "300px",
+                  //   sm: "300px",
+                  //   md: "450px",
+                  //   lg: "500px",
+                  //   xl: "550px",
+                  // },
                   height: {
-                    xs: "300px",
-                    sm: "270px",
+                    xs: "400px",
+                    // sm: "270px",
                     md: "410px",
                     lg: "460px",
                     xl: "500px",
@@ -90,7 +90,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "contain",
+                    objectFit: "cover",
                   }}
                   width={500}
                   height={500}
@@ -100,7 +100,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "flex-start",
+                  justifyContent: { xs: "flex-start", md: "space-between" },
                   alignItems: "center",
                   gap: "10px",
                   width: "100%",
@@ -120,19 +120,19 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                           ? `2px solid ${colorTheme.red}`
                           : "none", // Highlight selected thumbnail
                       // borderRadius: "8px",
-                      maxWidth: {
+                      width: {
                         xs: "40px",
                         sm: "50px",
                         md: "60px",
-                        xl: "100px",
+                        xl: "120px",
                       },
-                      maxHeight: {
+                      height: {
                         xs: "40px",
                         sm: "50px",
                         md: "60px",
-                        xl: "100px",
-                        width: "100%",
-                        height: "100%",
+                        xl: "120px",
+                        // width: "100%",
+                        // height: "100%",
                       },
                     }}
                   >
@@ -142,9 +142,10 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                       style={{
                         width: "100%",
                         height: "100%",
+                        objectFit: "cover",
                       }}
-                      width={200}
-                      height={200}
+                      width={150}
+                      height={150}
                     />
                   </Box>
                 ))}

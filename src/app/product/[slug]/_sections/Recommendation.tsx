@@ -17,35 +17,42 @@ export default function Recommendation() {
           },
         }}
       >
-        <Box>
-          <Typography
-            sx={{
-              fontSize: fontSize.h6,
-              textTransform: "uppercase",
-              color: colorTheme.forestShadow,
-              textAlign: "center",
-              fontWeight: "900",
-              paddingBottom: {
-                xs: "20px",
-                sm: "40px",
-                md: "60px",
-              },
-              paddingX: {
-                xs: "20px",
-                sm: "40px",
-                md: "60px",
-              },
-            }}
-          >
-            BEST RECOMMENDATIONS
-          </Typography>
-          <PremiumCollectionSlider
-            products={products}
-            setSelectedProduct={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-            selectedProduct={null}
-          />
+        <Box
+          sx={{
+            maxWidth: "1440px",
+            margin: "auto",
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                fontSize: fontSize.h6,
+                textTransform: "uppercase",
+                color: colorTheme.forestShadow,
+                textAlign: "center",
+                fontWeight: "900",
+                paddingBottom: {
+                  xs: "20px",
+                  sm: "40px",
+                  md: "60px",
+                },
+                paddingX: {
+                  xs: "20px",
+                  sm: "40px",
+                  md: "60px",
+                },
+              }}
+            >
+              BEST RECOMMENDATIONS
+            </Typography>
+            <PremiumCollectionSlider
+              products={products}
+              setSelectedProduct={function (): void {
+                throw new Error("Function not implemented.");
+              }}
+              selectedProduct={null}
+            />
+          </Box>
         </Box>
       </Box>
       <Box
