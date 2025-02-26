@@ -139,7 +139,7 @@ export default function FreshArrivals({
                 key={index}
                 imageSrc={card.mainImage}
                 altText={card.name}
-                description={card.shortDescription}
+                description={card.name}
               />
             ))}
           </Slider>

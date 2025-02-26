@@ -48,11 +48,15 @@ export default function PremiumCollectionSlider({
 }): JSX.Element {
   return (
     <Slider {...sliderSettings}>
-      {products.map((card, index) => (
+      {products.map((card: Product, index) => (
         <PremiumCollectionCard
           key={index}
           imageSrc={card.mainImage}
-          productName={card.category?.name.toString()}
+          productName={
+            typeof card.category === "string"
+              ? card.category
+              : card.category.name
+          }
           details={card.name}
           price={formatPrice(card.price)}
           isSelected={card._id === selectedProduct?._id}

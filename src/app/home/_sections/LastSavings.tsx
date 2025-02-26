@@ -72,12 +72,14 @@ export default function LastSavings({
         </Typography>
         <Box>
           <Slider {...sliderSettings}>
-            {products.map((card, index) => (
+            {products.map((card: Product, index) => (
               <FreshArrivalsCard
                 key={index}
                 imageSrc={card.mainImage}
                 productName={card.name}
-                details={card.subcategory.map((item) => item).join(", ")}
+                details={card.subcategory
+                  .map((item) => (typeof item === "string" ? item : item.name))
+                  .join(", ")}
                 currentPrice={formatPrice(
                   card.price - (card.discount / 100) * card.price
                 )}
