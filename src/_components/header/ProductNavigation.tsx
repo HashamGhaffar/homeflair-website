@@ -36,7 +36,7 @@ const ProductNavigation: React.FC = () => {
     fontSize: fontSize.p3,
     color: colorTheme.cloudGray,
     cursor: "pointer",
-    padding: "10px 0",
+    padding: "15px 0",
   };
 
   // Define navigation items dynamically
@@ -65,7 +65,7 @@ const ProductNavigation: React.FC = () => {
         <Box
           sx={{
             padding: {
-              xs: "10px 20px",
+              xs: "12px 20px",
             },
             display: { xs: "flex", md: "none" },
             justifyContent: "space-between",

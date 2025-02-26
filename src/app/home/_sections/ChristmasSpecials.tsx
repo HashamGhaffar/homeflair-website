@@ -140,6 +140,7 @@ function ChristmasSpecialsCard({
             md: "260px",
           },
           overflow: "hidden",
+          borderRadius: "12px",
         }}
       >
         <Image

@@ -2,8 +2,8 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-// import Image from "next/image";
-// import pngs from "@/_assets/pngs";
+import Image from "next/image";
+import pngs from "@/_assets/pngs";
 import { useRouter } from "next/navigation";
 
 const Dropdown: React.FC<{
@@ -18,7 +18,6 @@ const Dropdown: React.FC<{
     fontWeight: "700",
     textTransform: "uppercase",
     paddingBottom: "15px",
-    textAlign: "center",
   };
 
   const textStyles = {
@@ -26,7 +25,6 @@ const Dropdown: React.FC<{
     fontSize: fontSize.p5,
     cursor: "pointer",
     paddingBottom: "8px",
-    textAlign: "center",
     "&:hover": { color: colorTheme.forestShadow },
     "&:active": { color: colorTheme.forestShadow },
   };
@@ -64,15 +62,15 @@ const Dropdown: React.FC<{
       ],
     },
     // Uncomment if you want to enable Models and Clours
-    // {
-    //   title: "Model",
-    //   items: [
-    //     { label: "Buoyant", query: "" },
-    //     { label: "Designer Fabric", query: "" },
-    //     { label: "La-Z-Boy", query: "" },
-    //     { label: "Red Rose", query: "" },
-    //   ],
-    // },
+    {
+      title: "Model",
+      items: [
+        { label: "Buoyant", query: "" },
+        { label: "Designer Fabric", query: "" },
+        { label: "La-Z-Boy", query: "" },
+        { label: "Red Rose", query: "" },
+      ],
+    },
 
     {
       title: "Color",
@@ -144,14 +142,18 @@ const Dropdown: React.FC<{
         <Grid container spacing={4} justifyContent="center">
           {categories.map((category) => (
             <Grid item xs={2} key={category.title}>
-              <Typography sx={headingStyles} variant="h6" gutterBottom>
+              <Typography
+                sx={{ ...headingStyles, textAlign: "left" }}
+                variant="h6"
+                gutterBottom
+              >
                 {category.title}
               </Typography>
               {category.items.map(({ label, query }) => (
                 <Typography
                   key={label}
                   onClick={() => query && router.push(`/product?${query}`)}
-                  sx={textStyles}
+                  sx={{ ...textStyles, textAlign: "left" }}
                 >
                   {label}
                 </Typography>
@@ -160,7 +162,7 @@ const Dropdown: React.FC<{
           ))}
 
           {/* Christmas Promo Section */}
-          {/* <Grid item xs={2}>
+          <Grid item xs={2}>
             <Box sx={{ textAlign: "center" }}>
               <Typography sx={headingStyles} variant="h6" gutterBottom>
                 Christmas Promo
@@ -187,7 +189,7 @@ const Dropdown: React.FC<{
                 Red Rose Sofas
               </Typography>
             </Box>
-          </Grid> */}
+          </Grid>
         </Grid>
       </Box>
     </Box>

@@ -4,15 +4,18 @@ import { Box, Typography, Divider, TextField } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
-import {
-  Search as SearchIcon,
-  ShoppingCartOutlined as ShoppingCartOutlinedIcon,
-} from "@mui/icons-material";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { Search as SearchIcon } from "@mui/icons-material";
 import ProductNavigation from "./ProductNavigation";
 import { useRouter } from "next/navigation";
 
 const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
+  const navItems = [
+    { icon: svgs.Home, label: "Home", path: "/" },
+    { icon: svgs.About, label: "About", path: "/about-us" },
+    { icon: svgs.Product, label: "Product", path: "/product" },
+    { icon: svgs.Contact, label: "Contact", path: "/contact-us" },
+  ];
+
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -182,121 +185,54 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
       <Box
         sx={{
           position: "fixed",
-          top: 0,
-          right: 0,
-          height: "100%",
-          width: isDrawerOpen ? { xs: "60vw", sm: "300px" } : "0",
-          backgroundColor: colorTheme.darkBlue,
-          color: "white",
-          overflowX: "hidden",
+          top: "20px",
+          right: "20px",
+          // height: "100%",
+          width: isDrawerOpen ? "140px" : "0",
+          backgroundColor: "#2F302C",
+          color: "#FFFFFF80",
           transition: "all .5s ease",
           zIndex: 10,
-          textAlign: "right",
+          borderRadius: "12px",
         }}
       >
-        <Box sx={{ padding: "20px" }}>
-          <Box
-            onClick={() => toggleDrawer(false)}
-            sx={{ paddingBottom: "20px", cursor: "pointer" }}
-          >
-            <Image src={svgs.WhiteHamburger} alt="WhiteHamburger" />
-          </Box>
-          <TextField
-            variant="outlined"
-            placeholder="Search"
-            fullWidth
-            InputProps={{
-              endAdornment: <SearchIcon sx={{ color: colorTheme.white }} />,
-            }}
-            sx={{
-              color: colorTheme.white,
-              borderRadius: "50px",
-              border: `1px solid ${colorTheme.white}`,
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "30px",
-                "&.Mui-focused": {
-                  borderColor: colorTheme.darkBlue,
-                },
-              },
-              "& .MuiOutlinedInput-input": {
-                padding: "8px 16px",
-                color: colorTheme.white,
-              },
-              "& .MuiOutlinedInput-input::placeholder": {
-                color: colorTheme.white,
-              },
-            }}
-          />
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography onClick={() => router.push("/")} sx={{ ...textStyle }}>
-            Home
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography
-            onClick={() => router.push("about-us")}
-            sx={{ ...textStyle }}
-          >
-            About Us
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography
-            onClick={() => router.push("product")}
-            sx={{ ...textStyle }}
-          >
-            Products
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography onClick={() => router.push("cart")} sx={{ ...textStyle }}>
-            Cart
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Typography
-            onClick={() => router.push("contact-us")}
-            sx={{ ...textStyle }}
-          >
-            Contact
-          </Typography>
-          <Divider
-            sx={{ margin: "16px 0", backgroundColor: colorTheme.white }}
-          />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <PersonOutlineOutlinedIcon
-              sx={{ color: colorTheme.white, cursor: "pointer" }}
-            />
-            <ShoppingCartOutlinedIcon
-              sx={{ color: colorTheme.white, cursor: "pointer" }}
-            />
-          </Box>
-        </Box>
         <Box
           sx={{
-            float: "right",
-            diplay: "flex",
-            gap: "20px",
-            alignitems: "center",
+            display: isDrawerOpen ? "flex" : "none",
+            flexDirection: "column",
+            rowGap: { xs: "30px", md: "40px" },
+            margin: "auto",
+            alignItems: "center",
+            paddingY: { xs: "60px", md: "120px" },
           }}
-        ></Box>
+        >
+          {navItems.map((item, index) => (
+            <Box
+              onClick={() => router.push(item.path)}
+              key={index}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                rowGap: "10px",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                style={{ width: "30px" }}
+                src={item.icon}
+                alt={item.label}
+              />
+              <Typography
+                sx={{ ...textStyle, color: "#FFFFFF80", fontSize: fontSize.p3 }}
+              >
+                {item.label}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
       </Box>
-
       {/* background blurr  */}
-
       {isDrawerOpen && (
         <Box
           onClick={() => toggleDrawer(false)}

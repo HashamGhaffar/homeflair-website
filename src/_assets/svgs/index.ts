@@ -17,6 +17,15 @@ import Phone from "./phone.svg";
 import Tick from "./tick.svg";
 import Filter from "./filter.svg";
 import SortBy from "./sortBy.svg";
+// navicons
+import About from "./navIcons/about.svg";
+import AboutRed from "./navIcons/aboutRed.svg";
+import Contact from "./navIcons/contact.svg";
+import ContactRed from "./navIcons/contactRed.svg";
+import Home from "./navIcons/home.svg";
+import HomeRed from "./navIcons/homeRed.svg";
+import Product from "./navIcons/product.svg";
+import ProductRed from "./navIcons/productRed.svg";
 
 const svgs = {
   Logo,
@@ -38,6 +47,15 @@ const svgs = {
   Tick,
   Filter,
   SortBy,
+  // navicons
+  About,
+  AboutRed,
+  Contact,
+  ContactRed,
+  Home,
+  HomeRed,
+  Product,
+  ProductRed,
 };
 
 export default svgs;

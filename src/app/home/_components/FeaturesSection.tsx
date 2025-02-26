@@ -7,7 +7,7 @@ export default function FeaturesSection() {
   const cardBox = {
     display: "flex",
     flexDirection: "column",
-    gap: "10px",
+    gap: "15px",
     justifyContent: "center",
     alignItems: "center",
   };
