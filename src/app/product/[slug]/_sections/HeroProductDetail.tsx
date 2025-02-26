@@ -105,6 +105,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                   gap: "10px",
                   width: "100%",
                   paddingTop: { xs: "10px", md: "30px" },
+                  flexWrap: "wrap",
                 }}
               >
                 {navigationImages.map((item, index) => (
