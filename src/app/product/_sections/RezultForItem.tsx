@@ -131,7 +131,7 @@ export default function RezultForItem() {
         },
       }}
     >
-      <Box sx={{ maxWidth: "1200px", margin: "auto" }}>
+      <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
         <Header
           filters={filters}
           setFilters={setFilters}

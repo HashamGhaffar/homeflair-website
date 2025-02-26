@@ -33,7 +33,7 @@ export default function Footer() {
     >
       <Box
         sx={{
-          maxWidth: "1200px",
+          maxWidth: "1440px",
           margin: "auto",
           display: "flex",
           flexDirection: "column",
