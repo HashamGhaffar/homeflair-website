@@ -7,7 +7,7 @@ import FreshArrivalsCard from "../_components/FreshArrivalsCard";
 import CustomPagination from "../_components/CustomPagination";
 import Header from "../_components/Header";
 import { Product } from "@/types/product";
-import { getPriceRange } from "@/_utils/helpers";
+import { formatPrice } from "@/_utils/helpers";
 import { getFilteredProducts } from "@/services/productApi";
 
 export interface FilterState {
@@ -184,7 +184,7 @@ export default function RezultForItem() {
                         : subcategory.name
                     )
                     .join(", ")}
-                  currentPrice={getPriceRange(product)}
+                  currentPrice={formatPrice(product.price)}
                   buttonText={"Go To Shop"}
                 />
               </Grid>
