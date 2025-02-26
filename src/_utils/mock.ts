@@ -42,6 +42,7 @@ export const products: Product[] = [
     images: [
       "http://res.cloudinary.com/ddixiuh7h/image/upload/v1736849555/homeflair/u7nrzmk48s6pypbkairi.jpg",
       "http://res.cloudinary.com/ddixiuh7h/image/upload/v1736849556/homeflair/n7et4zaifu3flpxkll7h.jpg",
+      "http://res.cloudinary.com/ddixiuh7h/image/upload/v1736849556/homeflair/n7et4zaifu3flpxkll7h.jpg",
     ],
     mainImage:
       "http://res.cloudinary.com/ddixiuh7h/image/upload/v1736849554/homeflair/ufko5ppazjifybyflyqm.jpg",

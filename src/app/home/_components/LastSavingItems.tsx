@@ -49,27 +49,29 @@ export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
               width={480}
               height={398}
             />
-            <Typography
-              sx={{
-                padding: "5px 10px",
-                backgroundColor: colorTheme.shadowGrey,
-                color: colorTheme.white,
-                position: "absolute",
-                top: "10px",
-                left: "10px",
-                right: "10px",
-                width: "auto",
-                fontSize: fontSize.p1,
-                // text ellipsis
-                display: "-webkit-box",
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {item.label}
-            </Typography>
+            {item.label && (
+              <Typography
+                sx={{
+                  padding: "5px 10px",
+                  backgroundColor: colorTheme.shadowGrey,
+                  color: colorTheme.white,
+                  position: "absolute",
+                  top: "10px",
+                  left: "10px",
+                  right: "10px",
+                  width: "auto",
+                  fontSize: fontSize.p1,
+                  // text ellipsis
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {item.label}
+              </Typography>
+            )}
           </Box>
         </Grid>
       ))}

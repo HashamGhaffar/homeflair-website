@@ -52,8 +52,8 @@ export default function PremiumCollectionSlider({
         <PremiumCollectionCard
           key={index}
           imageSrc={card.mainImage}
-          productName={card.name}
-          details={card.shortDescription}
+          productName={card.category?.name.toString()}
+          details={card.name}
           price={formatPrice(card.price)}
           isSelected={card._id === selectedProduct?._id}
           setSelectedProduct={setSelectedProduct}

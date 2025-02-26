@@ -24,11 +24,21 @@ export default function BestSeller({
 
   const productItems = useMemo(() => {
     return (
-      selectedProduct?.images.slice(0, 3).map((image, index) => ({
-        imageSrc: image,
-        altText: `${selectedProduct.name} - Image ${index + 1}`,
-        label: selectedProduct.shortDescription || selectedProduct.name,
-      })) || []
+      selectedProduct?.images.slice(0, 3).map((image, index) => {
+        if (index === 0) {
+          return {
+            imageSrc: image,
+            altText: `${selectedProduct.name} - Image ${index + 1}`,
+            label: selectedProduct.name,
+          };
+        } else {
+          return {
+            imageSrc: image,
+            altText: `${selectedProduct.name} - Image ${index + 1}`,
+            label: "",
+          };
+        }
+      }) || []
     );
   }, [selectedProduct]);
 
