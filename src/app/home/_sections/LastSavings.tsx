@@ -121,12 +121,15 @@ function FreshArrivalsCard({
         overflow: "hidden",
         margin: "auto",
         color: colorTheme.white,
+        // height: "425px",
       }}
     >
+      {/* image  */}
       <Box
         sx={{
           height: { xs: "219.31px", sm: "265px" },
-          width: { xs: "240px", sm: "290px" },
+          // width: { xs: "240px", sm: "290px" },
+          width: "100%",
           marginBottom: { xs: "10px", sm: "18px" },
           overflow: "hidden",
           "&:first-child": {
@@ -144,28 +147,48 @@ function FreshArrivalsCard({
           alt="product image"
         />
       </Box>
-      <Box>
-        <Typography
-          sx={{
-            fontWeight: "700",
-            fontSize: fontSize.p5,
-          }}
-        >
-          {productName}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: fontSize.p6,
-          }}
-        >
-          {details}
-        </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "space-between",
+          height: { xs: "120px", md: "130px", lg: "140px" },
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{
+              fontWeight: "700",
+              fontSize: fontSize.p5,
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 2,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {productName}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: fontSize.p6,
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 2,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {details}
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
-            marginTop: { xs: "8px", sm: "12px" },
+            // marginTop: { xs: "8px", sm: "12px" },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "flex-end", gap: "8px" }}>
