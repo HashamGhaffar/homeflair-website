@@ -31,7 +31,7 @@ export default function HeroSlide({
           backgroundPosition: { xs: "center", md: "left" },
           backgroundRepeat: "no-repeat",
           padding: {
-            xs: "30px",
+            xs: "30px 20px",
             sm: "40px 60px",
             md: "60px 80px",
             lg: "80px 100px",
@@ -44,7 +44,7 @@ export default function HeroSlide({
         }}
       >
         <Grid
-          sx={{ height: "100%", maxWidth: "1400px" }}
+          sx={{ height: "100%", maxWidth: "1440px" }}
           columnSpacing={3}
           rowSpacing={3}
           container

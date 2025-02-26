@@ -52,7 +52,7 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
       >
         <Box
           sx={{
-            maxWidth: "1600px",
+            maxWidth: "1440px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
