@@ -1,33 +1,39 @@
 "use client";
 import React, { useState } from "react";
-import { Box, Typography, Divider, TextField } from "@mui/material";
+import { Box, Typography, TextField, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
 import svgs from "@/_assets/svgs";
 import { Search as SearchIcon } from "@mui/icons-material";
+import { usePathname, useRouter } from "next/navigation";
 import ProductNavigation from "./ProductNavigation";
-import { useRouter } from "next/navigation";
 
 const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
-  const navItems = [
-    { icon: svgs.Home, label: "Home", path: "/" },
-    { icon: svgs.About, label: "About", path: "/about-us" },
-    { icon: svgs.Product, label: "Product", path: "/product" },
-    { icon: svgs.Contact, label: "Contact", path: "/contact-us" },
-  ];
-
   const router = useRouter();
+  const pathname = usePathname(); // Get current route
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const textStyle = {
-    fontSize: fontSize.p3,
-    fontWeight: "300",
-    color: colorTheme.white,
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-    mb: 2,
-    cursor: "pointer",
-  };
+  const navItems = [
+    { icon: svgs.Home, redIcon: svgs.HomeRed, label: "Home", path: "/" },
+    {
+      icon: svgs.About,
+      redIcon: svgs.AboutRed,
+      label: "About",
+      path: "/about-us",
+    },
+    {
+      icon: svgs.Product,
+      redIcon: svgs.ProductRed,
+      label: "Product",
+      path: "/product",
+    },
+    {
+      icon: svgs.Contact,
+      redIcon: svgs.ContactRed,
+      label: "Contact",
+      path: "/contact-us",
+    },
+  ];
 
   const toggleDrawer = (isOpen: boolean) => {
     setIsDrawerOpen(isOpen);
@@ -181,7 +187,7 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
       </Box>
       <ProductNavigation />
 
-      {/* hamburger nevigation  */}
+      {/* Hamburger Navigation */}
       <Box
         sx={{
           position: "fixed",
@@ -206,36 +212,50 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
             paddingY: { xs: "60px", md: "120px" },
           }}
         >
-          {navItems.map((item, index) => (
-            <Box
-              onClick={() => router.push(item.path)}
-              key={index}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                rowGap: "10px",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              <Image
-                style={{ width: "30px" }}
-                src={item.icon}
-                alt={item.label}
-              />
-              <Typography
-                sx={{ ...textStyle, color: "#FFFFFF80", fontSize: fontSize.p3 }}
+          {navItems.map((item, index) => {
+            const isActive = pathname === item.path;
+            return (
+              <Box
+                key={index}
+                onClick={() => router.push(item.path)}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  rowGap: "10px",
+                  alignItems: "center",
+                  cursor: "pointer",
+                }}
               >
-                {item.label}
-              </Typography>
-            </Box>
-          ))}
+                <Image
+                  src={isActive ? item.redIcon : item.icon}
+                  alt={item.label}
+                  width={30}
+                  height={30}
+                />
+                <Typography
+                  sx={{
+                    fontSize: fontSize.p3,
+                    // fontWeight: "600",
+                    color: isActive ? "#DC1A2C" : "#FFFFFF80",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                    overflow: "hidden",
+                  }}
+                >
+                  {item.label}
+                </Typography>
+              </Box>
+            );
+          })}
         </Box>
       </Box>
-      {/* background blurr  */}
+
+      {/* Background Blur */}
       {isDrawerOpen && (
         <Box
-          onClick={() => toggleDrawer(false)}
+          onClick={() => setIsDrawerOpen(false)}
           sx={{
             position: "fixed",
             top: 0,
