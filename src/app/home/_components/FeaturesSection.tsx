@@ -23,63 +23,64 @@ export default function FeaturesSection() {
     display: { xs: "none", sm: "block" },
   };
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", sm: "row" },
-        gap: { xs: "40px", sm: "30px", md: "40px", xl: "80px" },
-        justifyContent: "center",
-        alignItems: "center",
-        padding: {
-          xs: "20px",
-          sm: "20px 60px",
-          md: "20px 80px",
-          lg: "20px 100px",
-          xl: "20px 120px",
-        },
-        backgroundColor: colorTheme.forestShadow,
-      }}
-    >
-      <Box sx={{ ...cardBox }}>
-        <Image
-          style={{ width: "50px", height: "50px", objectFit: "contain" }}
-          src={svgs.MadeToOrderIcon}
-          alt="made to order"
-        />
-        <Typography sx={{ ...textStyles }}>made to order</Typography>
-      </Box>
+    <Box sx={{ backgroundColor: colorTheme.forestShadow }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: { xs: "40px", sm: "30px", md: "40px", xl: "80px" },
+          justifyContent: "center",
+          alignItems: "center",
+          padding: {
+            xs: "30px 20px",
+            sm: "30px 60px",
+            md: "30px 80px",
+            lg: "40px 100px",
+            xl: "40px 120px",
+          },
+        }}
+      >
+        <Box sx={{ ...cardBox }}>
+          <Image
+            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            src={svgs.MadeToOrderIcon}
+            alt="made to order"
+          />
+          <Typography sx={{ ...textStyles }}>made to order</Typography>
+        </Box>
 
-      <Divider sx={{ ...dividerStyles }} />
+        <Divider sx={{ ...dividerStyles }} />
 
-      <Box sx={{ ...cardBox }}>
-        <Image
-          style={{ width: "50px", height: "50px", objectFit: "contain" }}
-          src={svgs.LifeTimeGuaranteeIcon}
-          alt="lifetime guarantee"
-        />
-        <Typography sx={{ ...textStyles }}>lifetime guarantee</Typography>
-      </Box>
+        <Box sx={{ ...cardBox }}>
+          <Image
+            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            src={svgs.LifeTimeGuaranteeIcon}
+            alt="lifetime guarantee"
+          />
+          <Typography sx={{ ...textStyles }}>lifetime guarantee</Typography>
+        </Box>
 
-      <Divider sx={{ ...dividerStyles }} />
+        <Divider sx={{ ...dividerStyles }} />
 
-      <Box sx={{ ...cardBox }}>
-        <Image
-          style={{ width: "50px", height: "50px", objectFit: "contain" }}
-          src={svgs.FreeSwatchIcon}
-          alt="free swatch services"
-        />
-        <Typography sx={{ ...textStyles }}>free swatch services</Typography>
-      </Box>
+        <Box sx={{ ...cardBox }}>
+          <Image
+            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            src={svgs.FreeSwatchIcon}
+            alt="free swatch services"
+          />
+          <Typography sx={{ ...textStyles }}>free swatch services</Typography>
+        </Box>
 
-      <Divider sx={{ ...dividerStyles }} />
+        <Divider sx={{ ...dividerStyles }} />
 
-      <Box sx={{ ...cardBox }}>
-        <Image
-          style={{ width: "50px", height: "50px", objectFit: "contain" }}
-          src={svgs.CustomerSupportIcon}
-          alt="custom care support"
-        />
-        <Typography sx={{ ...textStyles }}>custom care support</Typography>
+        <Box sx={{ ...cardBox }}>
+          <Image
+            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            src={svgs.CustomerSupportIcon}
+            alt="custom care support"
+          />
+          <Typography sx={{ ...textStyles }}>custom care support</Typography>
+        </Box>
       </Box>
     </Box>
   );

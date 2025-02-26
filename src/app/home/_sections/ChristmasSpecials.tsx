@@ -16,6 +16,7 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
   const sliderSettings = {
     dots: false,
     infinite: true,
+    arrows: false,
     speed: 800,
     slidesToShow: 5,
     slidesToScroll: 2,
@@ -62,33 +63,41 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
         overflow: "hidden",
       }}
     >
-      <Typography
+      <Box
         sx={{
-          fontWeight: "800",
-          marginBottom: "60px",
-          fontFamily: "'Playfair Display', serif",
-          fontSize: fontSize.h6,
-          color: colorTheme.forestShadow,
-          textAlign: "center",
-          textTransform: "uppercase",
+          maxWidth: "1440px",
+          margin: "auto",
         }}
       >
-        On Your Doorstep Before Christmas
-      </Typography>
-      <Slider {...sliderSettings}>
-        {products.map((item, index) => (
-          <ChristmasSpecialsCard
-            key={index}
-            image={item.mainImage}
-            title={item.name}
-            description={item.shortDescription}
-            price={formatPrice(item.price)}
-            onClick={() => {
-              router.push(`/product/${item.slug}`);
-            }}
-          />
-        ))}
-      </Slider>
+        <Typography
+          sx={{
+            fontWeight: "800",
+            marginBottom: "60px",
+            fontFamily: "'Playfair Display', serif",
+            fontSize: fontSize.h6,
+            color: colorTheme.forestShadow,
+            textAlign: "center",
+            textTransform: "uppercase",
+            paddingX: "20px",
+          }}
+        >
+          On Your Doorstep Before Christmas
+        </Typography>
+        <Slider {...sliderSettings}>
+          {products.map((item, index) => (
+            <ChristmasSpecialsCard
+              key={index}
+              image={item.mainImage}
+              title={item.name}
+              description={item.shortDescription}
+              price={formatPrice(item.price)}
+              onClick={() => {
+                router.push(`/product/${item.slug}`);
+              }}
+            />
+          ))}
+        </Slider>
+      </Box>
     </Box>
   );
 }

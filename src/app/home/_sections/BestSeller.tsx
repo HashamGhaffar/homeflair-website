@@ -43,25 +43,32 @@ export default function BestSeller({
         backgroundColor: colorTheme.pureFog,
       }}
     >
-      <Typography
+      <Box
         sx={{
-          textAlign: "center",
-          color: colorTheme.forestShadow,
-          fontSize: fontSize.h6,
-          width: "100%",
-          fontFamily: "'Playfair Display', serif",
-          fontWeight: "800",
-          textTransform: "uppercase",
+          maxWidth: "1440px",
+          margin: "auto",
         }}
       >
-        best seller
-      </Typography>
-      <LastSavingItems items={productItems} />
-      <PremiumCollectionSlider
-        products={products}
-        setSelectedProduct={setSelectedProduct}
-        selectedProduct={selectedProduct}
-      />
+        <Typography
+          sx={{
+            textAlign: "center",
+            color: colorTheme.forestShadow,
+            fontSize: fontSize.h6,
+            width: "100%",
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: "800",
+            textTransform: "uppercase",
+          }}
+        >
+          best seller
+        </Typography>
+        <LastSavingItems items={productItems} />
+        <PremiumCollectionSlider
+          products={products}
+          setSelectedProduct={setSelectedProduct}
+          selectedProduct={selectedProduct}
+        />
+      </Box>
     </Box>
   );
 }
