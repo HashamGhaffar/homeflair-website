@@ -42,12 +42,10 @@ export default function HeroSlide({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: "1440px",
-          margin: "auto",
         }}
       >
         <Grid
-          sx={{ height: "100%", maxWidth: "1340px" }}
+          sx={{ height: "100%", maxWidth: "1440px" }}
           columnSpacing={3}
           rowSpacing={3}
           container
