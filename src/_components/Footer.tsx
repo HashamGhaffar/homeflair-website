@@ -26,13 +26,15 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: colorTheme.white,
-        paddingY: "40px",
-        paddingX: { xs: "20px", sm: "40px", md: "80px", lg: "100px" },
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Box
         sx={{
+          paddingX: { xs: "20px", sm: "40px", md: "80px", lg: "100px" },
+          backgroundColor: colorTheme.white,
+          paddingY: "40px",
           maxWidth: "1440px",
           margin: "auto",
           display: "flex",
@@ -151,7 +153,12 @@ export default function Footer() {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", gap: "8px", mt: 1 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                mt: 1,
+              }}
             >
               <Image src={svgs.Email} alt="Email" width={20} height={20} />
               <Typography sx={{ ...textStyles }}>
@@ -159,7 +166,12 @@ export default function Footer() {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", gap: "8px", mt: 1 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                mt: 1,
+              }}
             >
               <Image src={svgs.Phone} alt="Phone" width={20} height={20} />
               <Typography sx={{ ...textStyles }}>01709376633</Typography>

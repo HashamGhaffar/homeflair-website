@@ -44,15 +44,21 @@ export default function LastSavings({
   return (
     <Box
       sx={{
-        paddingY: {
-          xs: "30px",
-          sm: "60px",
-        },
-        paddingX: { xs: "10px", sm: "0" },
-        backgroundColor: colorTheme.red,
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
-      <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
+      <Box
+        sx={{
+          maxWidth: "1440px",
+          margin: "auto",
+          paddingY: {
+            xs: "30px",
+            sm: "60px",
+          },
+          backgroundColor: colorTheme.red,
+        }}
+      >
         <Typography
           sx={{
             textAlign: "center",

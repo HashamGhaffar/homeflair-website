@@ -58,15 +58,17 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
   return (
     <Box
       sx={{
-        backgroundColor: colorTheme.dimAsh,
-        padding: "60px 0",
         overflow: "hidden",
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Box
         sx={{
+          padding: "60px 0",
           maxWidth: "1440px",
           margin: "auto",
+          backgroundColor: "#eaeaea",
         }}
       >
         <Typography

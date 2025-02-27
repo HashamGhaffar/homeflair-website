@@ -16,10 +16,10 @@ export default function FreshArrivals({
 }): JSX.Element {
   const sliderSettings = {
     infinite: true,
+    arrows: false,
     speed: 800,
     slidesToShow: 4,
     slidesToScroll: 2,
-    arrow: false,
     responsive: [
       {
         breakpoint: 1600,
@@ -52,17 +52,17 @@ export default function FreshArrivals({
   return (
     <Box
       sx={{
-        paddingY: {
-          xs: "30px",
-          sm: "60px",
-        },
-        backgroundColor: colorTheme.pureFog,
-        // maxWidth: "1440px",
-        // margin: "auto",
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Grid
         sx={{
+          paddingY: {
+            xs: "30px",
+            sm: "60px",
+          },
+          backgroundColor: colorTheme.pureFog,
           maxWidth: "1440px",
           margin: "auto",
         }}

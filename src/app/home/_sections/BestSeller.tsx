@@ -45,18 +45,19 @@ export default function BestSeller({
   return (
     <Box
       sx={{
-        paddingY: {
-          xs: "30px",
-          sm: "60px",
-        },
-        paddingX: { xs: "30px", sm: "0" },
-        backgroundColor: colorTheme.pureFog,
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Box
         sx={{
           maxWidth: "1440px",
           margin: "auto",
+          paddingY: {
+            xs: "30px",
+            sm: "60px",
+          },
+          backgroundColor: colorTheme.pureFog,
         }}
       >
         <Typography

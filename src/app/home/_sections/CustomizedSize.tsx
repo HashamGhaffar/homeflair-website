@@ -44,69 +44,78 @@ export default function CustomizedSize() {
   return (
     <Box
       sx={{
-        backgroundColor: colorTheme.pureFog,
-        padding: { xs: "40px", sm: "60px" },
+        padding: { lg: "0 60px" },
+        backgroundColor: { lg: "#2F302C" },
       }}
     >
-      <Typography
-        sx={{
-          textAlign: "center",
-          color: colorTheme.forestShadow,
-          fontSize: fontSize.h6,
-          fontWeight: "800",
-          marginBottom: { xs: "20px", sm: "40px" },
-          fontFamily: "'Playfair Display', serif",
-          textTransform: "uppercase",
-        }}
-      >
-        Have a Specific Size in Mind?
-      </Typography>
       <Box
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: { xs: "30px", lg: "40px" },
+          backgroundColor: colorTheme.pureFog,
+          padding: { xs: "40px", sm: "60px", lg: "60px 0" },
+          maxWidth: "1440px",
+          margin: "auto",
         }}
       >
-        {items.map((item, index) => (
-          <Box
-            key={index}
-            sx={{
-              textAlign: "center",
-              cursor: "pointer",
-              transition: "transform 0.3s ease-in",
-              "&:hover": {
-                transform: "scale(1.03)",
-              },
-            }}
-            onClick={() => {
-              router.push("product?" + item.query);
-            }}
-          >
+        <Typography
+          sx={{
+            textAlign: "center",
+            color: colorTheme.forestShadow,
+            fontSize: fontSize.h6,
+            fontWeight: "800",
+            marginBottom: { xs: "20px", sm: "40px" },
+            fontFamily: "'Playfair Display', serif",
+            textTransform: "uppercase",
+          }}
+        >
+          Have a Specific Size in Mind?
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: { xs: "30px", lg: "40px" },
+          }}
+        >
+          {items.map((item, index) => (
             <Box
+              key={index}
               sx={{
-                height: { xs: "95px", md: "128px" },
-                width: "auto",
-                margin: "auto",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                textAlign: "center",
+                cursor: "pointer",
+                transition: "transform 0.3s ease-in",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
+              }}
+              onClick={() => {
+                router.push("product?" + item.query);
               }}
             >
-              <Image
-                src={item.src}
-                alt="Sofa Collection"
-                width={128}
-                height={128}
-                style={{
-                  objectFit: "contain",
+              <Box
+                sx={{
+                  height: { xs: "95px", md: "128px" },
+                  width: "auto",
+                  margin: "auto",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-              />
+              >
+                <Image
+                  src={item.src}
+                  alt="Sofa Collection"
+                  width={128}
+                  height={128}
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+              <Typography sx={{ ...textStyles }}>{item.label}</Typography>
             </Box>
-            <Typography sx={{ ...textStyles }}>{item.label}</Typography>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Box>
   );
