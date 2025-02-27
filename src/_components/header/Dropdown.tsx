@@ -65,10 +65,10 @@ const Dropdown: React.FC<{
     {
       title: "Model",
       items: [
-        { label: "Buoyant", query: "" },
-        { label: "Designer Fabric", query: "" },
-        { label: "La-Z-Boy", query: "" },
-        { label: "Red Rose", query: "" },
+        { label: "Buoyant", query: "brand=Buoyant" },
+        { label: "Designer Fabric", query: "brand=Designer+Fabric" },
+        { label: "La-Z-Boy", query: "brand=La-Z-Boy" },
+        { label: "Red Rose", query: "brand=Red+Rose" },
       ],
     },
 

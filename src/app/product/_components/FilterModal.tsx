@@ -63,7 +63,7 @@ export default function FilterModal({
   if (!isAnimating) return null;
 
   const filterOptions: Record<
-    "furniture" | "seaters" | "material" | "colour",
+    "furniture" | "seaters" | "material" | "colour" | "brand",
     { label: string | React.ReactNode; value: string }[]
   > = {
     furniture: [
@@ -147,11 +147,18 @@ export default function FilterModal({
         value: colorTheme.choiceDarkCharcoal,
       },
     ],
+    brand: [
+      { label: "Buoyant", value: "Buoyant" },
+      { label: "Designer Fabric", value: "Designer Fabric" },
+      { label: "La-Z-Boy", value: "La-Z-Boy" },
+      { label: "Red Rose", value: "Red Rose" },
+      { label: "Other", value: "Other" },
+    ],
   };
 
   // ✅ Handle Checkbox Changes
   const handleCheckboxChange = (
-    category: keyof Omit<FilterState, "priceRange">,
+    category: keyof Omit<FilterState, "priceRange" | "deliveryTime">,
     value: string
   ) => {
     setFilters((prevFilters) => {

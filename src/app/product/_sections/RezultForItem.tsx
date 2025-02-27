@@ -16,6 +16,8 @@ export interface FilterState {
   material: string[];
   colour: string[];
   priceRange: number[];
+  brand: string[];
+  deliveryTime?: string;
 }
 
 export default function RezultForItem() {
@@ -37,6 +39,7 @@ export default function RezultForItem() {
     material: [],
     colour: [],
     priceRange: [100, 5000],
+    brand: [],
   });
 
   useEffect(() => {
@@ -48,6 +51,8 @@ export default function RezultForItem() {
     const colour = params.get("colour")?.split(",") || [];
     const minPrice = parseInt(params.get("minPrice") || "100");
     const maxPrice = parseInt(params.get("maxPrice") || "5000");
+    const brand = params.get("brand")?.split(",") || [];
+    const deliveryTime = params.get("deliveryTime");
 
     setFilters({
       furniture,
@@ -55,6 +60,7 @@ export default function RezultForItem() {
       material,
       colour,
       priceRange: [minPrice, maxPrice],
+      brand,
     });
 
     fetchProducts({
@@ -63,6 +69,8 @@ export default function RezultForItem() {
       material,
       colour,
       priceRange: [minPrice, maxPrice],
+      brand: [],
+      deliveryTime: deliveryTime || undefined,
     });
   }, [searchParams]);
 
@@ -101,6 +109,9 @@ export default function RezultForItem() {
     }
     if (filters.colour.length > 0) {
       params.set("colour", filters.colour.join(","));
+    }
+    if (filters.brand.length > 0) {
+      params.set("brand", filters.brand.join(","));
     }
     params.set("minPrice", filters.priceRange[0].toString());
     params.set("maxPrice", filters.priceRange[1].toString());
