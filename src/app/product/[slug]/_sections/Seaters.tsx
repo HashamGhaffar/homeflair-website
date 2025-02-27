@@ -35,7 +35,12 @@ export default function Seaters({
       <Box
         sx={{
           background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
-          padding: { xs: "40px", sm: "60px" },
+          padding: {
+            xs: "40px 20px",
+            sm: "50px 30px",
+            md: "50px 100px",
+            lg: "70px 150px",
+          },
           maxWidth: "1440px",
           margin: "0 auto",
         }}
@@ -47,6 +52,12 @@ export default function Seaters({
             fontWeight: "700",
             marginBottom: { xs: "20px", sm: "40px" },
             textTransform: "uppercase",
+            paddingBottom: {
+              xs: "24px",
+              sm: "30px",
+              md: "30px",
+              lg: "42px",
+            },
           }}
         >
           seaters&#96;
