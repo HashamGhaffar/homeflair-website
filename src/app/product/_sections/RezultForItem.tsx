@@ -184,7 +184,7 @@ export default function RezultForItem() {
             </Typography>
           </Box>
         ) : (
-          <Grid container spacing={3}>
+          <Grid sx={{ rowGap: "20px", md: "0" }} container spacing={3}>
             {products.map((product, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                 <FreshArrivalsCard

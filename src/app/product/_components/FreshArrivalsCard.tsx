@@ -28,14 +28,17 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
     >
       <Box
         sx={{
-          height: "230px",
-          width: "230px",
-          marginBottom: { xs: "10px", sm: "18px" },
+          height: "270px",
+          width: "100%",
+          // marginBottom: { xs: "10px", sm: "18px" },
+          marginBottom: "10px",
         }}
       >
         <Image
           style={{
-            objectFit: "contain",
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
           }}
           width={230}
           height={230}
@@ -49,6 +52,11 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
             fontWeight: "700",
             fontSize: fontSize.p5,
             color: colorTheme.forestShadow,
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
           {productName}
@@ -60,6 +68,9 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
           }}
         >
           {details}
@@ -76,7 +87,7 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
           <Typography
             sx={{
               fontWeight: "900",
-              fontSize: fontSize.p3,
+              fontSize: fontSize.p1,
               color: colorTheme.forestShadow,
             }}
           >
@@ -84,7 +95,7 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
           </Typography>
           <MUIButton
             sx={{
-              padding: "10px 20px",
+              padding: "8px 15px",
               borderRadius: "12px",
               backgroundColor: colorTheme.red,
               color: colorTheme.white,

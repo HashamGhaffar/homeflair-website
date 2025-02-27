@@ -124,13 +124,11 @@ export const fontSize = {
     lg: "16px",
   },
   p4: {
-    xs: "13px",
-    md: "14px",
+    xs: "14px",
     lg: "15px",
   },
   p5: {
-    xs: "13px",
-    lg: "14px",
+    xs: "14px",
   },
   p6: {
     xs: "12px",
