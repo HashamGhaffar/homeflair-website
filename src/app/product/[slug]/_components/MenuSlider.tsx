@@ -5,6 +5,7 @@ import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import { AttributeOption } from "@/types/product";
 import { ProductAttributes } from "../page";
+import pngs from "@/_assets/pngs";
 
 interface MenuSliderProps {
   items: AttributeOption[];
@@ -40,12 +41,20 @@ export function MenuSlider({
             key={index}
             bgcolor={
               selectedOptions && selectedOptions[name]?.label === item.label
-                ? colorTheme.softSilver
+                ? "none"
                 : "transparent"
             }
           >
             <Box
               sx={{
+                padding:
+                  selectedOptions && selectedOptions[name]?.label === item.label
+                    ? "24px 10px"
+                    : "20px 10px",
+                border:
+                  selectedOptions && selectedOptions[name]?.label === item.label
+                    ? "2px solid #2F302C"
+                    : "0",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -53,6 +62,7 @@ export function MenuSlider({
                 marginX: "10px",
                 paddingY: "10px",
                 textAlign: "center",
+                maxWidth: "150px",
                 transition: "transform 0.4s ease-in-out",
                 "&:hover": {
                   transform: "scale(1.1)",
@@ -74,7 +84,7 @@ export function MenuSlider({
                   }}
                 >
                   <Image
-                    src={item.image_url}
+                    src={item.image_url || pngs.DummyImage}
                     alt={item.label ?? ""}
                     layout="responsive"
                     style={{

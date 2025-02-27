@@ -63,6 +63,8 @@ import Fabric from "./fabric.png";
 // contact us
 import ContactUsCard from "./contactUsCard.png";
 
+import DummyImage from "./dummyImage.jpg";
+
 const pngs = {
   RedRoseSofa,
   FinestFurniture,
@@ -109,6 +111,7 @@ const pngs = {
   RedColor,
   Fabric,
   ContactUsCard,
+  DummyImage,
 };
 
 export default pngs;
