@@ -18,18 +18,21 @@ export default function OrderDetail({
   return (
     <Box
       sx={{
-        padding: {
-          xs: "40px 20px",
-          sm: "50px 30px",
-          md: "50px 100px",
-          lg: "70px 120px",
-        },
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Box
         sx={{
-          maxWidth: "1200px",
+          padding: {
+            xs: "40px 20px",
+            sm: "50px 30px",
+            md: "50px 100px",
+            lg: "70px 120px",
+          },
+          maxWidth: "1440px",
           margin: "0 auto",
+          backgroundColor: "#ffffff",
         }}
       >
         <Typography

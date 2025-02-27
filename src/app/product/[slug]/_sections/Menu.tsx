@@ -18,18 +18,17 @@ export default function Menu({
   return (
     <>
       <Box
-        sx={{
-          background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
-          padding: {
-            xs: "40px 20px",
-            sm: "50px 30px",
-            md: "50px 100px",
-            lg: "70px 150px",
-          },
-        }}
+        sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}
       >
         <Box
           sx={{
+            background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
+            padding: {
+              xs: "40px 20px",
+              sm: "50px 30px",
+              md: "50px 100px",
+              lg: "70px 150px",
+            },
             maxWidth: "1440px",
             margin: "0 auto",
           }}

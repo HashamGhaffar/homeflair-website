@@ -7,20 +7,17 @@ import pngs from "@/_assets/pngs";
 
 export default function HeroProduct() {
   return (
-    <Box
-      sx={{
-        background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
-        padding: {
-          xs: "40px 20px",
-          sm: "50px 30px",
-          md: "50px 100px",
-          lg: "70px 150px",
-        },
-      }}
-    >
+    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
       <Box
         sx={{
-          maxWidth: "1200px",
+          background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
+          padding: {
+            xs: "40px 20px",
+            sm: "50px 30px",
+            md: "50px 100px",
+            lg: "70px 150px",
+          },
+          maxWidth: "1440px",
           margin: "auto",
           display: "flex",
           flexDirection: { xs: "column-reverse", md: "row" },

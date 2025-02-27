@@ -10,17 +10,20 @@ export default function Recommendation() {
     <>
       <Box
         sx={{
-          paddingY: {
-            xs: "20px",
-            sm: "40px",
-            md: "60px",
-          },
+          backgroundColor: { lg: "#2F302C" },
+          padding: { lg: "0 60px" },
         }}
       >
         <Box
           sx={{
+            paddingY: {
+              xs: "20px",
+              sm: "40px",
+              md: "60px",
+            },
             maxWidth: "1440px",
             margin: "auto",
+            backgroundColor: "#ffffff",
           }}
         >
           <Box>

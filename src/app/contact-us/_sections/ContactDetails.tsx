@@ -6,20 +6,18 @@ import ContactUsForm from "../_components/ContactUsForm";
 
 const ContactDetails: React.FC = () => {
   return (
-    <Box
-      sx={{
-        padding: {
-          xs: "30px",
-          sm: "40px 60px",
-          md: "60px 80px",
-          lg: "80px 100px",
-        },
-      }}
-    >
+    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
       <Box
         sx={{
-          maxWidth: "1200px",
+          padding: {
+            xs: "30px",
+            sm: "40px 60px",
+            md: "60px 80px",
+            lg: "80px 100px",
+          },
+          maxWidth: "1440px",
           margin: "0 auto",
+          backgroundColor: "#ffffff",
         }}
       >
         <Box

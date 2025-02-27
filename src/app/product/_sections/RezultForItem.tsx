@@ -131,18 +131,20 @@ export default function RezultForItem() {
     fetchProducts(filters, page, sortValue);
   };
   return (
-    <Box
-      sx={{
-        backgroundColor: colorTheme.white,
-        padding: {
-          xs: "40px 20px",
-          sm: "50px 30px",
-          md: "50px 100px",
-          lg: "70px 150px",
-        },
-      }}
-    >
-      <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
+    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
+      <Box
+        sx={{
+          maxWidth: "1440px",
+          margin: "auto",
+          backgroundColor: colorTheme.white,
+          padding: {
+            xs: "40px 20px",
+            sm: "50px 30px",
+            md: "50px 100px",
+            lg: "70px 150px",
+          },
+        }}
+      >
         <Header
           filters={filters}
           setFilters={setFilters}

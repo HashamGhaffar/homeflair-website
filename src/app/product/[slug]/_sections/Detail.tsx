@@ -70,17 +70,19 @@ export default function Detail({
   return (
     <Box
       sx={{
-        background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
-        padding: {
-          xs: "0px 20px 20px 20px",
-          sm: "0px 40px 40px 40px",
-          md: "0px 60px 60px 60px",
-        },
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
       }}
     >
       <Box
         sx={{
-          maxWidth: "1200px",
+          background: `linear-gradient(90deg, ${colorTheme.softWhite} 0%, ${colorTheme.lightSilver} 100%)`,
+          padding: {
+            xs: "0px 20px 20px 20px",
+            sm: "0px 40px 40px 40px",
+            md: "0px 60px 60px 60px",
+          },
+          maxWidth: "1440px",
           margin: "0 auto",
         }}
       >

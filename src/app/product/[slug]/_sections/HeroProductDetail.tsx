@@ -16,20 +16,18 @@ export default function ProductDetailHero({ product }: { product: Product }) {
   }, [product]);
 
   return (
-    <Box
-      sx={{
-        padding: {
-          xs: "40px 20px",
-          sm: "50px 30px",
-          md: "50px 100px",
-          lg: "70px 150px",
-        },
-      }}
-    >
+    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
       <Box
         sx={{
+          padding: {
+            xs: "40px 20px",
+            sm: "50px 30px",
+            md: "50px 100px",
+            lg: "70px 150px",
+          },
           maxWidth: "1440px",
           margin: "auto",
+          backgroundColor: "#ffffff",
         }}
       >
         <Typography
