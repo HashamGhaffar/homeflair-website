@@ -94,6 +94,9 @@ export function MenuSlider({
                     }}
                     width={item.image_url ? 80 : 50}
                     height={item.image_url ? 80 : 50}
+                    onError={() => {
+                      // show placeholder image or fallback image
+                    }}
                   />
                 </Box>
               )}

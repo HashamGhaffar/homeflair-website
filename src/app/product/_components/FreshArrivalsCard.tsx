@@ -10,6 +10,7 @@ interface FreshArrivalsCardProps {
   details: string;
   currentPrice: string;
   buttonText: string;
+  onClick?: () => void;
 }
 
 const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
@@ -18,6 +19,7 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
   details,
   currentPrice,
   buttonText,
+  onClick,
 }) => {
   return (
     <Box
@@ -103,6 +105,7 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
               fontSize: fontSize.p6,
               fontWeight: "600",
             }}
+            onClick={onClick}
           >
             {buttonText}
           </MUIButton>
