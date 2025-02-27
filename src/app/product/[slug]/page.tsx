@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Divider, Typography } from "@mui/material";
 import Navbar from "@/_components/header/Navbar";
 import ProductDetailHero from "./_sections/HeroProductDetail";
 import Menu from "./_sections/Menu";
@@ -14,6 +14,7 @@ import { AttributeOption, Product } from "@/types/product";
 import { getProductPrice } from "@/_utils/helpers";
 import { addToCart, AddToCartRequest } from "@/services/cartApi";
 import { showError, showSuccess } from "@/_utils/toast";
+import { fontSize } from "@/_utils/themes";
 
 export interface ProductAttributes {
   [attributeName: string]: AttributeOption;
@@ -55,6 +56,7 @@ export default function ProductDetail() {
     fetchProduct();
   }, [slug]);
 
+  console.log(product?.description, "product.description");
   const addProductToCart = async () => {
     const price = getProductPrice(product, selectedModel);
     try {
@@ -122,6 +124,49 @@ export default function ProductDetail() {
     <Box>
       <Navbar cartItems={noOfCartItem} />
       {product && <ProductDetailHero product={product} />}
+      {product?.description && (
+        <Box
+          sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}
+        >
+          <Box
+            sx={{
+              maxWidth: "1440px",
+              margin: "auto",
+              backgroundColor: "#ffffff",
+              padding: {
+                xs: "40px 20px",
+                sm: "50px 30px",
+                md: "50px 100px",
+                lg: "70px 150px",
+              },
+            }}
+          >
+            <Typography
+              sx={{
+                fontWeight: "700",
+                fontSize: fontSize.p2,
+                color: "#2F302C",
+                paddingBottom: "30px",
+              }}
+            >
+              DESCRIPTION
+            </Typography>
+            <Box>
+              <Typography
+                component="div"
+                dangerouslySetInnerHTML={{ __html: product?.description ?? "" }}
+              />
+            </Box>
+            <Divider
+              sx={{
+                width: { xs: "100%", lg: "80%" },
+                margin: "auto",
+                borderColor: "#2F302C33",
+              }}
+            />
+          </Box>
+        </Box>
+      )}
       {product && (
         <Menu
           product={product}
