@@ -199,6 +199,7 @@ export default function RezultForItem() {
                     .join(", ")}
                   currentPrice={formatPrice(product.price)}
                   buttonText={"Go To Shop"}
+                  onClick={() => router.push(`/product/${product.slug}`)}
                 />
               </Grid>
             ))}
