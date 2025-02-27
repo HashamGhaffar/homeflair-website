@@ -69,7 +69,7 @@ export default function RezultForItem() {
       material,
       colour,
       priceRange: [minPrice, maxPrice],
-      brand: [],
+      brand,
       deliveryTime: deliveryTime || undefined,
     });
   }, [searchParams]);
