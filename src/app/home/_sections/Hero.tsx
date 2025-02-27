@@ -25,32 +25,38 @@ export default function HeroHome() {
 
   return (
     <>
-      <Slider {...sliderSettings}>
-        <HeroSlide
-          title="Frosty Season, Hot Offers"
-          heading="Unleashing Furniture&rsquo;s Finest"
-          description="Embrace the chill with sizzling discounts on cozy, stylish furniture to warm up your home this winter."
-          bgImage="/bgFinestFurniture.png"
-          imageSrc={pngs.FinestFurniture}
-          headingColor="mistyBlue"
-        />
-        <HeroSlide
-          title="Cozy Couches For Christmas"
-          heading="Christmas-Ready Cozy Couches"
-          description="Celebrate the season in comfort with our cozy, Christmas-ready couches."
-          bgImage="/bgChristmasCozyCouches.png"
-          imageSrc={pngs.ChristmasCozyCouches}
-          headingColor="SeaGreen"
-        />
-        <HeroSlide
-          title="Season&rsquo;s Final Savings"
-          heading="Couches Made for your comfort"
-          description="Don&rsquo;t miss your last chance to save big this season!"
-          bgImage="/bgComfortCouches.png"
-          imageSrc={pngs.ComfortCouches}
-          headingColor="goldenYellow"
-        />
-      </Slider>
+      <Box
+        sx={{ padding: { lg: "0 60px" }, backgroundColor: { lg: "#2F302C" } }}
+      >
+        <Box sx={{}}>
+          <Slider {...sliderSettings}>
+            <HeroSlide
+              title="Frosty Season, Hot Offers"
+              heading="Unleashing Furniture&rsquo;s Finest"
+              description="Embrace the chill with sizzling discounts on cozy, stylish furniture to warm up your home this winter."
+              bgImage="/bgFinestFurniture.png"
+              imageSrc={pngs.FinestFurniture}
+              headingColor="mistyBlue"
+            />
+            <HeroSlide
+              title="Cozy Couches For Christmas"
+              heading="Christmas-Ready Cozy Couches"
+              description="Celebrate the season in comfort with our cozy, Christmas-ready couches."
+              bgImage="/bgChristmasCozyCouches.png"
+              imageSrc={pngs.ChristmasCozyCouches}
+              headingColor="SeaGreen"
+            />
+            <HeroSlide
+              title="Season&rsquo;s Final Savings"
+              heading="Couches Made for your comfort"
+              description="Don&rsquo;t miss your last chance to save big this season!"
+              bgImage="/bgComfortCouches.png"
+              imageSrc={pngs.ComfortCouches}
+              headingColor="goldenYellow"
+            />
+          </Slider>
+        </Box>
+      </Box>
       <FeaturesSection />
     </>
   );
