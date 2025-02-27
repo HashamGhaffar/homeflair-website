@@ -12,8 +12,8 @@ export default function PremiumCollection() {
         padding: {
           xs: "40px 20px",
           sm: "50px 30px",
-          md: "50px 0",
-          lg: "70px 0",
+          md: "50px 90px",
+          lg: "70px 90px",
         },
       }}
     >

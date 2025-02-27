@@ -22,11 +22,17 @@ export default function AboutUs() {
   return (
     <Box>
       <Navbar cartItems={noOfCartItem} />
-      <HeroAboutUs />
-      <Welcome />
-      <UniqueFeatures />
-      <OurMission />
-      <PremiumCollection />
+      <Box
+        sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}
+      >
+        <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
+          <HeroAboutUs />
+          <Welcome />
+          <UniqueFeatures />
+          <OurMission />
+          <PremiumCollection />
+        </Box>
+      </Box>
       <Footer />
     </Box>
   );

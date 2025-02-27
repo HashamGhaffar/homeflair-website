@@ -13,8 +13,8 @@ export default function OurMission() {
         padding: {
           xs: "40px 20px",
           sm: "50px 30px",
-          md: "50px 100px",
-          lg: "70px 150px",
+          md: "50px 90px",
+          lg: "70px 90px",
         },
       }}
     >
