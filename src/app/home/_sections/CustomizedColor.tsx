@@ -35,6 +35,7 @@ export default function CustomizedColor() {
           fontWeight: "800",
           marginBottom: { xs: "20px", sm: "40px" },
           fontFamily: "'Playfair Display', serif",
+          textTransform: "uppercase",
         }}
       >
         Your Color, Your Choice

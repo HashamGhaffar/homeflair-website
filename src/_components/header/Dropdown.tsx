@@ -121,9 +121,9 @@ const Dropdown: React.FC<{
         zIndex: 1000,
         padding: {
           xs: "20px",
-          md: "20px 50px",
-          lg: "20px 90px",
-          xl: "20px 120px",
+          md: "40px 50px",
+          lg: "60px 90px",
+          xl: "60px 120px",
         },
         boxShadow: `0px 4px 6px ${colorTheme.subtleBlack}`,
         display: "flex",

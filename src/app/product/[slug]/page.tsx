@@ -138,7 +138,6 @@ export default function ProductDetail() {
           selectedModel={selectedModel}
         />
       )}
-
       <Detail
         product={product}
         selectedModel={selectedModel}

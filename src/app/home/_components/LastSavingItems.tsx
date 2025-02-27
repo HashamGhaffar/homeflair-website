@@ -63,7 +63,7 @@ export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
                   fontSize: fontSize.p1,
                   // text ellipsis
                   display: "-webkit-box",
-                  WebkitLineClamp: 3,
+                  WebkitLineClamp: 1,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
                   textOverflow: "ellipsis",

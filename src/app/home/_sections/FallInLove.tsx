@@ -61,11 +61,20 @@ export default function FallInLove(): JSX.Element {
         {gridItems.map((item, index) => (
           <Grid key={index} item xs={12} lg={4} xl={4}>
             <Box
+              onClick={() => {}}
               sx={{
                 maxWidth: { xs: "400px", md: "450px", lg: "480px" },
                 height: { xs: "auto", lg: "398px" },
                 position: "relative",
                 margin: "auto",
+                overflow: "hidden",
+                cursor: "pointer",
+                "& > :first-child": {
+                  transition: "transform 0.4s ease",
+                },
+                "&:hover > :first-child": {
+                  transform: "scale(1.08)",
+                },
               }}
             >
               <Image

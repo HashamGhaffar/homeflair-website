@@ -21,6 +21,7 @@ export default function PremiumProducts({ products }: { products: Product[] }) {
           fontWeight: "800",
           marginBottom: { xs: "20px", sm: "40px" },
           fontFamily: "'Playfair Display', serif",
+          textTransform: "uppercase",
         }}
       >
         Our Premium Products

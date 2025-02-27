@@ -19,7 +19,7 @@ import Footer from "@/_components/Footer";
 // import { Product } from "@/types/product";
 // import { getProductsByTag } from "@/services/productApi";
 
-import { products } from "@/_utils/mock";
+import { premiumProduct, products } from "@/_utils/mock";
 export default function HomePage() {
   // const [products, setProducts] = useState<Product[]>([]);
   // const [loading, setLoading] = useState<boolean>(true);
@@ -60,7 +60,7 @@ export default function HomePage() {
       <FreshArrivals products={products} />
       <LastSavings products={products} />
       <BestSeller products={products} />
-      <PremiumProducts products={products} />
+      <PremiumProducts products={premiumProduct} />
       <CustomizedSize />
       <CustomizedColor />
       <DecorAccessories />

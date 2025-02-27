@@ -98,53 +98,41 @@ export const fontSize = {
     lg: "40px",
   },
   h5: {
-    xs: "18px",
-    sm: "20px",
+    xs: "20px",
     md: "22px",
     lg: "26px",
   },
   h6: {
-    xs: "16px",
-    sm: "18px",
+    xs: "18px",
     md: "20px",
     lg: "24px",
   },
 
   // textual
   p1: {
-    xs: "14px",
-    sm: "16px",
+    xs: "16px",
     md: "18px",
     lg: "20px",
   },
   p2: {
-    xs: "12px",
-    sm: "14px",
-    md: "16px",
+    xs: "16px",
     lg: "18px",
   },
   p3: {
-    xs: "11px",
-    sm: "13px",
+    xs: "14px",
     md: "15px",
     lg: "16px",
   },
   p4: {
-    xs: "10px",
-    sm: "12px",
+    xs: "13px",
     md: "14px",
     lg: "15px",
   },
   p5: {
-    xs: "10px",
-    sm: "11px",
-    md: "12px",
+    xs: "13px",
     lg: "14px",
   },
   p6: {
-    xs: "10px",
-    sm: "10px",
-    md: "11px",
-    lg: "12px",
+    xs: "12px",
   },
 };

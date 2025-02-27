@@ -105,6 +105,7 @@ interface FreshArrivalsCardProps {
   originalPrice: string;
   buttonText: string;
   onClick?: () => void;
+  discount?: string;
 }
 
 function FreshArrivalsCard({
@@ -115,6 +116,7 @@ function FreshArrivalsCard({
   originalPrice,
   buttonText,
   onClick = () => {},
+  discount = "16",
 }: FreshArrivalsCardProps): JSX.Element {
   return (
     <Box
@@ -132,11 +134,12 @@ function FreshArrivalsCard({
           height: { xs: "219.31px", sm: "265px" },
           // width: { xs: "240px", sm: "290px" },
           width: "100%",
-          marginBottom: { xs: "10px", sm: "18px" },
+          marginBottom: { xs: "10px", sm: "15px" },
           overflow: "hidden",
           "&:first-child": {
             objectFit: { xs: "contain !important", sm: "cover" },
           },
+          position: "relative",
         }}
       >
         <Image
@@ -148,6 +151,42 @@ function FreshArrivalsCard({
           src={imageSrc}
           alt="product image"
         />
+        <Box
+          sx={{
+            bgcolor: colorTheme.red,
+            height: "50px",
+            width: "50px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            left: "20px",
+            top: "20px",
+            position: "absolute",
+            zIndex: "10",
+            flexDirection: "column",
+            borderRadius: "50%",
+            rowGap: "4px",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: fontSize.p5,
+              color: "#FFFFFF",
+              lineHeight: fontSize.p5,
+            }}
+          >
+            {discount}%{" "}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: fontSize.p5,
+              color: "#FFFFFF",
+              lineHeight: fontSize.p5,
+            }}
+          >
+            Off
+          </Typography>
+        </Box>
       </Box>
       <Box
         sx={{
@@ -155,7 +194,7 @@ function FreshArrivalsCard({
           flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "space-between",
-          height: { xs: "120px", md: "130px", lg: "140px" },
+          height: { xs: "80px", sm: "80px", md: "80px", lg: "90px" },
         }}
       >
         <Box>
@@ -165,7 +204,7 @@ function FreshArrivalsCard({
               fontSize: fontSize.p5,
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 2,
+              WebkitLineClamp: 1,
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}
@@ -177,7 +216,7 @@ function FreshArrivalsCard({
               fontSize: fontSize.p6,
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 2,
+              WebkitLineClamp: 1,
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}
@@ -214,7 +253,7 @@ function FreshArrivalsCard({
           <MUIButton
             onClick={onClick}
             sx={{
-              padding: "10px 20px",
+              padding: "6px 15px",
               borderRadius: "12px",
               backgroundColor: colorTheme.white,
               color: colorTheme.red,

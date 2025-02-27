@@ -935,3 +935,71 @@ export const products: Product[] = [
     __v: 0,
   },
 ];
+export const premiumProduct: Product[] = [
+  {
+    _id: "premumProduct1",
+    name: "Antigua Fabric Sofa Collection",
+    price: 0,
+    slug: "",
+    quantity: 0,
+    tags: [],
+    discount: 0,
+    category: "",
+    subcategory: [
+      {
+        _id: "subcategory1",
+        name: "Lebus Upholstery",
+      },
+    ],
+    description: "",
+    shortDescription:
+      "The Antigua Fabric Sofa is the optima of elegance. Arriving in a rich velvet fabric with a variety of jewel-like colours to choose from, this fabric sofa stands proudly in any living space.",
+    images: [],
+    mainImage:
+      "https://res.cloudinary.com/ddixiuh7h/image/upload/v1740662775/premiumSofa_giqitj.png",
+    isDeleted: false,
+    deleted_at: null,
+    meta: {
+      metaTitle: "",
+      metaDescription: "",
+      metaKeywords: "",
+    },
+    attributes: [],
+    created_at: "",
+    updated_at: "",
+    __v: 0,
+  },
+  {
+    _id: "premumProduct2",
+    name: "Antigua Fabric Sofa Collection",
+    price: 0,
+    slug: "",
+    quantity: 0,
+    tags: [],
+    discount: 0,
+    category: "",
+    subcategory: [
+      {
+        _id: "subcategory1",
+        name: "Lebus Upholstery",
+      },
+    ],
+    description: "",
+    shortDescription:
+      "The Antigua Fabric Sofa is the optima of elegance. Arriving in a rich velvet fabric with a variety of jewel-like colours to choose from, this fabric sofa stands proudly in any living space.",
+    images: [],
+    mainImage:
+      "https://res.cloudinary.com/ddixiuh7h/image/upload/v1740662775/premiumSofa_giqitj.png",
+    isDeleted: false,
+    deleted_at: null,
+    meta: {
+      metaTitle: "",
+      metaDescription: "",
+      metaKeywords: "",
+    },
+    attributes: [],
+    created_at: "",
+    updated_at: "",
+    __v: 0,
+  },
+];

@@ -25,6 +25,7 @@ export default function DecorAccessories() {
           fontWeight: "800",
           marginBottom: { xs: "20px", sm: "40px" },
           fontFamily: "'Playfair Display', serif",
+          textTransform: "uppercase",
         }}
       >
         DECOR & ACCESSORIES
@@ -39,12 +40,19 @@ export default function DecorAccessories() {
           {/* Left Column: Fabric Sofa */}
           <Grid item xs={12} md={6}>
             <Box
+              onClick={() => {}}
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-around",
                 height: "100%",
                 alignItems: "center",
+                backgroundColor: "#ffffff",
+                cursor: "pointer",
+                transition: "all .4s ease-in-out",
+                "&:hover": {
+                  backgroundColor: "#EBEDEE",
+                },
               }}
             >
               <Typography
@@ -87,11 +95,18 @@ export default function DecorAccessories() {
               <Grid xs={12} sm={6} item>
                 {/* Chair */}
                 <Box
+                  onClick={() => {}}
                   sx={{
+                    backgroundColor: "#ffffff",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     textAlign: "center",
+                    cursor: "pointer",
+                    transition: "all .4s ease-in-out",
+                    "&:hover": {
+                      backgroundColor: "#EBEDEE",
+                    },
                   }}
                 >
                   <Typography sx={{ ...textStyles }}>CHAIR</Typography>
@@ -116,15 +131,22 @@ export default function DecorAccessories() {
                   </Box>
                 </Box>
               </Grid>
-
               {/* Leather Sofa */}
               <Grid xs={12} sm={6} item>
                 <Box
+                  onClick={() => {}}
                   sx={{
+                    backgroundColor: "#ffffff",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     textAlign: "center",
+                    height: "100%",
+                    cursor: "pointer",
+                    transition: "all .4s ease-in-out",
+                    "&:hover": {
+                      backgroundColor: "#EBEDEE",
+                    },
                   }}
                 >
                   <Typography sx={{ ...textStyles }}>LEATHER SOFA</Typography>
@@ -132,7 +154,7 @@ export default function DecorAccessories() {
                     sx={{
                       width: "100%",
                       maxWidth: "188px",
-                      height: "auto",
+                      height: "100%",
                     }}
                   >
                     <Image
@@ -150,15 +172,21 @@ export default function DecorAccessories() {
                 </Box>
               </Grid>
             </Grid>
-
             {/* Accessories */}
-            <Grid item xs={12} md={12} spacing={4}>
+            <Grid sx={{ marginTop: "30px" }} item xs={12} md={12}>
               <Box
+                onClick={() => {}}
                 sx={{
+                  backgroundColor: "#ffffff",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
+                  cursor: "pointer",
+                  transition: "all .4s ease-in-out",
+                  "&:hover": {
+                    backgroundColor: "#EBEDEE",
+                  },
                 }}
               >
                 <Typography sx={{ ...textStyles }}>ACCESSORIES</Typography>

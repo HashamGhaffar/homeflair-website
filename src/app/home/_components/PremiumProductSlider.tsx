@@ -59,7 +59,7 @@ export default function PremiumProductSlider({
                     width={381.73}
                     height={292.92}
                     style={{
-                      objectFit: "cover",
+                      objectFit: "contain",
                     }}
                   />
                 </Box>
@@ -69,7 +69,6 @@ export default function PremiumProductSlider({
                   sx={{
                     color: colorTheme.white,
                     fontSize: fontSize.p4,
-                    fontWeight: "600",
                     marginBottom: "10px",
                   }}
                 >
@@ -81,7 +80,6 @@ export default function PremiumProductSlider({
                     )
                     .join(", ")}
                 </Typography>
-                {/* <Box> */}
                 <Typography
                   sx={{
                     color: colorTheme.red,
@@ -89,13 +87,12 @@ export default function PremiumProductSlider({
                     fontWeight: "700",
                     marginBottom: "20px",
                     maxWidth: { xs: "300px", sm: "380px", md: "300px" },
-                    lineHeight: "24px",
                     margin: { xs: "auto", md: "0px" },
+                    textTransform: "uppercase",
                   }}
                 >
                   {item.name}
                 </Typography>
-                {/* </Box> */}
                 <Typography
                   sx={{
                     color: colorTheme.smokeWhite,

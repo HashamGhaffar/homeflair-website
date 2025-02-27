@@ -56,6 +56,7 @@ export default function CustomizedSize() {
           fontWeight: "800",
           marginBottom: { xs: "20px", sm: "40px" },
           fontFamily: "'Playfair Display', serif",
+          textTransform: "uppercase",
         }}
       >
         Have a Specific Size in Mind?
