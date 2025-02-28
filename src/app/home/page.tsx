@@ -56,15 +56,24 @@ export default function HomePage() {
     <Box>
       <Navbar cartItems={noOfCartItem} />
       <Hero />
-      <ChristmasSpecials products={products} />
-      <FreshArrivals products={products} />
-      <LastSavings products={products} />
-      <BestSeller products={products} />
-      <PremiumProducts products={premiumProduct} />
-      <CustomizedSize />
-      <CustomizedColor />
-      <DecorAccessories />
-      <FallInLove />
+      <Box
+        sx={{
+          overflow: "hidden",
+          backgroundColor: { lg: "#2F302C" },
+          padding: { lg: "0 60px" },
+          marginTop: "-1px",
+        }}
+      >
+        <ChristmasSpecials products={products} />
+        <FreshArrivals products={products} />
+        <LastSavings products={products} />
+        <BestSeller products={products} />
+        <PremiumProducts products={premiumProduct} />
+        <CustomizedSize />
+        <CustomizedColor />
+        <DecorAccessories />
+        <FallInLove />
+      </Box>
       <Footer />
     </Box>
   );

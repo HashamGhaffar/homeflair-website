@@ -45,41 +45,34 @@ export default function BestSeller({
   return (
     <Box
       sx={{
-        backgroundColor: { lg: "#2F302C" },
-        padding: { lg: "0 60px" },
+        maxWidth: "1440px",
+        margin: "auto",
+        paddingY: {
+          xs: "30px",
+          sm: "60px",
+        },
+        backgroundColor: colorTheme.pureFog,
       }}
     >
-      <Box
+      <Typography
         sx={{
-          maxWidth: "1440px",
-          margin: "auto",
-          paddingY: {
-            xs: "30px",
-            sm: "60px",
-          },
-          backgroundColor: colorTheme.pureFog,
+          textAlign: "center",
+          color: colorTheme.forestShadow,
+          fontSize: fontSize.h6,
+          width: "100%",
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: "800",
+          textTransform: "uppercase",
         }}
       >
-        <Typography
-          sx={{
-            textAlign: "center",
-            color: colorTheme.forestShadow,
-            fontSize: fontSize.h6,
-            width: "100%",
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: "800",
-            textTransform: "uppercase",
-          }}
-        >
-          best seller
-        </Typography>
-        <LastSavingItems items={productItems} />
-        <PremiumCollectionSlider
-          products={products}
-          setSelectedProduct={setSelectedProduct}
-          selectedProduct={selectedProduct}
-        />
-      </Box>
+        best seller
+      </Typography>
+      <LastSavingItems items={productItems} />
+      <PremiumCollectionSlider
+        products={products}
+        setSelectedProduct={setSelectedProduct}
+        selectedProduct={selectedProduct}
+      />
     </Box>
   );
 }

@@ -6,7 +6,13 @@ import ContactUsForm from "../_components/ContactUsForm";
 
 const ContactDetails: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
+    <Box
+      sx={{
+        backgroundColor: { lg: "#2F302C" },
+        padding: { lg: "0 60px" },
+        marginTop: "-1px",
+      }}
+    >
       <Box
         sx={{
           padding: {

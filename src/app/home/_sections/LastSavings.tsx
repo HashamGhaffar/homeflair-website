@@ -44,60 +44,53 @@ export default function LastSavings({
   return (
     <Box
       sx={{
-        backgroundColor: { lg: "#2F302C" },
-        padding: { lg: "0 60px" },
+        maxWidth: "1440px",
+        margin: "auto",
+        paddingY: {
+          xs: "30px",
+          sm: "60px",
+        },
+        backgroundColor: colorTheme.red,
       }}
     >
-      <Box
+      <Typography
         sx={{
-          maxWidth: "1440px",
-          margin: "auto",
-          paddingY: {
+          textAlign: "center",
+          color: colorTheme.white,
+          fontSize: fontSize.h6,
+          width: "100%",
+          fontFamily: "'Playfair Display', serif",
+          paddingBottom: {
             xs: "30px",
             sm: "60px",
           },
-          backgroundColor: colorTheme.red,
+          textTransform: "uppercase",
+          fontWeight: "800",
         }}
       >
-        <Typography
-          sx={{
-            textAlign: "center",
-            color: colorTheme.white,
-            fontSize: fontSize.h6,
-            width: "100%",
-            fontFamily: "'Playfair Display', serif",
-            paddingBottom: {
-              xs: "30px",
-              sm: "60px",
-            },
-            textTransform: "uppercase",
-            fontWeight: "800",
-          }}
-        >
-          Last Chance Savings
-        </Typography>
-        <Box>
-          <Slider {...sliderSettings}>
-            {products.map((card: Product, index) => (
-              <FreshArrivalsCard
-                key={index}
-                imageSrc={card.mainImage}
-                productName={card.name}
-                details={card.subcategory
-                  .map((item) => (typeof item === "string" ? item : item.name))
-                  .join(", ")}
-                currentPrice={formatPrice(
-                  card.price - (card.discount / 100) * card.price
-                )}
-                originalPrice={formatPrice(card.price)}
-                buttonText={"Shop"}
-                onClick={() => {
-                  router.push(`product/${card.slug}`);
-                }}
-              />
-            ))}
-          </Slider>
-        </Box>
+        Last Chance Savings
+      </Typography>
+      <Box>
+        <Slider {...sliderSettings}>
+          {products.map((card: Product, index) => (
+            <FreshArrivalsCard
+              key={index}
+              imageSrc={card.mainImage}
+              productName={card.name}
+              details={card.subcategory
+                .map((item) => (typeof item === "string" ? item : item.name))
+                .join(", ")}
+              currentPrice={formatPrice(
+                card.price - (card.discount / 100) * card.price
+              )}
+              originalPrice={formatPrice(card.price)}
+              buttonText={"Shop"}
+              onClick={() => {
+                router.push(`product/${card.slug}`);
+              }}
+            />
+          ))}
+        </Slider>
       </Box>
     </Box>
   );

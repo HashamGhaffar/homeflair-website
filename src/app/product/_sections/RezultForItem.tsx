@@ -131,104 +131,102 @@ export default function RezultForItem() {
     fetchProducts(filters, page, sortValue);
   };
   return (
-    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
-      <Box
-        sx={{
-          maxWidth: "1440px",
-          margin: "auto",
-          backgroundColor: colorTheme.white,
-          padding: {
-            xs: "40px 20px",
-            sm: "50px 30px",
-            md: "50px 100px",
-            lg: "70px 150px",
-          },
-        }}
-      >
-        <Header
-          filters={filters}
-          setFilters={setFilters}
-          applyFilters={applyFilters}
-          selectedSort={selectedSort}
-          handleSortChange={handleSortChange}
-        />
+    <Box
+      sx={{
+        maxWidth: "1440px",
+        margin: "auto",
+        backgroundColor: colorTheme.white,
+        padding: {
+          xs: "40px 20px",
+          sm: "50px 30px",
+          md: "50px 100px",
+          lg: "70px 150px",
+        },
+      }}
+    >
+      <Header
+        filters={filters}
+        setFilters={setFilters}
+        applyFilters={applyFilters}
+        selectedSort={selectedSort}
+        handleSortChange={handleSortChange}
+      />
 
-        {loading ? (
-          <Box
+      {loading ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "300px",
+          }}
+        >
+          <CircularProgress size={60} color="secondary" />
+        </Box>
+      ) : products.length === 0 ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "300px",
+          }}
+        >
+          <Typography
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minHeight: "300px",
+              fontSize: "18px",
+              fontWeight: "600",
+              color: colorTheme.darkCharcoal,
             }}
           >
-            <CircularProgress size={60} color="secondary" />
-          </Box>
-        ) : products.length === 0 ? (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minHeight: "300px",
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: "18px",
-                fontWeight: "600",
-                color: colorTheme.darkCharcoal,
-              }}
-            >
-              No products found.
-            </Typography>
-          </Box>
-        ) : (
-          <Grid sx={{ rowGap: "20px", md: "0" }} container spacing={3}>
-            {products.map((product, index) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                <FreshArrivalsCard
-                  imageSrc={product.mainImage}
-                  productName={product.name}
-                  details={product.subcategory
-                    .map((subcategory) =>
-                      typeof subcategory === "string"
-                        ? subcategory
-                        : subcategory.name
-                    )
-                    .join(", ")}
-                  currentPrice={formatPrice(product.price)}
-                  buttonText={"Go To Shop"}
-                  onClick={() => router.push(`/product/${product.slug}`)}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        )}
+            No products found.
+          </Typography>
+        </Box>
+      ) : (
+        <Grid sx={{ rowGap: "20px", md: "0" }} container spacing={3}>
+          {products.map((product, index) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+              <FreshArrivalsCard
+                imageSrc={product.mainImage}
+                productName={product.name}
+                details={product.subcategory
+                  .map((subcategory) =>
+                    typeof subcategory === "string"
+                      ? subcategory
+                      : subcategory.name
+                  )
+                  .join(", ")}
+                currentPrice={formatPrice(product.price)}
+                buttonText={"Go To Shop"}
+                onClick={() => router.push(`/product/${product.slug}`)}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
-        {!loading && products.length > 0 && (
-          <Box
-            sx={{
-              paddingTop: {
-                xs: "40px",
-                sm: "50px",
-                md: "50px",
-                lg: "70px",
-              },
-              display: "flex",
-              justifyContent: "flex-end",
+      {!loading && products.length > 0 && (
+        <Box
+          sx={{
+            paddingTop: {
+              xs: "40px",
+              sm: "50px",
+              md: "50px",
+              lg: "70px",
+            },
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <CustomPagination
+            cuttentPage={page}
+            count={Math.ceil(totalProductCount / ROWS_PER_PAGE)}
+            onChange={(_event, value) => {
+              handlePageChange(value);
             }}
-          >
-            <CustomPagination
-              cuttentPage={page}
-              count={Math.ceil(totalProductCount / ROWS_PER_PAGE)}
-              onChange={(_event, value) => {
-                handlePageChange(value);
-              }}
-            />
-          </Box>
-        )}
-      </Box>
+          />
+        </Box>
+      )}
     </Box>
   );
 }

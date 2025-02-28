@@ -6,32 +6,30 @@ import { Product } from "@/types/product";
 
 export default function PremiumProducts({ products }: { products: Product[] }) {
   return (
-    <Box sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}>
-      <Box
+    <Box
+      sx={{
+        background: `linear-gradient(90deg, ${colorTheme.darkGrey} 0%, ${colorTheme.forestShadow} 100%)`,
+        paddingY: { xs: "40px", sm: "60px" },
+        paddingX: { xs: "20px", sm: "40px", lg: "80px" },
+        maxWidth: "1440px",
+        margin: "auto",
+        width: "100%",
+      }}
+    >
+      <Typography
         sx={{
-          background: `linear-gradient(90deg, ${colorTheme.darkGrey} 0%, ${colorTheme.forestShadow} 100%)`,
-          paddingY: { xs: "40px", sm: "60px" },
-          paddingX: { xs: "20px", sm: "40px", lg: "80px" },
-          maxWidth: "1440px",
-          margin: "auto",
-          width: "100%",
+          textAlign: "center",
+          color: colorTheme.White,
+          fontSize: fontSize.h6,
+          fontWeight: "800",
+          marginBottom: { xs: "20px", sm: "40px" },
+          fontFamily: "'Playfair Display', serif",
+          textTransform: "uppercase",
         }}
       >
-        <Typography
-          sx={{
-            textAlign: "center",
-            color: colorTheme.White,
-            fontSize: fontSize.h6,
-            fontWeight: "800",
-            marginBottom: { xs: "20px", sm: "40px" },
-            fontFamily: "'Playfair Display', serif",
-            textTransform: "uppercase",
-          }}
-        >
-          Our Premium Products
-        </Typography>
-        <PremiumProductSlider products={products} />
-      </Box>
+        Our Premium Products
+      </Typography>
+      <PremiumProductSlider products={products} />
     </Box>
   );
 }

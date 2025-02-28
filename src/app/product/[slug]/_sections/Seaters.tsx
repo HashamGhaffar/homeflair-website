@@ -31,6 +31,7 @@ export default function Seaters({
       sx={{
         backgroundColor: { lg: "#2F302C" },
         padding: { lg: "0 60px" },
+        marginTop: "-1px",
       }}
     >
       <Box

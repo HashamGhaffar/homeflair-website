@@ -23,7 +23,11 @@ export default function AboutUs() {
     <Box>
       <Navbar cartItems={noOfCartItem} />
       <Box
-        sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}
+        sx={{
+          backgroundColor: { lg: "#2F302C" },
+          padding: { lg: "0 60px" },
+          marginTop: "-1px",
+        }}
       >
         <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
           <HeroAboutUs />

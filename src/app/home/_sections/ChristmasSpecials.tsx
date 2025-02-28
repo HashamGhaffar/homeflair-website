@@ -58,48 +58,40 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
   return (
     <Box
       sx={{
-        overflow: "hidden",
-        backgroundColor: { lg: "#2F302C" },
-        padding: { lg: "0 60px" },
+        padding: "60px 0",
+        maxWidth: "1440px",
+        margin: "auto",
+        backgroundColor: "#eaeaea",
       }}
     >
-      <Box
+      <Typography
         sx={{
-          padding: "60px 0",
-          maxWidth: "1440px",
-          margin: "auto",
-          backgroundColor: "#eaeaea",
+          fontWeight: "800",
+          marginBottom: "60px",
+          fontFamily: "'Playfair Display', serif",
+          fontSize: fontSize.h6,
+          color: colorTheme.forestShadow,
+          textAlign: "center",
+          textTransform: "uppercase",
+          paddingX: "20px",
         }}
       >
-        <Typography
-          sx={{
-            fontWeight: "800",
-            marginBottom: "60px",
-            fontFamily: "'Playfair Display', serif",
-            fontSize: fontSize.h6,
-            color: colorTheme.forestShadow,
-            textAlign: "center",
-            textTransform: "uppercase",
-            paddingX: "20px",
-          }}
-        >
-          On Your Doorstep Before Christmas
-        </Typography>
-        <Slider {...sliderSettings}>
-          {products.map((item, index) => (
-            <ChristmasSpecialsCard
-              key={index}
-              image={item.mainImage}
-              title={item.name}
-              description={item.shortDescription}
-              price={formatPrice(item.price)}
-              onClick={() => {
-                router.push(`/product/${item.slug}`);
-              }}
-            />
-          ))}
-        </Slider>
-      </Box>
+        On Your Doorstep Before Christmas
+      </Typography>
+      <Slider {...sliderSettings}>
+        {products.map((item, index) => (
+          <ChristmasSpecialsCard
+            key={index}
+            image={item.mainImage}
+            title={item.name}
+            description={item.shortDescription}
+            price={formatPrice(item.price)}
+            onClick={() => {
+              router.push(`/product/${item.slug}`);
+            }}
+          />
+        ))}
+      </Slider>
     </Box>
   );
 }

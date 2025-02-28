@@ -50,102 +50,95 @@ export default function FreshArrivals({
 
   const router = useRouter();
   return (
-    <Box
+    <Grid
       sx={{
-        backgroundColor: { lg: "#2F302C" },
-        padding: { lg: "0 60px" },
+        paddingY: {
+          xs: "30px",
+          sm: "60px",
+        },
+        backgroundColor: colorTheme.pureFog,
+        maxWidth: "1440px",
+        margin: "auto",
       }}
+      container
     >
       <Grid
         sx={{
-          paddingY: {
+          paddingX: {
             xs: "30px",
-            sm: "60px",
+            sm: "50px",
+            lg: "60px",
           },
-          backgroundColor: colorTheme.pureFog,
-          maxWidth: "1440px",
-          margin: "auto",
+          display: "flex",
+          alignItems: "center",
+          order: {
+            xs: 2,
+            md: 1,
+          },
+          marginTop: { xs: "40px", sm: "80px", md: "0" },
         }}
-        container
+        item
+        xs={12}
+        md={3}
       >
-        <Grid
+        <Box
           sx={{
-            paddingX: {
-              xs: "30px",
-              sm: "50px",
-              lg: "60px",
-            },
             display: "flex",
-            alignItems: "center",
-            order: {
-              xs: 2,
-              md: 1,
-            },
-            marginTop: { xs: "40px", sm: "80px", md: "0" },
+            flexDirection: "column",
+            gap: { xs: "20px", sm: "30px" },
+            width: { xs: "100%", md: "auto" },
           }}
-          item
-          xs={12}
-          md={3}
         >
-          <Box
+          <Typography
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: { xs: "20px", sm: "30px" },
-              width: { xs: "100%", md: "auto" },
+              fontSize: fontSize.h6,
+              fontWeight: "800",
+              fontFamily: "'Playfair Display', serif",
+              color: colorTheme.forestShadow,
+              textTransform: "uppercase",
             }}
           >
-            <Typography
-              sx={{
-                fontSize: fontSize.h6,
-                fontWeight: "800",
-                fontFamily: "'Playfair Display', serif",
-                color: colorTheme.forestShadow,
-                textTransform: "uppercase",
-              }}
-            >
-              Fresh Arrivals Await
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: fontSize.p3,
-                color: colorTheme.muddyMossGray,
-              }}
-            >
-              Get the latest items immediately with promo prices
-            </Typography>
-            <Box>
-              <CustomButton
-                onClick={() => router.push("/product")}
-                text="Shop Now"
-              />
-            </Box>
+            Fresh Arrivals Await
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: fontSize.p3,
+              color: colorTheme.muddyMossGray,
+            }}
+          >
+            Get the latest items immediately with promo prices
+          </Typography>
+          <Box>
+            <CustomButton
+              onClick={() => router.push("/product")}
+              text="Shop Now"
+            />
           </Box>
-        </Grid>
-        <Grid
-          sx={{
-            order: {
-              xs: 1,
-              md: 2,
-            },
-          }}
-          item
-          xs={12}
-          md={9}
-        >
-          <Slider {...sliderSettings}>
-            {products.map((card, index) => (
-              <FreshArrivalsCard
-                key={index}
-                imageSrc={card.mainImage}
-                altText={card.name}
-                description={card.name}
-              />
-            ))}
-          </Slider>
-        </Grid>
+        </Box>
       </Grid>
-    </Box>
+      <Grid
+        sx={{
+          order: {
+            xs: 1,
+            md: 2,
+          },
+        }}
+        item
+        xs={12}
+        md={9}
+      >
+        <Slider {...sliderSettings}>
+          {products.map((card, index) => (
+            <FreshArrivalsCard
+              key={index}
+              imageSrc={card.mainImage}
+              altText={card.name}
+              description={card.name}
+            />
+          ))}
+        </Slider>
+      </Grid>
+    </Grid>
   );
 }
 

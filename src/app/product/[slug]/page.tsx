@@ -126,7 +126,11 @@ export default function ProductDetail() {
       {product && <ProductDetailHero product={product} />}
       {product?.description && (
         <Box
-          sx={{ backgroundColor: { lg: "#2F302C" }, padding: { lg: "0 60px" } }}
+          sx={{
+            backgroundColor: { lg: "#2F302C" },
+            padding: { lg: "0 60px" },
+            marginTop: "-1px",
+          }}
         >
           <Box
             sx={{
