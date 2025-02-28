@@ -83,7 +83,7 @@ export default function PremiumProductSlider({
                 <Typography
                   sx={{
                     color: colorTheme.red,
-                    fontSize: fontSize.h6,
+                    fontSize: fontSize.p1,
                     fontWeight: "700",
                     marginBottom: "20px",
                     maxWidth: { xs: "300px", sm: "380px", md: "300px" },
@@ -103,6 +103,7 @@ export default function PremiumProductSlider({
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
+                    paddingTop: "10px",
                   }}
                 >
                   {item.shortDescription}
