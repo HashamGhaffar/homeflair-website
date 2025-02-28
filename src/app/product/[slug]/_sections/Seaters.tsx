@@ -78,17 +78,17 @@ export default function Seaters({
               sx={{
                 textAlign: "center",
                 transition: "transform 0.4s ease-in-out",
-                paddingX: "20px",
+                paddingX: "24px 20px",
                 "&:hover": {
-                  transform: "scale(1.2)",
+                  transform: "scale(1.1)",
                 },
+                border:
+                  selectedModel?.value === item.value
+                    ? "2px solid #2F302C"
+                    : "0",
+                maxWidth: "150px",
               }}
               onClick={() => setSelectedModel(item)}
-              bgcolor={
-                selectedModel?.value === item.value
-                  ? colorTheme.softSilver
-                  : "transparent"
-              }
             >
               <Box
                 sx={{
