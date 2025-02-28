@@ -4,6 +4,7 @@ import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import { AttributeOption } from "@/types/product";
 import { seaterOptions } from "@/_utils/constants";
+import pngs from "@/_assets/pngs";
 
 const textStyles = {
   fontFamily: "Lato",
@@ -49,7 +50,7 @@ export default function Seaters({
             textTransform: "uppercase",
           }}
         >
-          seaters&#96;
+          seaters
         </Typography>
         <Box
           sx={{
@@ -90,7 +91,7 @@ export default function Seaters({
                 <Image
                   src={
                     seaterOptions.find((opt) => opt.value === item.value)
-                      ?.image ?? ""
+                      ?.image ?? pngs.DummyImage
                   }
                   alt="Sofa Collection"
                   width={128}

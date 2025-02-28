@@ -5,6 +5,7 @@ import Image from "next/image";
 import CustomButton from "@/_components/Button";
 import { AttributeOption, Product } from "@/types/product";
 import { getProductPrice } from "@/_utils/helpers";
+import pngs from "@/_assets/pngs";
 
 export default function Detail({
   product,
@@ -138,7 +139,15 @@ export default function Detail({
                           {attr.name}:
                         </Typography>
                         {getSelectionOption(attr.name) && (
-                          <Box sx={{ height: "50px", width: "50px" }}>
+                          <Box
+                            sx={{
+                              height: "50px",
+                              width: "200px",
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 3,
+                            }}
+                          >
                             <Image
                               style={{
                                 height: "100%",
@@ -146,12 +155,21 @@ export default function Detail({
                                 objectFit: "contain",
                               }}
                               src={
-                                getSelectionOption(attr.name)?.image_url ?? ""
+                                getSelectionOption(attr.name)?.image_url ??
+                                pngs.DummyImage
                               }
                               alt="red color"
                               width={50}
                               height={50}
                             />
+                            <Typography
+                              sx={{
+                                ...textStyles,
+                                width: "200px",
+                              }}
+                            >
+                              {getSelectionOption(attr.name)?.label}
+                            </Typography>
                           </Box>
                         )}
                       </Box>

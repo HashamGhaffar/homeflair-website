@@ -75,31 +75,29 @@ export function MenuSlider({
                 }));
               }}
             >
-              {item?.image_url && (
-                <Box
-                  sx={{
-                    margin: "auto",
-                    width: { xs: "50px", sm: "80px", md: "100px" },
-                    height: { xs: "50px", sm: "80px", md: "100px" },
+              <Box
+                sx={{
+                  margin: "auto",
+                  width: { xs: "50px", sm: "80px", md: "100px" },
+                  height: { xs: "50px", sm: "80px", md: "100px" },
+                }}
+              >
+                <Image
+                  src={item?.image_url || pngs.DummyImage}
+                  alt={item.label ?? ""}
+                  layout="responsive"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
                   }}
-                >
-                  <Image
-                    src={item.image_url || pngs.DummyImage}
-                    alt={item.label ?? ""}
-                    layout="responsive"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                    width={item.image_url ? 80 : 50}
-                    height={item.image_url ? 80 : 50}
-                    onError={() => {
-                      // show placeholder image or fallback image
-                    }}
-                  />
-                </Box>
-              )}
+                  width={item.image_url ? 80 : 50}
+                  height={item.image_url ? 80 : 50}
+                  onError={() => {
+                    // show placeholder image or fallback image
+                  }}
+                />
+              </Box>
               {item.label && (
                 <Typography
                   sx={{ fontSize: fontSize.p3, color: colorTheme.SoftAsh }}
