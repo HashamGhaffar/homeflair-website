@@ -31,7 +31,7 @@ export default function FallInLove(): JSX.Element {
         },
 
         backgroundColor: colorTheme.pureFog,
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
       }}
     >
@@ -54,7 +54,7 @@ export default function FallInLove(): JSX.Element {
             xs: "30px",
             sm: "60px",
           },
-          maxWidth: "1440px",
+          maxWidth: "1500px",
           margin: "auto",
           gap: { xs: "32px", lg: "0" },
         }}

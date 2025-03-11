@@ -11,7 +11,7 @@ export default function PremiumProducts({ products }: { products: Product[] }) {
         background: `linear-gradient(90deg, ${colorTheme.darkGrey} 0%, ${colorTheme.forestShadow} 100%)`,
         paddingY: { xs: "40px", sm: "60px" },
         paddingX: { xs: "20px", sm: "40px", lg: "80px" },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
         width: "100%",
       }}

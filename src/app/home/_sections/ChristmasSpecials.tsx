@@ -59,7 +59,7 @@ function ChristmasSpecials({ products }: { products: Product[] }) {
     <Box
       sx={{
         padding: "60px 0",
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
         backgroundColor: "#eaeaea",
       }}

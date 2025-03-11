@@ -44,7 +44,7 @@ export default function LastSavings({
   return (
     <Box
       sx={{
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
         paddingY: {
           xs: "30px",

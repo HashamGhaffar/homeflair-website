@@ -21,7 +21,7 @@ export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {
           xs: "30px",
           sm: "60px",
         },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
         gap: { xs: "32px", lg: "0" },
       }}

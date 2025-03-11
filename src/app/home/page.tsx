@@ -55,7 +55,7 @@ export default function HomePage() {
   return (
     <Box>
       <Navbar cartItems={noOfCartItem} />
-      <Hero />
+
       <Box
         sx={{
           overflow: "hidden",
@@ -64,6 +64,7 @@ export default function HomePage() {
           marginTop: "-1px",
         }}
       >
+        <Hero />
         <ChristmasSpecials products={products} />
         <CustomizedSize />
         <CustomizedColor />

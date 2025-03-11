@@ -57,7 +57,7 @@ export default function FreshArrivals({
           sm: "60px",
         },
         backgroundColor: colorTheme.pureFog,
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
       }}
       container

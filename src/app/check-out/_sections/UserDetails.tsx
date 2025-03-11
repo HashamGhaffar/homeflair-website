@@ -94,7 +94,7 @@ export default function UserDetails({
             md: "50px 100px",
             lg: "70px 120px",
           },
-          maxWidth: "1440px",
+          maxWidth: "1500px",
           margin: "0 auto",
           backgroundColor: "#ffffff",
         }}

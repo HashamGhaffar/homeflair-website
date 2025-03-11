@@ -22,7 +22,7 @@ export default function Recommendation() {
               sm: "40px",
               md: "60px",
             },
-            maxWidth: "1440px",
+            maxWidth: "1500px",
             margin: "auto",
             backgroundColor: "#ffffff",
           }}

@@ -16,7 +16,7 @@ export default function DecorAccessories() {
       sx={{
         background: "linear-gradient(90deg, #FDFBFB 0%, #EBEDEE 100%)",
         padding: { xs: "40px 0", sm: "60px 0" },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
       }}
     >

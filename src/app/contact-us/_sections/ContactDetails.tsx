@@ -21,7 +21,7 @@ const ContactDetails: React.FC = () => {
             md: "60px 80px",
             lg: "80px 100px",
           },
-          maxWidth: "1440px",
+          maxWidth: "1500px",
           margin: "0 auto",
           backgroundColor: "#ffffff",
         }}

@@ -84,7 +84,7 @@ export default function Detail({
             sm: "0px 40px 40px 40px",
             md: "0px 60px 60px 60px",
           },
-          maxWidth: "1440px",
+          maxWidth: "1500px",
           margin: "0 auto",
         }}
       >

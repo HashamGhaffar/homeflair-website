@@ -16,7 +16,7 @@ export default function HeroProduct() {
           md: "50px 100px",
           lg: "70px 150px",
         },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
         display: "flex",
         flexDirection: { xs: "column-reverse", md: "row" },

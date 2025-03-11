@@ -36,7 +36,7 @@ export default function Footer() {
           paddingX: { xs: "20px", sm: "40px", md: "80px", lg: "100px" },
           backgroundColor: colorTheme.white,
           paddingY: "40px",
-          maxWidth: "1440px",
+          maxWidth: "1500px",
           margin: "auto",
           display: "flex",
           flexDirection: "column",

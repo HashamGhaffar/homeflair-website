@@ -33,7 +33,7 @@ export default function Menu({
               md: "50px 100px",
               lg: "70px 150px",
             },
-            maxWidth: "1440px",
+            maxWidth: "1500px",
             margin: "0 auto",
           }}
         >

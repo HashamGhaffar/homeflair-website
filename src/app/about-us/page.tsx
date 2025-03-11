@@ -29,7 +29,7 @@ export default function AboutUs() {
           marginTop: "-1px",
         }}
       >
-        <Box sx={{ maxWidth: "1440px", margin: "auto" }}>
+        <Box sx={{ maxWidth: "1500px", margin: "auto" }}>
           <HeroAboutUs />
           <Welcome />
           <UniqueFeatures />

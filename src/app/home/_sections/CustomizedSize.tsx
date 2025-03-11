@@ -46,7 +46,7 @@ export default function CustomizedSize() {
       sx={{
         backgroundColor: colorTheme.pureFog,
         padding: { xs: "40px", sm: "60px", lg: "60px 0" },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
       }}
     >

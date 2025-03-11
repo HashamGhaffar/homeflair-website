@@ -25,7 +25,7 @@ export default function CustomizedColor() {
       sx={{
         backgroundColor: colorTheme.white,
         padding: { xs: "40px 0", sm: "60px 0" },
-        maxWidth: "1440px",
+        maxWidth: "1500px",
         margin: "auto",
       }}
     >

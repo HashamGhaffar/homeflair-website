@@ -134,7 +134,7 @@ export default function ProductDetail() {
         >
           <Box
             sx={{
-              maxWidth: "1440px",
+              maxWidth: "1500px",
               margin: "auto",
               backgroundColor: "#ffffff",
               padding: {
