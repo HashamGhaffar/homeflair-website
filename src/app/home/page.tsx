@@ -65,12 +65,12 @@ export default function HomePage() {
         }}
       >
         <ChristmasSpecials products={products} />
+        <CustomizedSize />
+        <CustomizedColor />
         <FreshArrivals products={products} />
         <LastSavings products={products} />
         <BestSeller products={products} />
         <PremiumProducts products={premiumProduct} />
-        <CustomizedSize />
-        <CustomizedColor />
         <DecorAccessories />
         <FallInLove />
       </Box>

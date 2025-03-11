@@ -10,7 +10,7 @@ import ProductNavigation from "./ProductNavigation";
 
 const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
   const router = useRouter();
-  const pathname = usePathname(); // Get current route
+  const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navItems = [

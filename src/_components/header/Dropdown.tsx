@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Key } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
@@ -7,10 +7,15 @@ import pngs from "@/_assets/pngs";
 import { useRouter } from "next/navigation";
 
 const Dropdown: React.FC<{
+  menuData: {
+    title: Key | null | undefined;
+    category: string;
+    items: { label: string; query: string }[];
+  }[];
   category: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-}> = ({ onMouseEnter, onMouseLeave }) => {
+}> = ({ menuData, onMouseEnter, onMouseLeave }) => {
   const headingStyles = {
     fontSize: fontSize.p2,
     color: colorTheme.red,
@@ -30,82 +35,6 @@ const Dropdown: React.FC<{
   };
 
   const router = useRouter();
-
-  // Define dropdown categories dynamically
-  const categories = [
-    {
-      title: "Type",
-      items: [
-        { label: "2 Seaters", query: "seaters=2+Seaters+sofas" },
-        { label: "3 Seaters", query: "seaters=3+Seaters+sofas" },
-        { label: "4 Seaters", query: "seaters=4+Seaters+sofas" },
-        { label: "Corner", query: "seaters=Corner+sofas" },
-        { label: "Sofa Chair", query: "seaters=Chairs" },
-        { label: "Foot-Stools", query: "seaters=Footstools" },
-      ],
-    },
-    {
-      title: "Material",
-      items: [
-        { label: "Fabric Sofas", query: "material=Fabric+Sofas" },
-        { label: "Leather Sofas", query: "material=Leather+Sofas" },
-        { label: "Fabric Chair", query: "material=Fabric+Chair" },
-        { label: "Boucle Sofas", query: "" }, // No query but keeping for consistency
-      ],
-    },
-    {
-      title: "Price",
-      items: [
-        { label: "Under £700", query: "minPrice=100&maxPrice=700" },
-        { label: "Under £1000", query: "minPrice=100&maxPrice=1000" },
-        { label: "Under £1500", query: "minPrice=100&maxPrice=1500" },
-      ],
-    },
-    // Uncomment if you want to enable Models and Clours
-    {
-      title: "Model",
-      items: [
-        { label: "Buoyant", query: "brand=Buoyant" },
-        { label: "Designer Fabric", query: "brand=Designer+Fabric" },
-        { label: "La-Z-Boy", query: "brand=La-Z-Boy" },
-        { label: "Red Rose", query: "brand=Red+Rose" },
-      ],
-    },
-
-    {
-      title: "Color",
-      items: [
-        {
-          label: "Yellow",
-          query: `colour=${encodeURIComponent(colorTheme.choiceYellow)}`,
-        },
-        {
-          label: "White",
-          query: `colour=${encodeURIComponent(colorTheme.choiceWhite)}`,
-        },
-        {
-          label: "Grey",
-          query: `colour=${encodeURIComponent(colorTheme.choiceGrey)}`,
-        },
-        {
-          label: "Blue",
-          query: `colour=${encodeURIComponent(colorTheme.choiceBlue)}`,
-        },
-        {
-          label: "Charcoal",
-          query: `colour=${encodeURIComponent(colorTheme.choiceCharcoal)}`,
-        },
-        {
-          label: "Brown",
-          query: `colour=${encodeURIComponent(colorTheme.choiceBrown)}`,
-        },
-        {
-          label: "Light Blue",
-          query: `colour=${encodeURIComponent(colorTheme.choiceLightBlue)}`,
-        },
-      ],
-    },
-  ];
 
   return (
     <Box
@@ -140,7 +69,7 @@ const Dropdown: React.FC<{
         }}
       >
         <Grid container spacing={4} justifyContent="center">
-          {categories.map((category) => (
+          {menuData.map((category) => (
             <Grid item xs={2} key={category.title}>
               <Typography
                 sx={{ ...headingStyles, textAlign: "left" }}
