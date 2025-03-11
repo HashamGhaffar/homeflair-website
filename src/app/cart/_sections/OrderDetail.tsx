@@ -68,7 +68,7 @@ export default function OrderDetail({
                   mainImage={item.productId.mainImage}
                   price={`£${item.totalPrice}`}
                   selectedOptions={item.selectedOptions ?? {}}
-                  onDelete={() => handleDeleteItem(item._id)} // Pass the onDelete callback
+                  onDelete={() => handleDeleteItem(item._id)}
                 />
               </Box>
             ))}

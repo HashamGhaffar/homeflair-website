@@ -10,7 +10,6 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-// prev function name Button
 const CustomButton: React.FC<ButtonProps> = ({
   text,
   customStyles,

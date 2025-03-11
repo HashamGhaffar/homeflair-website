@@ -58,7 +58,6 @@ export function MenuSlider({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                // gap: item.label ? { xs: "6px", sm: "8px", md: "12px" } : 0,
                 marginX: "10px",
                 paddingY: "10px",
                 textAlign: "center",
@@ -93,9 +92,7 @@ export function MenuSlider({
                   }}
                   width={item.image_url ? 80 : 50}
                   height={item.image_url ? 80 : 50}
-                  onError={() => {
-                    // show placeholder image or fallback image
-                  }}
+                  onError={() => {}}
                 />
               </Box>
               {item.label && (

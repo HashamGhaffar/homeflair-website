@@ -56,15 +56,14 @@ export default function Detail({
   };
 
   const isAddToCartEnabled = () => {
-    if (!product?.attributes) return true; // If no attributes exist, enable add to cart
-
+    if (!product?.attributes) return true;
     return !product.attributes.some((attribute) => {
       if (attribute.type === "model") {
-        return !selectedModel; // If no model is selected, disable add to cart
+        return !selectedModel;
       }
       return !(
         selectedOptions && selectedOptions.hasOwnProperty(attribute.name)
-      ); // If an option is missing, disable add to cart
+      );
     });
   };
 
@@ -177,7 +176,6 @@ export default function Detail({
                     );
                   }
                 })}
-
               <Divider
                 sx={{
                   border: `1px solid ${colorTheme.transparentForestShadow}`,
@@ -185,8 +183,6 @@ export default function Detail({
                   display: { xs: "none", md: "block" },
                 }}
               />
-              {/* divider line */}
-
               <Box sx={{ ...rowBox }}>
                 <Typography sx={{ ...headingStyles }}>TOTAL PRICE:</Typography>
                 <Typography
@@ -199,33 +195,6 @@ export default function Detail({
                   £{getProductPrice(product, selectedModel)}
                 </Typography>
               </Box>
-
-              {/* <Box sx={{ ...rowBox }}>
-                <Typography sx={{ ...headingStyles }}>QUANTITY:</Typography>
-                <Box
-                  sx={{ display: "flex", alignItems: "center", gap: "10px" }}
-                >
-                  <Button
-                    variant="contained"
-                    sx={{
-                      minWidth: "30px",
-                      backgroundColor: colorTheme.red,
-                    }}
-                  >
-                    -
-                  </Button>
-                  <Typography sx={{ ...textStyles }}>1</Typography>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      minWidth: "30px",
-                      backgroundColor: colorTheme.red,
-                    }}
-                  >
-                    +
-                  </Button>
-                </Box>
-              </Box> */}
             </Box>
             <CustomButton
               text="ADD TO CART"
@@ -233,7 +202,6 @@ export default function Detail({
               onClick={addProductToCart}
             />
           </Grid>
-
           {/* Right Side Section */}
           <Grid item xs={12} md={6}>
             <Box

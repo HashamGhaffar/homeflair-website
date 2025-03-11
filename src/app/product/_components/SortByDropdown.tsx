@@ -9,8 +9,8 @@ interface SortOption {
 }
 
 interface SortByDropdownProps {
-  selectedSort: string; // Current selected sorting option
-  onSortChange: (sortValue: string) => void; // Function to update sort option
+  selectedSort: string;
+  onSortChange: (sortValue: string) => void;
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
@@ -22,7 +22,7 @@ export default function SortByDropdown({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 10); // Delay to trigger transition
+    const timer = setTimeout(() => setIsVisible(true), 10);
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,7 +34,7 @@ export default function SortByDropdown({
   ];
 
   const handleSortChange = (value: string) => {
-    onSortChange(value); // Update the selected sort option
+    onSortChange(value);
   };
 
   return (
@@ -81,7 +81,7 @@ export default function SortByDropdown({
             {option.label}
           </Typography>
           <Checkbox
-            checked={selectedSort === option.value} // ✅ Show selected option
+            checked={selectedSort === option.value}
             sx={{
               color: colorTheme.SoftAsh,
               "&.Mui-checked": {

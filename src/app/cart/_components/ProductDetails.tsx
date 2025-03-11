@@ -2,14 +2,14 @@ import React from "react";
 import { Box, Typography, Grid, IconButton } from "@mui/material";
 import Image from "next/image";
 import { colorTheme, fontSize } from "@/_utils/themes";
-import DeleteIcon from "@mui/icons-material/Delete"; // Import the Delete icon
+import DeleteIcon from "@mui/icons-material/Delete";
 
 interface ProductDetailsProps {
   heading: string;
   mainImage: string;
   selectedOptions: Record<string, string>;
   price: string;
-  onDelete: () => void; // Add a callback function for delete action
+  onDelete: () => void;
 }
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({
@@ -17,12 +17,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   mainImage,
   selectedOptions,
   price,
-  onDelete, // Destructure the onDelete prop
+  onDelete,
 }) => {
   return (
     <Box sx={{ position: "relative" }}>
-      {" "}
-      {/* Add relative positioning to the container */}
       <Grid
         container
         spacing={2}
@@ -112,19 +110,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           </Typography>
         </Grid>
       </Grid>
-      {/* Delete Icon positioned at the bottom right */}
       <Box
         sx={{
-          position: "absolute", // Absolute positioning
-          bottom: 0, // Align to the bottom
-          right: 0, // Align to the right
+          position: "absolute",
+          bottom: 0,
+          right: 0,
         }}
       >
-        <IconButton
-          onClick={onDelete} // Trigger the onDelete callback
-          sx={{ color: colorTheme.forestShadow }} // Style the icon
-        >
-          <DeleteIcon /> {/* Render the Delete icon */}
+        <IconButton onClick={onDelete} sx={{ color: colorTheme.forestShadow }}>
+          <DeleteIcon />
         </IconButton>
       </Box>
     </Box>

@@ -228,7 +228,6 @@ function FreshArrivalsCard({
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
-            // marginTop: { xs: "8px", sm: "12px" },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "flex-end", gap: "8px" }}>

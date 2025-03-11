@@ -10,7 +10,7 @@ interface GridItemData {
 }
 
 interface LastSavingItemsProps {
-  items: GridItemData[]; // ✅ Dynamic data passed via props
+  items: GridItemData[];
 }
 
 export function LastSavingItems({ items }: LastSavingItemsProps): JSX.Element {

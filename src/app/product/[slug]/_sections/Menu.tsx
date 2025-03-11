@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
-// import pngs from "@/_assets/pngs";
 import { MenuSlider } from "../_components/MenuSlider";
 import { Product } from "@/types/product";
 import { ProductAttributes } from "../page";

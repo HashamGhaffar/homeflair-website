@@ -138,7 +138,7 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
                   objectFit: "contain",
                   cursor: "pointer",
                 }}
-                src={svgs.ShoppingCart} // Replace with your actual icon path
+                src={svgs.ShoppingCart}
                 alt="shopping cart"
                 onClick={() => router.push("/cart")}
               />
@@ -148,19 +148,19 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
                 <span
                   style={{
                     position: "absolute",
-                    top: "-8px", // Adjust to position the badge
-                    right: "-8px", // Adjust to position the badge
-                    backgroundColor: "red", // Badge color
-                    color: "white", // Text color
-                    borderRadius: "50%", // Make it circular
-                    padding: "2px 6px", // Padding for the badge
-                    fontSize: "12px", // Font size
-                    fontWeight: "bold", // Bold text
+                    top: "-8px",
+                    right: "-8px",
+                    backgroundColor: "red",
+                    color: "white",
+                    borderRadius: "50%",
+                    padding: "2px 6px",
+                    fontSize: "12px",
+                    fontWeight: "bold",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minWidth: "20px", // Ensure the badge has a minimum width
-                    height: "20px", // Ensure the badge has a fixed height
+                    minWidth: "20px",
+                    height: "20px",
                   }}
                 >
                   {cartItems}
@@ -193,7 +193,6 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
           position: "fixed",
           top: "20px",
           right: "20px",
-          // height: "100%",
           width: isDrawerOpen ? "140px" : "0",
           backgroundColor: "#2F302C",
           color: "#FFFFFF80",
@@ -235,7 +234,6 @@ const Navbar: React.FC<{ cartItems?: number }> = ({ cartItems = 0 }) => {
                 <Typography
                   sx={{
                     fontSize: fontSize.p3,
-                    // fontWeight: "600",
                     color: isActive ? "#DC1A2C" : "#FFFFFF80",
                     textOverflow: "ellipsis",
                     display: "-webkit-box",

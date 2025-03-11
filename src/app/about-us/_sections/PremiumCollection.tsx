@@ -19,7 +19,6 @@ export default function PremiumCollection() {
     >
       <Box
         sx={{
-          // maxWidth: "1200px",
           margin: "auto",
         }}
       >

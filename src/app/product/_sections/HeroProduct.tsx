@@ -43,7 +43,6 @@ export default function HeroProduct() {
           }}
         />
       </Box>
-
       <Box
         sx={{
           display: "flex",
@@ -64,7 +63,6 @@ export default function HeroProduct() {
         >
           WELCOME TO OUR
         </Typography>
-
         <Typography
           sx={{
             fontSize: fontSize.h2,
@@ -76,7 +74,6 @@ export default function HeroProduct() {
         >
           homeflair
         </Typography>
-
         <Typography
           sx={{
             fontSize: fontSize.h2,
@@ -87,8 +84,6 @@ export default function HeroProduct() {
         >
           GALLERY
         </Typography>
-
-        {/* MUI Divider */}
         <Divider
           sx={{
             borderColor: colorTheme.forestShadow,
@@ -97,7 +92,6 @@ export default function HeroProduct() {
             marginY: "16px",
           }}
         />
-
         <Typography
           sx={{
             fontSize: fontSize.p4,

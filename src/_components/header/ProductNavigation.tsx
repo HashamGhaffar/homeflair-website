@@ -7,7 +7,6 @@ import svgs from "@/_assets/svgs";
 import Dropdown from "./Dropdown";
 import { DrawerMenu } from "./DrawerMenu";
 
-// Main Component
 const ProductNavigation: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -478,7 +477,7 @@ const ProductNavigation: React.FC = () => {
       {activeDropdown && (
         <Dropdown
           category={activeDropdown}
-          menuData={menuDataMapping[activeDropdown] || []} // Ensure we pass an empty array if no data is found
+          menuData={menuDataMapping[activeDropdown] || []}
           onMouseEnter={() => {
             if (closeTimeoutRef.current) {
               clearTimeout(closeTimeoutRef.current);

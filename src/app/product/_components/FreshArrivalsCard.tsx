@@ -32,7 +32,6 @@ const FreshArrivalsCard: React.FC<FreshArrivalsCardProps> = ({
         sx={{
           height: "270px",
           width: "100%",
-          // marginBottom: { xs: "10px", sm: "18px" },
           marginBottom: "10px",
         }}
       >

@@ -48,9 +48,7 @@ export default function Footer() {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            // flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            // alignItems: "flex-start",
             gap: { xs: "30px", sm: "20px" },
           }}
         >

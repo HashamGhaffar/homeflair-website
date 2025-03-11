@@ -23,16 +23,12 @@ export interface FilterState {
 export default function RezultForItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const ROWS_PER_PAGE = 30;
   const [page, setPage] = useState(1);
   const [totalProductCount, setTotalProductCount] = useState(0);
-
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedSort, setSelectedSort] = useState<string>("name_asc");
-
   const [loading, setLoading] = useState<boolean>(false);
-
   const [filters, setFilters] = useState<FilterState>({
     furniture: [],
     seaters: [],
@@ -44,7 +40,6 @@ export default function RezultForItem() {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
-
     const furniture = params.get("furniture")?.split(",") || [];
     const seaters = params.get("seaters")?.split(",") || [];
     const material = params.get("material")?.split(",") || [];

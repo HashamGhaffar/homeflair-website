@@ -12,7 +12,7 @@ interface StandardInputProps {
   error?: boolean;
   helperText?: string;
   sx?: SxProps<Theme>;
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>; // Added to support native input attributes
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export default function StandardInput({

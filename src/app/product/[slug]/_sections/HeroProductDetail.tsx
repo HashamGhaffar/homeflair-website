@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
 import { colorTheme, fontSize } from "@/_utils/themes";
 import Image from "next/image";
-// import pngs from "@/_assets/pngs";
 import { Product } from "@/types/product";
 
 export default function ProductDetailHero({ product }: { product: Product }) {
@@ -60,9 +59,6 @@ export default function ProductDetailHero({ product }: { product: Product }) {
           <Grid item xs={12} md={5.9} lg={5.8} xl={5.5}>
             <Box
               sx={{
-                // display: "flex",
-                // flexDirection: "column",
-                // justifyContent: "space-between",
                 width: "100%",
                 height: "100%",
               }}
@@ -70,16 +66,8 @@ export default function ProductDetailHero({ product }: { product: Product }) {
               {/* Main Image */}
               <Box
                 sx={{
-                  // maxWidth: {
-                  //   xs: "300px",
-                  //   sm: "300px",
-                  //   md: "450px",
-                  //   lg: "500px",
-                  //   xl: "550px",
-                  // },
                   height: {
                     xs: "400px",
-                    // sm: "270px",
                     md: "410px",
                     lg: "460px",
                     xl: "500px",
@@ -117,14 +105,13 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                     key={index}
                     onClick={() => {
                       setMainImage(item);
-                    }} // Set main image on click
+                    }}
                     sx={{
                       cursor: "pointer",
                       border:
                         mainImage === item
                           ? `2px solid ${colorTheme.red}`
-                          : "none", // Highlight selected thumbnail
-                      // borderRadius: "8px",
+                          : "none",
                       width: {
                         xs: "40px",
                         sm: "50px",
@@ -136,8 +123,6 @@ export default function ProductDetailHero({ product }: { product: Product }) {
                         sm: "50px",
                         md: "60px",
                         xl: "120px",
-                        // width: "100%",
-                        // height: "100%",
                       },
                     }}
                   >

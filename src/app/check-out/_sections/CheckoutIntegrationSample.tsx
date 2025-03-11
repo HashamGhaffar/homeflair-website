@@ -58,7 +58,7 @@ function loadCheckoutScript(src: string): Promise<void> {
 }
 
 function addWorldpayCheckoutToPage(): Promise<WorldpayCheckoutInstance> {
-  const id = "dd0ea6d1-6a59-4fc2-89b3-f50296d7aec5"; // Replace with your valid identity
+  const id = "dd0ea6d1-6a59-4fc2-89b3-f50296d7aec5";
   return new Promise((resolve, reject) => {
     window.Worldpay.checkout.init(
       {

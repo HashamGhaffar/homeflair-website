@@ -52,30 +52,6 @@ const OrderSummary: React.FC<{ cartData: Cart | null }> = ({ cartData }) => {
             £{cartData?.totalCartPrice}
           </Typography>
         </Box>
-        {/* <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: fontSize.p3,
-              color: colorTheme.forestShadow,
-            }}
-          >
-            Discount:
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: fontSize.p3,
-              color: colorTheme.forestShadow,
-            }}
-          >
-            £31.9
-          </Typography>
-        </Box> */}
         <Box
           sx={{
             display: "flex",
@@ -100,30 +76,6 @@ const OrderSummary: React.FC<{ cartData: Cart | null }> = ({ cartData }) => {
             Flat rate: £89.00
           </Typography>
         </Box>
-        {/* <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: fontSize.p3,
-              color: colorTheme.forestShadow,
-            }}
-          >
-            Coupon Applied:
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: fontSize.p3,
-              color: colorTheme.forestShadow,
-            }}
-          >
-            £0.00
-          </Typography>
-        </Box> */}
         <Divider
           sx={{
             borderColor: colorTheme.SoftAsh,
@@ -180,26 +132,6 @@ const OrderSummary: React.FC<{ cartData: Cart | null }> = ({ cartData }) => {
             ).toLocaleDateString()}
           </Typography>
         </Box>
-        {/* <TextField
-          placeholder="Coupon Code"
-          size="small"
-          fullWidth
-          sx={{
-            marginTop: "10px",
-            marginBottom: "10px",
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: colorTheme.SoftAsh,
-              },
-              "&:hover fieldset": {
-                borderColor: colorTheme.SoftAsh,
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: colorTheme.SoftAsh,
-              },
-            },
-          }}
-        /> */}
         <Box onClick={() => router.push("check-out")}>
           <CustomButton
             text="Proceed to Checkout"
